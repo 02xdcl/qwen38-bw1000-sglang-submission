@@ -1,0 +1,13 @@
+--- /public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/fused_recurrent_original.py
++++ /public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/fused_recurrent_bv32_w2.py
+@@ -366,9 +366,9 @@
+             f"Packed decode kernel only supports NK=1 (got K={K}, BK={BK})."
+         )
+     BV = min(triton.next_power_of_2(V), 32)
+     num_stages = 3
+-    num_warps = 1
++    num_warps = 2
+ 
+     stride_mixed_qkv_tok = mixed_qkv.stride(0)
+     stride_a_tok = a.stride(0)
+     stride_b_tok = b.stride(0)

@@ -1,0 +1,150 @@
+========== Starting baseline ==========
+========== Benchmark baseline ==========
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+benchmark_args=Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_baseline.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+Waiting up to 60s for http://127.0.0.1:18580/v1/models to become ready...
+Server ready in 0.0s.
+Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_baseline.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+
+#Input tokens: 163840
+#Output tokens: 40960
+Starting warmup with 1 sequences...
+Warmup completed with 1 sequences. Starting main benchmark run...
+  0%|          | 0/320 [00:00<?, ?it/s]  0%|          | 1/320 [00:20<1:51:33, 20.98s/it] 19%|█▉        | 61/320 [00:34<01:59,  2.16it/s]  38%|███▊      | 121/320 [00:47<01:04,  3.10it/s] 57%|█████▋    | 181/320 [01:01<00:38,  3.60it/s] 75%|███████▌  | 241/320 [01:14<00:20,  3.90it/s] 94%|█████████▍| 301/320 [01:25<00:04,  4.42it/s]100%|██████████| 320/320 [01:25<00:00,  3.76it/s]
+
+============ Serving Benchmark Result ============
+Backend:                                 sglang    
+Traffic request rate:                    inf       
+Max request concurrency:                 64        
+Successful requests:                     320       
+Benchmark duration (s):                  85.05     
+Total input tokens:                      163840    
+Total input text tokens:                 163840    
+Total generated tokens:                  40960     
+Total generated tokens (retokenized):    40688     
+Request throughput (req/s):              3.76      
+Input token throughput (tok/s):          1926.30   
+Output token throughput (tok/s):         481.57    
+Peak output token throughput (tok/s):    900.00    
+Peak concurrent requests:                124       
+Total token throughput (tok/s):          2407.87   
+Concurrency:                             58.54     
+----------------End-to-End Latency----------------
+Mean E2E Latency (ms):                   15560.24  
+Median E2E Latency (ms):                 13405.31  
+P90 E2E Latency (ms):                    20968.39  
+P99 E2E Latency (ms):                    32917.66  
+---------------Time to First Token----------------
+Mean TTFT (ms):                          4569.18   
+Median TTFT (ms):                        3359.66   
+P99 TTFT (ms):                           20496.83  
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          86.54     
+Median TPOT (ms):                        87.56     
+P99 TPOT (ms):                           134.07    
+---------------Inter-Token Latency----------------
+Mean ITL (ms):                           86.55     
+Median ITL (ms):                         72.07     
+P95 ITL (ms):                            73.58     
+P99 ITL (ms):                            117.52    
+Max ITL (ms):                            7861.75   
+==================================================
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/run.sh: line 34: 2961103 Killed                  setsid "$PY" -u -m sglang.launch_server --model-path "$MODEL" --served-model-name qwen38-bf16 --host 127.0.0.1 --port 18580 --tp-size 2 --dtype bfloat16 --context-length 131072 --max-running-requests 128 --chunked-prefill-size 8192 --max-prefill-tokens 16384 --mem-fraction-static 0.85 --attention-backend triton --disable-custom-all-reduce --disable-piecewise-cuda-graph --trust-remote-code "$@" > "$OUT/server_${tag}.log" 2>&1
+========== Starting optimized ==========
+========== Benchmark optimized ==========
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+benchmark_args=Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_optimized.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+Waiting up to 60s for http://127.0.0.1:18580/v1/models to become ready...
+Server ready in 0.0s.
+Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_optimized.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+
+#Input tokens: 163840
+#Output tokens: 40960
+Starting warmup with 1 sequences...
+Warmup completed with 1 sequences. Starting main benchmark run...
+  0%|          | 0/320 [00:00<?, ?it/s]  0%|          | 1/320 [00:14<1:14:44, 14.06s/it] 19%|█▉        | 61/320 [00:27<01:39,  2.61it/s]  38%|███▊      | 121/320 [00:40<00:57,  3.45it/s] 57%|█████▋    | 181/320 [00:54<00:36,  3.85it/s] 75%|███████▌  | 241/320 [01:07<00:19,  4.08it/s] 94%|█████████▍| 301/320 [01:18<00:04,  4.56it/s]100%|██████████| 320/320 [01:18<00:00,  4.10it/s]
+
+============ Serving Benchmark Result ============
+Backend:                                 sglang    
+Traffic request rate:                    inf       
+Max request concurrency:                 64        
+Successful requests:                     320       
+Benchmark duration (s):                  78.12     
+Total input tokens:                      163840    
+Total input text tokens:                 163840    
+Total generated tokens:                  40960     
+Total generated tokens (retokenized):    40686     
+Request throughput (req/s):              4.10      
+Input token throughput (tok/s):          2097.33   
+Output token throughput (tok/s):         524.33    
+Peak output token throughput (tok/s):    840.00    
+Peak concurrent requests:                124       
+Total token throughput (tok/s):          2621.66   
+Concurrency:                             58.05     
+----------------End-to-End Latency----------------
+Mean E2E Latency (ms):                   14171.46  
+Median E2E Latency (ms):                 13400.86  
+P90 E2E Latency (ms):                    14058.66  
+P99 E2E Latency (ms):                    27342.10  
+---------------Time to First Token----------------
+Mean TTFT (ms):                          3448.54   
+Median TTFT (ms):                        3119.43   
+P99 TTFT (ms):                           15087.31  
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          84.43     
+Median TPOT (ms):                        86.12     
+P99 TPOT (ms):                           103.42    
+---------------Inter-Token Latency----------------
+Mean ITL (ms):                           84.44     
+Median ITL (ms):                         72.03     
+P95 ITL (ms):                            73.44     
+P99 ITL (ms):                            117.70    
+Max ITL (ms):                            3965.12   
+==================================================
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/run.sh: line 34: 3012349 Killed                  setsid "$PY" -u -m sglang.launch_server --model-path "$MODEL" --served-model-name qwen38-bf16 --host 127.0.0.1 --port 18580 --tp-size 2 --dtype bfloat16 --context-length 131072 --max-running-requests 128 --chunked-prefill-size 8192 --max-prefill-tokens 16384 --mem-fraction-static 0.85 --attention-backend triton --disable-custom-all-reduce --disable-piecewise-cuda-graph --trust-remote-code "$@" > "$OUT/server_${tag}.log" 2>&1
+
+========== A9 FINISHED ==========
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:benchmark_args=Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_baseline.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_baseline.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Request throughput (req/s):              3.76      
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Input token throughput (tok/s):          1926.30   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Output token throughput (tok/s):         481.57    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Peak output token throughput (tok/s):    900.00    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Total token throughput (tok/s):          2407.87   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:P99 E2E Latency (ms):                    32917.66  
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Mean TTFT (ms):                          4569.18   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Median TTFT (ms):                        3359.66   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:P99 TTFT (ms):                           20496.83  
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Mean TPOT (ms):                          86.54     
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:P99 TPOT (ms):                           134.07    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:Mean ITL (ms):                           86.55     
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_baseline.log:P99 ITL (ms):                            117.52    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:benchmark_args=Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_optimized.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=18580, ready_check_timeout_sec=60, dataset_name='random', dataset_path='/public/home/zzu_dcf/qwen38_dcu_competition/dataset/ShareGPT_V3_unfiltered_cleaned_split.json', model='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', served_model_name=None, tokenizer='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', num_prompts=320, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=512, random_output_len=128, random_range_ratio=1.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=64, output_file='/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/result_optimized.jsonl', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, seed=42, disable_ignore_eos=False, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Request throughput (req/s):              4.10      
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Input token throughput (tok/s):          2097.33   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Output token throughput (tok/s):         524.33    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Peak output token throughput (tok/s):    840.00    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Total token throughput (tok/s):          2621.66   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:P99 E2E Latency (ms):                    27342.10  
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Mean TTFT (ms):                          3448.54   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Median TTFT (ms):                        3119.43   
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:P99 TTFT (ms):                           15087.31  
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Mean TPOT (ms):                          84.43     
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:P99 TPOT (ms):                           103.42    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:Mean ITL (ms):                           84.44     
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A9_schedule_ab/bench_optimized.log:P99 ITL (ms):                            117.70    

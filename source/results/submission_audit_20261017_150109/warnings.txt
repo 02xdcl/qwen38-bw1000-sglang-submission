@@ -1,0 +1,2 @@
+LATEST_KERNEL_NOT_PROVEN: installed Kernel is only a current candidate, not proven to be the test-time snapshot.
+ORIGINAL_LAUNCH_NOT_SPECIFIED: no confirmed original ShareGPT launch script was supplied.

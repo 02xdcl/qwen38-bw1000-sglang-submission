@@ -1,0 +1,89 @@
+{
+  "audit_time_local": "2026-10-17T15:01:12.339649+08:00",
+  "root": "/public/home/zzu_dcf/qwen38_dcu_competition",
+  "output_dir": "/public/home/zzu_dcf/qwen38_dcu_competition/results/submission_audit_20261017_150109",
+  "kernel_files": [
+    {
+      "label": "A2 original backup candidate",
+      "path": "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A2_gdn_reorder/fused_recurrent_baseline.py",
+      "exists": true,
+      "size_bytes": 33710,
+      "mtime_local": "2026-08-16T02:41:50+08:00",
+      "sha256": "a7e469f893644363aa8a14efb316b4befa23c288d02470095149283978316901"
+    },
+    {
+      "label": "current installed Kernel",
+      "path": "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/srt/layers/attention/fla/fused_recurrent.py",
+      "exists": true,
+      "size_bytes": 33710,
+      "mtime_local": "2026-08-16T02:41:50+08:00",
+      "sha256": "a7e469f893644363aa8a14efb316b4befa23c288d02470095149283978316901"
+    },
+    {
+      "label": "A3 Warp1 source candidate",
+      "path": "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/fused_recurrent_original.py",
+      "exists": true,
+      "size_bytes": 33710,
+      "mtime_local": "2026-10-13T22:20:12+08:00",
+      "sha256": "a7e469f893644363aa8a14efb316b4befa23c288d02470095149283978316901"
+    },
+    {
+      "label": "A3 Warp2 source candidate",
+      "path": "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/fused_recurrent_bv32_w2.py",
+      "exists": true,
+      "size_bytes": 33710,
+      "mtime_local": "2026-10-13T22:25:24+08:00",
+      "sha256": "a9ec351ba41aa56da1eb86c0f6de428fe649ee527891cc945b42ecb0171f4ea9"
+    },
+    {
+      "label": "latest test-time Kernel candidate unless exact snapshot explicitly supplied",
+      "path": "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/srt/layers/attention/fla/fused_recurrent.py",
+      "exists": true,
+      "size_bytes": 33710,
+      "mtime_local": "2026-08-16T02:41:50+08:00",
+      "sha256": "a7e469f893644363aa8a14efb316b4befa23c288d02470095149283978316901"
+    }
+  ],
+  "diffs": [
+    {
+      "from": "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A2_gdn_reorder/fused_recurrent_baseline.py",
+      "to": "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/srt/layers/attention/fla/fused_recurrent.py",
+      "diff_path": "/public/home/zzu_dcf/qwen38_dcu_competition/results/submission_audit_20261017_150109/installed_vs_a2_backup.diff",
+      "status": "DIFF_GENERATED",
+      "has_content_difference": false,
+      "changed_lines_count": 0,
+      "sha256_from": "a7e469f893644363aa8a14efb316b4befa23c288d02470095149283978316901",
+      "sha256_to": "a7e469f893644363aa8a14efb316b4befa23c288d02470095149283978316901"
+    },
+    {
+      "from": "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/fused_recurrent_original.py",
+      "to": "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/fused_recurrent_bv32_w2.py",
+      "diff_path": "/public/home/zzu_dcf/qwen38_dcu_competition/results/submission_audit_20261017_150109/a3_warp1_vs_warp2.diff",
+      "status": "DIFF_GENERATED",
+      "has_content_difference": true,
+      "changed_lines_count": 2,
+      "sha256_from": "a7e469f893644363aa8a14efb316b4befa23c288d02470095149283978316901",
+      "sha256_to": "a9ec351ba41aa56da1eb86c0f6de428fe649ee527891cc945b42ecb0171f4ea9"
+    },
+    {
+      "from": "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A2_gdn_reorder/fused_recurrent_baseline.py",
+      "to": "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/srt/layers/attention/fla/fused_recurrent.py",
+      "status": "NOT_SEPARATE_SNAPSHOT",
+      "note": "No independent test-time snapshot was supplied."
+    }
+  ],
+  "log_files_found": 38,
+  "jsonl_files_found": 16,
+  "schedule_parameter_matches": 35,
+  "launcher_candidates_found": 7,
+  "warnings": [
+    "LATEST_KERNEL_NOT_PROVEN: installed Kernel is only a current candidate, not proven to be the test-time snapshot.",
+    "ORIGINAL_LAUNCH_NOT_SPECIFIED: no confirmed original ShareGPT launch script was supplied."
+  ],
+  "limits": [
+    "Current file hash does not prove test-time file hash.",
+    "File modification time does not prove when a running process loaded the file.",
+    "Visible log timestamp span is not assumed to equal formal Benchmark duration.",
+    "Missing metrics are not imputed from charts or another experiment."
+  ]
+}

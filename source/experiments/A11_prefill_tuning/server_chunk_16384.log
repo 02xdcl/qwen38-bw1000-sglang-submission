@@ -1,0 +1,589 @@
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/launch_server.py:54: UserWarning: 'python -m sglang.launch_server' is still supported, but 'sglang serve' is the recommended entrypoint.
+  Example: sglang serve --model-path <model> [options]
+  warnings.warn(
+INFO 10-15 22:37:59 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 10-15 22:37:59 [__init__.py:46] - hcu -> vllm_hcu:hcu_platform_plugin
+INFO 10-15 22:37:59 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 10-15 22:37:59 [__init__.py:238] Platform plugin hcu is activated
+[2026-10-15 22:37:59] Failed to import from vllm._C with ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+WARNING 10-15 22:38:00 [interface.py:243] Failed to import from vllm._C: ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+[2026-10-15 22:38:02] [slimquant_w4a8_marlin] requested_backend=auto, resolved_backend=lightop
+[2026-10-15 22:38:02] Disabling overlap schedule since mamba no_buffer is not compatible with overlap schedule, try to use --disable-radix-cache if overlap schedule is necessary
+[2026-10-15 22:38:02] --disable-custom-all-reduce overrides --custom-all-reduce-backend=auto to 'off'.
+[transformers] `BaseImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `BaseImageProcessor` instead.
+[2026-10-15 22:38:04] server_args=ServerArgs(model_path='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', tokenizer_path='/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B', tokenizer_mode='auto', tokenizer_backend='huggingface', tokenizer_worker_num=1, detokenizer_worker_num=1, skip_tokenizer_init=False, load_format='auto', model_loader_extra_config='{}', trust_remote_code=True, context_length=131072, is_embedding=False, prefill_only_disable_kv_cache=False, enable_multimodal=None, revision=None, model_impl='auto', model_config_parser='auto', host='127.0.0.1', port=18580, fastapi_root_path='', grpc_mode=False, skip_server_warmup=False, warmups=None, nccl_port=None, checkpoint_engine_wait_weights_before_ready=False, ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, ssl_keyfile_password=None, enable_ssl_refresh=False, enable_http2=False, dtype='bfloat16', quantization=None, quantization_param_path=None, kv_cache_dtype='auto', enable_fp32_lm_head=False, modelopt_quant=None, modelopt_checkpoint_restore_path=None, modelopt_checkpoint_save_path=None, modelopt_export_path=None, quantize_and_serve=False, rl_quant_profile=None, mem_fraction_static=0.85, max_running_requests=128, max_queued_requests=None, max_total_tokens=None, chunked_prefill_size=16384, enable_dynamic_chunking=False, max_prefill_tokens=16384, prefill_max_requests=None, schedule_policy='fcfs', enable_priority_scheduling=False, disable_priority_preemption=False, default_priority_value=None, abort_on_priority_when_disabled=False, schedule_low_priority_values_first=False, priority_scheduling_preemption_threshold=10, schedule_conservativeness=0.4, page_size=1, swa_full_tokens_ratio=0.8, disable_hybrid_swa_memory=False, radix_eviction_policy='lru', enable_prefill_delayer=False, prefill_delayer_max_delay_passes=30, prefill_delayer_token_usage_low_watermark=None, prefill_delayer_forward_passes_buckets=None, prefill_delayer_wait_seconds_buckets=None, prefill_delayer_queue_min_ratio=None, prefill_delayer_max_delay_ms=None, device='cuda', tp_size=2, pp_size=1, pp_max_micro_batch_size=None, pp_async_batch_depth=0, stream_interval=1, batch_notify_size=16, stream_response_default_include_usage=False, incremental_streaming_output=False, enable_streaming_session=False, random_seed=435391794, constrained_json_whitespace_pattern=None, constrained_json_disable_any_whitespace=False, watchdog_timeout=300, soft_watchdog_timeout=None, dist_timeout=None, download_dir=None, model_checksum=None, base_gpu_id=0, gpu_id_step=1, sleep_on_idle=False, use_ray=False, custom_sigquit_handler=None, log_level='info', log_level_http=None, log_requests=False, log_requests_level=2, log_requests_format='text', log_requests_target=None, uvicorn_access_log_exclude_prefixes=[], crash_dump_folder=None, show_time_cost=False, enable_metrics=False, grpc_http_sidecar_port=None, enable_mfu_metrics=False, enable_metrics_for_all_schedulers=False, tokenizer_metrics_custom_labels_header='x-custom-labels', tokenizer_metrics_allowed_custom_labels=None, extra_metric_labels=None, bucket_time_to_first_token=None, bucket_inter_token_latency=None, bucket_e2e_request_latency=None, prompt_tokens_buckets=None, generation_tokens_buckets=None, gc_warning_threshold_secs=0.0, decode_log_interval=40, enable_request_time_stats_logging=False, kv_events_config=None, enable_forward_pass_metrics=False, forward_pass_metrics_worker_id='', forward_pass_metrics_ipc_name=None, enable_trace=False, otlp_traces_endpoint='localhost:4317', export_metrics_to_file=False, export_metrics_to_file_dir=None, api_key=None, admin_api_key=None, served_model_name='qwen38-bf16', weight_version='default', chat_template=None, hf_chat_template_name=None, completion_template=None, file_storage_path='sglang_storage', enable_cache_report=False, reasoning_parser=None, strip_thinking_cache=False, enable_strict_thinking=False, tool_call_parser=None, tool_server=None, sampling_defaults='model', dp_size=1, load_balance_method='round_robin', attn_cp_size=1, moe_dp_size=1, dist_init_addr=None, nnodes=1, node_rank=0, json_model_override_args='{}', preferred_sampling_params=None, enable_lora=None, enable_lora_overlap_loading=None, max_lora_rank=None, lora_target_modules=None, lora_paths=None, max_loaded_loras=None, max_loras_per_batch=8, lora_eviction_policy='lru', lora_backend='csgmv', max_lora_chunk_size=16, experts_shared_outer_loras=None, lora_use_virtual_experts=False, lora_strict_loading=False, lora_drain_wait_threshold=0.0, attention_backend='triton', decode_attention_backend=None, prefill_attention_backend=None, sampling_backend='pytorch', grammar_backend='xgrammar', mm_attention_backend=None, fp8_gemm_runner_backend='auto', fp4_gemm_runner_backend='auto', nsa_prefill_backend=None, nsa_decode_backend=None, disable_flashinfer_autotune=False, pack_paged_kv_to_varlen='auto', pack_paged_kv_to_varlen_min_kv_tokens=16384, pack_paged_kv_to_varlen_min_q_tokens=8192, mamba_backend='triton', speculative_algorithm=None, speculative_draft_model_path=None, speculative_draft_model_revision=None, speculative_draft_load_format=None, speculative_num_steps=None, speculative_eagle_topk=None, speculative_num_draft_tokens=None, speculative_dflash_block_size=None, speculative_accept_threshold_single=1.0, speculative_accept_threshold_acc=1.0, speculative_token_map=None, speculative_attention_mode='prefill', speculative_draft_attention_backend=None, speculative_draft_window_size=None, speculative_moe_runner_backend='auto', speculative_moe_a2a_backend=None, speculative_draft_model_quantization=None, speculative_adaptive=False, speculative_adaptive_config=None, speculative_skip_dp_mlp_sync=False, speculative_ngram_min_bfs_breadth=1, speculative_ngram_max_bfs_breadth=10, speculative_ngram_match_type='BFS', speculative_ngram_max_trie_depth=18, speculative_ngram_capacity=10000000, speculative_ngram_external_corpus_path=None, speculative_ngram_external_sam_budget=0, speculative_ngram_external_corpus_max_tokens=10000000, enable_multi_layer_eagle=False, ep_size=1, moe_a2a_backend='none', moe_runner_backend='auto', record_nolora_graph=True, flashinfer_mxfp4_moe_precision='default', enable_flashinfer_allreduce_fusion=False, enforce_disable_flashinfer_allreduce_fusion=False, enable_aiter_allreduce_fusion=False, deepep_mode='auto', ep_num_redundant_experts=0, ep_dispatch_algorithm=None, init_expert_location='trivial', enable_eplb=False, eplb_algorithm='auto', eplb_rebalance_num_iterations=1000, eplb_rebalance_layers_per_chunk=None, eplb_min_rebalancing_utilization_threshold=1.0, expert_distribution_recorder_mode=None, expert_distribution_recorder_buffer_size=1000, enable_expert_distribution_metrics=False, deepep_config=None, moe_dense_tp_size=None, elastic_ep_backend=None, enable_elastic_expert_backup=False, mooncake_ib_device=None, enable_deepep_waterfill=False, elastic_ep_rejoin=False, max_mamba_cache_size=None, mamba_ssm_dtype=None, mamba_full_memory_ratio=0.9, mamba_scheduler_strategy='no_buffer', mamba_track_interval=256, linear_attn_backend='triton', linear_attn_decode_backend=None, linear_attn_prefill_backend=None, enable_hierarchical_cache=False, hicache_ratio=2.0, hicache_size=0, hicache_write_policy='write_through', hicache_io_backend='kernel', hicache_mem_layout='layer_first', hicache_storage_backend=None, hicache_storage_prefetch_policy='timeout', hicache_storage_backend_extra_config=None, enable_hisparse=False, hisparse_config=None, enable_lmcache=False, kt_weight_path=None, kt_method='AMXINT4', kt_cpuinfer=None, kt_threadpool_count=2, kt_num_gpu_experts=None, kt_max_deferred_experts_per_token=None, dllm_algorithm=None, dllm_algorithm_config=None, cpu_offload_gb=0, offload_group_size=-1, offload_num_in_group=1, offload_prefetch_step=1, offload_mode='cpu', enable_mis=False, disable_radix_cache=False, cuda_graph_max_bs=256, cuda_graph_bs=[1, 2, 4, 8, 12, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], disable_cuda_graph=False, disable_cuda_graph_padding=False, enable_breakable_cuda_graph=False, enable_profile_cuda_graph=False, enable_cudagraph_gc=False, debug_cuda_graph=False, enable_layerwise_nvtx_marker=False, enable_nccl_nvls=False, enable_symm_mem=False, disable_flashinfer_cutlass_moe_fp4_allgather=False, enable_tokenizer_batch_encode=False, disable_tokenizer_batch_decode=False, disable_outlines_disk_cache=False, disable_custom_all_reduce=True, custom_all_reduce_backend='off', enable_mscclpp=False, enable_torch_symm_mem=False, pre_warm_nccl=False, disable_overlap_schedule=True, enable_mixed_chunk=False, enable_dp_attention=False, enable_dp_attention_local_control_broadcast=False, enable_dp_lm_head=False, enable_two_batch_overlap=False, enable_single_batch_overlap=False, tbo_token_distribution_threshold=0.48, enable_torch_compile=False, disable_piecewise_cuda_graph=True, enforce_piecewise_cuda_graph=False, enable_torch_compile_debug_mode=False, torch_compile_max_bs=32, piecewise_cuda_graph_max_tokens=16384, piecewise_cuda_graph_tokens=[4, 8, 12, 16, 20, 24, 28, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 352, 384, 416, 448, 480, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1280, 1536, 1792, 2048, 2304, 2560, 2816, 3072, 3328, 3584, 3840, 4096, 4608, 5120, 5632, 6144, 6656, 7168, 7680, 8192, 8704, 9216, 9728, 10240, 10752, 11264, 11776, 12288, 12800, 13312, 13824, 14336, 14848, 15360, 15872, 16384], piecewise_cuda_graph_compiler='eager', torchao_config='', enable_nan_detection=False, enable_p2p_check=False, triton_attention_reduce_in_fp32=False, triton_attention_num_kv_splits=16, triton_attention_split_tile_size=None, num_continuous_decode_steps=1, delete_ckpt_after_loading=False, enable_memory_saver=False, enable_weights_cpu_backup=False, enable_draft_weights_cpu_backup=False, allow_auto_truncate=False, enable_custom_logit_processor=False, flashinfer_mla_disable_ragged=False, disable_shared_experts_fusion=False, enforce_shared_experts_fusion=False, disable_chunked_prefix_cache=False, disable_fast_image_processor=False, keep_mm_feature_on_device=False, enable_return_hidden_states=False, enable_return_routed_experts=False, enable_return_indexer_topk=False, scheduler_recv_interval=1, numa_node=None, enable_deterministic_inference=False, rl_on_policy_target=None, enable_attn_tp_input_scattered=False, minimax_opt=False, gc_threshold=None, enable_nsa_prefill_context_parallel=False, nsa_prefill_cp_mode='round-robin-split', enable_fused_qk_norm_rope=False, enable_precise_embedding_interpolation=False, enable_fused_moe_sum_all_reduce=False, enable_prefill_context_parallel=False, prefill_cp_mode='in-seq-split', enable_dynamic_batch_tokenizer=False, dynamic_batch_tokenizer_batch_size=32, dynamic_batch_tokenizer_batch_timeout=0.002, debug_tensor_dump_output_folder=None, debug_tensor_dump_layers=None, debug_tensor_dump_input_file=None, debug_tensor_dump_inject=False, disaggregation_mode='null', disaggregation_transfer_backend='mooncake', disaggregation_bootstrap_port=8998, disaggregation_ib_device=None, disaggregation_decode_enable_radix_cache=False, disaggregation_decode_enable_offload_kvcache=False, num_reserved_decode_tokens=512, disaggregation_decode_polling_interval=1, encoder_only=False, language_only=False, encoder_transfer_backend='zmq_to_scheduler', encoder_urls=[], enable_adaptive_dispatch_to_encoder=False, custom_weight_loader=[], weight_loader_disable_mmap=False, weight_loader_prefetch_checkpoints=False, weight_loader_prefetch_num_threads=4, weight_loader_drop_cache_after_load=False, remote_instance_weight_loader_seed_instance_ip=None, remote_instance_weight_loader_seed_instance_service_port=None, remote_instance_weight_loader_send_weights_group_ports=None, remote_instance_weight_loader_backend='nccl', remote_instance_weight_loader_start_seed_via_transfer_engine=False, engine_info_bootstrap_port=6789, modelexpress_config=None, enable_pdmux=False, pdmux_config_path=None, sm_group_num=8, enable_broadcast_mm_inputs_process=False, enable_prefix_mm_cache=False, mm_enable_dp_encoder=False, mm_process_config={}, limit_mm_data_per_request=None, enable_mm_global_cache=False, decrypted_config_file=None, decrypted_draft_config_file=None, forward_hooks=None, enable_quant_communications=False, msprobe_dump_config=None)
+[2026-10-15 22:38:04] Ignore import error when loading sglang.srt.multimodal.processors.midashenglm: Could not load this library: /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torchaudio/lib/_torchaudio.abi3.so
+[2026-10-15 22:38:04] Ignore import error when loading sglang.srt.multimodal.processors.mimo_v2: No module named 'torchcodec'
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+[2026-10-15 22:38:06] Ignore import error when loading sglang.srt.models.midashenglm: Could not load this library: /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torchaudio/lib/_torchaudio.abi3.so
+[2026-10-15 22:38:06] Using default HuggingFace chat template with detected content format: openai
+[2026-10-15 22:38:06] Detected reasoning config 'ReasoningToggleConfig(toggle_param='enable_thinking', default_enabled=True, special_case=None)' from template rule 'enable_thinking_default_true'.
+[2026-10-15 22:38:06] Detected reasoning parser 'qwen3' from template rule 'qwen3'.
+[2026-10-15 22:38:06] Detected tool-call parser 'qwen' from template rule 'qwen'.
+[2026-10-15 22:38:06] Auto-detected reasoning parser: qwen3
+[2026-10-15 22:38:06] Auto-detected tool-call parser: qwen
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+INFO 10-15 22:38:27 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 10-15 22:38:27 [__init__.py:46] - hcu -> vllm_hcu:hcu_platform_plugin
+INFO 10-15 22:38:27 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 10-15 22:38:27 [__init__.py:238] Platform plugin hcu is activated
+Failed to import from vllm._C with ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+INFO 10-15 22:38:27 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 10-15 22:38:27 [__init__.py:46] - hcu -> vllm_hcu:hcu_platform_plugin
+INFO 10-15 22:38:27 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 10-15 22:38:27 [__init__.py:238] Platform plugin hcu is activated
+Failed to import from vllm._C with ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+INFO 10-15 22:38:27 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 10-15 22:38:27 [__init__.py:46] - hcu -> vllm_hcu:hcu_platform_plugin
+INFO 10-15 22:38:27 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 10-15 22:38:27 [__init__.py:238] Platform plugin hcu is activated
+Failed to import from vllm._C with ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+WARNING 10-15 22:38:27 [interface.py:243] Failed to import from vllm._C: ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+WARNING 10-15 22:38:27 [interface.py:243] Failed to import from vllm._C: ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+WARNING 10-15 22:38:27 [interface.py:243] Failed to import from vllm._C: ImportError("/lib64/libc.so.6: version `GLIBC_2.32' not found (required by /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/vllm/_C.abi3.so)")
+INFO:sglang.srt.layers.quantization.slimquant_w4a8_marlin:[slimquant_w4a8_marlin] requested_backend=auto, resolved_backend=lightop
+INFO:sglang.srt.layers.quantization.slimquant_w4a8_marlin:[slimquant_w4a8_marlin] requested_backend=auto, resolved_backend=lightop
+INFO:sglang.srt.layers.quantization.slimquant_w4a8_marlin:[slimquant_w4a8_marlin] requested_backend=auto, resolved_backend=lightop
+[transformers] `BaseImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `BaseImageProcessor` instead.
+[transformers] `BaseImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `BaseImageProcessor` instead.
+[transformers] `BaseImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `BaseImageProcessor` instead.
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+[2026-10-15 22:38:32 TP1] Ignore import error when loading sglang.srt.multimodal.processors.midashenglm: Could not load this library: /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torchaudio/lib/_torchaudio.abi3.so
+[2026-10-15 22:38:32 TP0] Ignore import error when loading sglang.srt.multimodal.processors.midashenglm: Could not load this library: /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torchaudio/lib/_torchaudio.abi3.so
+[2026-10-15 22:38:32 TP1] Ignore import error when loading sglang.srt.multimodal.processors.mimo_v2: No module named 'torchcodec'
+[2026-10-15 22:38:32 TP0] Ignore import error when loading sglang.srt.multimodal.processors.mimo_v2: No module named 'torchcodec'
+[2026-10-15 22:38:32 TP1] Init torch distributed begin.
+[2026-10-15 22:38:32 TP0] Init torch distributed begin.
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[2026-10-15 22:38:33 TP0] [AR] All-reduce call path: NCCL (custom AR disabled, backend=off)
+[2026-10-15 22:38:33 TP1] [AR] All-reduce call path: NCCL (custom AR disabled, backend=off)
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[2026-10-15 22:38:33 TP0] sglang is using nccl==2.22.3
+[2026-10-15 22:38:33 TP0] [AR] All-reduce call path: NCCL (custom AR disabled, backend=off)
+[2026-10-15 22:38:33 TP1] [AR] All-reduce call path: NCCL (custom AR disabled, backend=off)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[2026-10-15 22:38:33 TP0] Init torch distributed ends. elapsed=1.12 s, mem usage=0.45 GB
+[2026-10-15 22:38:33 TP1] Init torch distributed ends. elapsed=1.15 s, mem usage=0.45 GB
+[2026-10-15 22:38:33 TP1] Ignore import error when loading sglang.srt.models.midashenglm: Could not load this library: /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torchaudio/lib/_torchaudio.abi3.so
+[2026-10-15 22:38:33 TP0] Ignore import error when loading sglang.srt.models.midashenglm: Could not load this library: /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torchaudio/lib/_torchaudio.abi3.so
+[2026-10-15 22:38:33 TP1] Load weight begin. avail mem=63.22 GB
+[2026-10-15 22:38:33 TP0] Load weight begin. avail mem=63.22 GB
+[2026-10-15 22:38:34 TP1] Multimodal attention backend not set. Use triton_attn.
+[2026-10-15 22:38:34 TP1] Using triton_attn as multimodal attention backend.
+[2026-10-15 22:38:34 TP0] Multimodal attention backend not set. Use triton_attn.
+[2026-10-15 22:38:34 TP0] Using triton_attn as multimodal attention backend.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[2026-10-15 22:38:34 TP1] using attn output gate!
+[2026-10-15 22:38:34 TP0] using attn output gate!
+Multi-thread loading shards:   0% Completed | 0/18 [00:00<?, ?it/s]Multi-thread loading shards:   6% Completed | 1/18 [00:00<00:07,  2.16it/s]Multi-thread loading shards:  11% Completed | 2/18 [00:00<00:06,  2.51it/s]Multi-thread loading shards:  17% Completed | 3/18 [00:01<00:04,  3.24it/s]Multi-thread loading shards:  22% Completed | 4/18 [00:01<00:04,  2.86it/s]Multi-thread loading shards:  28% Completed | 5/18 [00:01<00:04,  3.17it/s]Multi-thread loading shards:  33% Completed | 6/18 [00:02<00:04,  2.89it/s]Multi-thread loading shards:  39% Completed | 7/18 [00:02<00:03,  3.17it/s]Multi-thread loading shards:  44% Completed | 8/18 [00:02<00:03,  2.87it/s]Multi-thread loading shards:  50% Completed | 9/18 [00:03<00:02,  3.10it/s]Multi-thread loading shards:  56% Completed | 10/18 [00:03<00:02,  2.81it/s]Multi-thread loading shards:  61% Completed | 11/18 [00:03<00:02,  3.04it/s]Multi-thread loading shards:  67% Completed | 12/18 [00:04<00:02,  2.76it/s]Multi-thread loading shards:  72% Completed | 13/18 [00:04<00:01,  2.98it/s]Multi-thread loading shards:  78% Completed | 14/18 [00:04<00:01,  2.75it/s]Multi-thread loading shards:  83% Completed | 15/18 [00:05<00:01,  2.98it/s]Multi-thread loading shards:  89% Completed | 16/18 [00:05<00:00,  2.74it/s]Multi-thread loading shards:  94% Completed | 17/18 [00:05<00:00,  2.98it/s][2026-10-15 22:38:40 TP1] Load weight end. elapsed=6.31 s, type=Qwen3_5ForConditionalGeneration, avail mem=37.55 GB, mem usage=25.67 GB.
+Multi-thread loading shards: 100% Completed | 18/18 [00:06<00:00,  3.42it/s]Multi-thread loading shards: 100% Completed | 18/18 [00:06<00:00,  2.98it/s]
+[2026-10-15 22:38:40 TP0] Load weight end. elapsed=6.40 s, type=Qwen3_5ForConditionalGeneration, avail mem=37.55 GB, mem usage=25.67 GB.
+[2026-10-15 22:38:40 TP0] Using KV cache dtype: torch.bfloat16
+[2026-10-15 22:38:40 TP1] Mamba Cache is allocated. max_mamba_cache_size: 185, conv_state size: 0.26GB, ssm_state size: 13.08GB 
+[2026-10-15 22:38:40 TP0] Mamba Cache is allocated. max_mamba_cache_size: 185, conv_state size: 0.26GB, ssm_state size: 13.08GB 
+[2026-10-15 22:38:40 TP0] KV Cache is allocated. #tokens: 484398, K size: 7.39 GB, V size: 7.39 GB
+[2026-10-15 22:38:40 TP1] KV Cache is allocated. #tokens: 484398, K size: 7.39 GB, V size: 7.39 GB
+[2026-10-15 22:38:40 TP0] Memory pool end. avail mem=9.35 GB
+[2026-10-15 22:38:40 TP1] Memory pool end. avail mem=9.35 GB
+[2026-10-15 22:38:43 TP1] Current Python version 3.10 is below the recommended 3.11 version. It is recommended to upgrade to Python 3.11 or higher for the best experience.
+[2026-10-15 22:38:43 TP1] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-15 22:38:43 TP1] Attention backend created: backend=triton, full_backend_cls=TritonAttnBackend, wrapped_backend_cls=HybridLinearAttnBackend
+[2026-10-15 22:38:43 TP1] Capture cuda graph begin. This can take up to several minutes. avail mem=9.21 GB
+[2026-10-15 22:38:43 TP0] Current Python version 3.10 is below the recommended 3.11 version. It is recommended to upgrade to Python 3.11 or higher for the best experience.
+[2026-10-15 22:38:43 TP0] Linear attention kernel backend: decode=triton, prefill=triton
+[2026-10-15 22:38:43 TP0] Using hybrid linear attention backend for hybrid GDN models.
+[2026-10-15 22:38:43 TP0] GDN kernel dispatcher: decode=TritonGDNKernel, extend=TritonGDNKernel, verify=TritonGDNKernel packed_decode=True
+[2026-10-15 22:38:43 TP0] Attention backend created: backend=triton, full_backend_cls=TritonAttnBackend, wrapped_backend_cls=HybridLinearAttnBackend
+[2026-10-15 22:38:43 TP0] Capture cuda graph begin. This can take up to several minutes. avail mem=9.21 GB
+[2026-10-15 22:38:43 TP0] Capture cuda graph bs [1, 2, 4, 8, 12, 16, 24, 32, 40, 48, 56, 61]
+  0%|          | 0/12 [00:00<?, ?it/s]Capturing batches (bs=61 avail_mem=9.09 GB):   0%|          | 0/12 [00:00<?, ?it/s][2026-10-15 22:38:47 TP0] Failed to load JIT KV-Cache kernel with row_bytes=1024: ninja exited with status 1
+stdout:
+[1/2] /public/software/compiler/dtk-26.04/bin/hipcc -std=c++17 -O2 -fPIC -D__HIP_PLATFORM_AMD__=1 -fno-gpu-rdc --offload-arch=gfx906 --offload-arch=gfx926 --offload-arch=gfx928 --offload-arch=gfx936 --offload-arch=gfx938 -std=c++20 -O3 -DUSE_ROCM -Wno-return-type --amdgpu-target=gfx936 -DHIP_FP8_TYPE_FNUZ -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/software/compiler/dtk-26.04/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include -c /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu -o cuda_0.o
+FAILED: cuda_0.o 
+/public/software/compiler/dtk-26.04/bin/hipcc -std=c++17 -O2 -fPIC -D__HIP_PLATFORM_AMD__=1 -fno-gpu-rdc --offload-arch=gfx906 --offload-arch=gfx926 --offload-arch=gfx928 --offload-arch=gfx936 --offload-arch=gfx938 -std=c++20 -O3 -DUSE_ROCM -Wno-return-type --amdgpu-target=gfx936 -DHIP_FP8_TYPE_FNUZ -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/software/compiler/dtk-26.04/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include -c /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu -o cuda_0.o
+Warning: The --amdgpu-target option has been deprecated and will be removed in the future.  Use --offload-arch instead.
+In file included from /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu:7:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/csrc/elementwise/kvcache.cuh:5:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/tensor.h:29:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/utils.h:61:
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/source_location.h:8:10: fatal error: 'version' file not found
+#include <version>
+         ^~~~~~~~~
+In file included from /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu:7:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/csrc/elementwise/kvcache.cuh:5:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/tensor.h:29:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/utils.h:61:
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/source_location.h:8:10: fatal error: 'version' file not found
+#include <version>
+         ^~~~~~~~~
+In file included from /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu:7:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/csrc/elementwise/kvcache.cuh:5:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/tensor.h:29:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/utils.h:61:
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/source_location.h:8:10: fatal error: 'version' file not found
+#include <version>
+         ^~~~~~~~~
+1 error generated when compiling for gfx906.
+1 error generated when compiling for gfx926.
+1 error generated when compiling for gfx928.
+ninja: build stopped: subcommand failed.
+
+[2026-10-15 22:38:48 TP1] Failed to load JIT KV-Cache kernel with row_bytes=1024: ninja exited with status 1
+stdout:
+[1/2] /public/software/compiler/dtk-26.04/bin/hipcc -std=c++17 -O2 -fPIC -D__HIP_PLATFORM_AMD__=1 -fno-gpu-rdc --offload-arch=gfx906 --offload-arch=gfx926 --offload-arch=gfx928 --offload-arch=gfx936 --offload-arch=gfx938 -std=c++20 -O3 -DUSE_ROCM -Wno-return-type --amdgpu-target=gfx936 -DHIP_FP8_TYPE_FNUZ -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/software/compiler/dtk-26.04/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include -c /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu -o cuda_0.o
+FAILED: cuda_0.o 
+/public/software/compiler/dtk-26.04/bin/hipcc -std=c++17 -O2 -fPIC -D__HIP_PLATFORM_AMD__=1 -fno-gpu-rdc --offload-arch=gfx906 --offload-arch=gfx926 --offload-arch=gfx928 --offload-arch=gfx936 --offload-arch=gfx938 -std=c++20 -O3 -DUSE_ROCM -Wno-return-type --amdgpu-target=gfx936 -DHIP_FP8_TYPE_FNUZ -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/tvm_ffi/include -I/public/software/compiler/dtk-26.04/include -I/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include -c /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu -o cuda_0.o
+Warning: The --amdgpu-target option has been deprecated and will be removed in the future.  Use --offload-arch instead.
+In file included from /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu:7:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/csrc/elementwise/kvcache.cuh:5:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/tensor.h:29:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/utils.h:61:
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/source_location.h:8:10: fatal error: 'version' file not found
+#include <version>
+         ^~~~~~~~~
+In file included from /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu:7:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/csrc/elementwise/kvcache.cuh:5:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/tensor.h:29:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/utils.h:61:
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/source_location.h:8:10: fatal error: 'version' file not found
+#include <version>
+         ^~~~~~~~~
+In file included from /public/home/zzu_dcf/.cache/tvm-ffi/sgl_kernel_jit_hip_kvcache_1024_false_08a131cbc41cbd1f/cuda.cu:7:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/csrc/elementwise/kvcache.cuh:5:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/tensor.h:29:
+In file included from /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/utils.h:61:
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/jit_kernel/include/sgl_kernel/source_location.h:8:10: fatal error: 'version' file not found
+#include <version>
+         ^~~~~~~~~
+1 error generated when compiling for gfx906.
+1 error generated when compiling for gfx926.
+1 error generated when compiling for gfx928.
+ninja: build stopped: subcommand failed.
+
+Capturing batches (bs=61 avail_mem=9.09 GB):   8%|▊         | 1/12 [00:05<00:57,  5.25s/it]Capturing batches (bs=56 avail_mem=8.82 GB):   8%|▊         | 1/12 [00:05<00:57,  5.25s/it]Capturing batches (bs=56 avail_mem=8.82 GB):  17%|█▋        | 2/12 [00:05<00:24,  2.43s/it]Capturing batches (bs=48 avail_mem=8.82 GB):  17%|█▋        | 2/12 [00:05<00:24,  2.43s/it]Capturing batches (bs=48 avail_mem=8.82 GB):  25%|██▌       | 3/12 [00:06<00:13,  1.46s/it]Capturing batches (bs=40 avail_mem=8.81 GB):  25%|██▌       | 3/12 [00:06<00:13,  1.46s/it]Capturing batches (bs=40 avail_mem=8.81 GB):  33%|███▎      | 4/12 [00:06<00:08,  1.00s/it]Capturing batches (bs=32 avail_mem=8.81 GB):  33%|███▎      | 4/12 [00:06<00:08,  1.00s/it]Capturing batches (bs=32 avail_mem=8.81 GB):  42%|████▏     | 5/12 [00:06<00:05,  1.34it/s]Capturing batches (bs=24 avail_mem=8.81 GB):  42%|████▏     | 5/12 [00:06<00:05,  1.34it/s]Capturing batches (bs=24 avail_mem=8.81 GB):  50%|█████     | 6/12 [00:06<00:03,  1.69it/s]Capturing batches (bs=16 avail_mem=8.81 GB):  50%|█████     | 6/12 [00:06<00:03,  1.69it/s]Capturing batches (bs=16 avail_mem=8.81 GB):  58%|█████▊    | 7/12 [00:07<00:02,  2.02it/s]Capturing batches (bs=12 avail_mem=8.81 GB):  58%|█████▊    | 7/12 [00:07<00:02,  2.02it/s]Capturing batches (bs=12 avail_mem=8.81 GB):  67%|██████▋   | 8/12 [00:07<00:01,  2.29it/s]Capturing batches (bs=8 avail_mem=8.81 GB):  67%|██████▋   | 8/12 [00:07<00:01,  2.29it/s] Capturing batches (bs=8 avail_mem=8.81 GB):  75%|███████▌  | 9/12 [00:07<00:01,  2.56it/s]Capturing batches (bs=4 avail_mem=8.81 GB):  75%|███████▌  | 9/12 [00:07<00:01,  2.56it/s]Capturing batches (bs=4 avail_mem=8.81 GB):  83%|████████▎ | 10/12 [00:08<00:00,  2.73it/s]Capturing batches (bs=2 avail_mem=8.80 GB):  83%|████████▎ | 10/12 [00:08<00:00,  2.73it/s]Capturing batches (bs=2 avail_mem=8.80 GB):  92%|█████████▏| 11/12 [00:08<00:00,  2.91it/s]Capturing batches (bs=1 avail_mem=8.80 GB):  92%|█████████▏| 11/12 [00:08<00:00,  2.91it/s]Capturing batches (bs=1 avail_mem=8.80 GB): 100%|██████████| 12/12 [00:08<00:00,  2.66it/s]Capturing batches (bs=1 avail_mem=8.80 GB): 100%|██████████| 12/12 [00:08<00:00,  1.36it/s]
+[2026-10-15 22:38:53 TP0] Capture cuda graph end. Time elapsed: 9.58 s. mem usage=0.43 GB. avail mem=8.79 GB.
+[2026-10-15 22:38:53 TP0] Disable piecewise CUDA graph because --disable-piecewise-cuda-graph is set
+[2026-10-15 22:38:53 TP1] Capture cuda graph end. Time elapsed: 9.65 s. mem usage=0.43 GB. avail mem=8.79 GB.
+[2026-10-15 22:38:53 TP1] Disable piecewise CUDA graph because --disable-piecewise-cuda-graph is set
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[2026-10-15 22:38:54 TP0] max_total_num_tokens=484398, chunked_prefill_size=16384, max_prefill_tokens=16384, max_running_requests=61, context_len=131072, available_gpu_mem=8.79 GB
+[2026-10-15 22:38:55] INFO:     Started server process [2368742]
+[2026-10-15 22:38:55] INFO:     Waiting for application startup.
+[2026-10-15 22:38:55] Using default chat sampling params from model generation config: {'temperature': 1.0, 'top_k': 20, 'top_p': 0.95}
+[2026-10-15 22:38:55] INFO:     Application startup complete.
+[2026-10-15 22:38:55] INFO:     Uvicorn running on http://127.0.0.1:18580 (Press CTRL+C to quit)
+[2026-10-15 22:38:56] INFO:     127.0.0.1:58028 - "GET /model_info HTTP/1.1" 200 OK
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2274: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value 'max_tokens is deprecated in favor of the max_completion_tokens field' was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+[2026-10-15 22:38:56] INFO:     127.0.0.1:58048 - "GET /v1/models HTTP/1.1" 200 OK
+[2026-10-15 22:38:58 TP0] Prefill batch, #new-seq: 1, #new-token: 122, #cached-token: 0, full token usage: 0.00, mamba usage: 0.01, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 4.36
+[2026-10-15 22:38:58] INFO:     127.0.0.1:58044 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-10-15 22:38:58] The server is fired up and ready to roll!
+[2026-10-15 22:39:18] INFO:     127.0.0.1:42970 - "GET /v1/models HTTP/1.1" 200 OK
+[2026-10-15 22:39:27] INFO:     127.0.0.1:42452 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:27 TP0] Prefill batch, #new-seq: 1, #new-token: 512, #cached-token: 0, full token usage: 0.00, mamba usage: 0.01, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 17.71
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42456 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42466 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42470 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42472 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42478 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42482 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42494 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42510 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42524 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42530 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42534 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42548 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42560 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42572 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42580 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42588 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42598 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42606 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42618 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42624 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42628 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42630 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42634 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42648 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42654 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42662 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42674 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42686 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42690 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42702 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42714 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42724 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42734 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42738 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42740 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42744 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42752 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42756 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42766 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42774 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42778 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42782 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42786 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42796 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42798 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42806 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42808 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42822 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42836 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42838 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42848 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42858 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42874 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42888 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42892 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42898 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42914 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42916 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42920 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42924 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42930 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42932 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42934 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29] INFO:     127.0.0.1:42942 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:29 TP0] Prefill batch, #new-seq: 1, #new-token: 512, #cached-token: 0, full token usage: 0.00, mamba usage: 0.01, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 214.28
+[2026-10-15 22:39:31 TP0] Prefill batch, #new-seq: 32, #new-token: 16350, #cached-token: 0, full token usage: 0.03, mamba usage: 0.36, #running-req: 1, #queue-req: 31, #pending-token: 15770, cuda graph: False, input throughput (token/s): 8199.81
+[2026-10-15 22:39:33 TP0] Prefill batch, #new-seq: 28, #new-token: 14233, #cached-token: 0, full token usage: 0.06, mamba usage: 0.66, #running-req: 33, #queue-req: 3, #pending-token: 1537, cuda graph: False, input throughput (token/s): 8287.50
+[2026-10-15 22:39:33 TP0] Decode batch, #running-req: 61, #full token: 31195, full token usage: 0.06, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 2.54, #queue-req: 3
+[2026-10-15 22:39:35 TP0] Decode batch, #running-req: 61, #full token: 33635, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1131.37, #queue-req: 3
+[2026-10-15 22:39:37 TP0] Decode batch, #running-req: 61, #full token: 36075, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1131.60, #queue-req: 3
+[2026-10-15 22:39:40 TP0] Decode batch, #running-req: 61, #full token: 38515, full token usage: 0.08, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1131.40, #queue-req: 3
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55478 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55492 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55506 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55522 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55532 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55534 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55540 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55542 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55548 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55550 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55566 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55570 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55584 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55596 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55606 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55614 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55618 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55626 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55634 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55638 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55642 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55654 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55664 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55672 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55678 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55684 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55690 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55694 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55698 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55706 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55716 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55726 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55742 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55746 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55754 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55758 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55760 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55764 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55780 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55792 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55796 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55798 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55814 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55828 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55838 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55844 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55854 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55856 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55858 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55874 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55880 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55882 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55892 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55902 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55910 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55916 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55926 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55932 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55946 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55950 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40] INFO:     127.0.0.1:55960 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:40 TP0] Prefill batch, #new-seq: 3, #new-token: 1537, #cached-token: 0, full token usage: 0.00, mamba usage: 0.03, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 215.78
+[2026-10-15 22:39:42 TP0] Prefill batch, #new-seq: 32, #new-token: 16323, #cached-token: 0, full token usage: 0.04, mamba usage: 0.38, #running-req: 3, #queue-req: 29, #pending-token: 14793, cuda graph: False, input throughput (token/s): 8267.11
+[2026-10-15 22:39:44 TP0] Prefill batch, #new-seq: 26, #new-token: 13257, #cached-token: 0, full token usage: 0.06, mamba usage: 0.66, #running-req: 35, #queue-req: 3, #pending-token: 1536, cuda graph: False, input throughput (token/s): 8274.16
+[2026-10-15 22:39:46 TP0] Decode batch, #running-req: 61, #full token: 33218, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 407.81, #queue-req: 3
+[2026-10-15 22:39:48 TP0] Decode batch, #running-req: 61, #full token: 35658, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1128.71, #queue-req: 3
+[2026-10-15 22:39:50 TP0] Decode batch, #running-req: 61, #full token: 38098, full token usage: 0.08, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1127.47, #queue-req: 3
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40058 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40072 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40080 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40094 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40098 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40114 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40126 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40128 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40136 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40138 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40146 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40156 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40168 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40182 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40186 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40194 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40206 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40222 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40230 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40242 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40246 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40262 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40278 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40294 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40306 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40314 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40328 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40340 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40352 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40366 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40376 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40390 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40392 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40408 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40416 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40418 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40432 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40444 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40460 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40474 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40488 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40492 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40504 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40506 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40510 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40522 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40534 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40550 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40560 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40572 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40588 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40604 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40618 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40632 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40642 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40652 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40656 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40658 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40668 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40670 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51] INFO:     127.0.0.1:40676 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:39:51 TP0] Prefill batch, #new-seq: 3, #new-token: 1536, #cached-token: 0, full token usage: 0.00, mamba usage: 0.03, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 216.23
+[2026-10-15 22:39:53 TP0] Prefill batch, #new-seq: 32, #new-token: 16322, #cached-token: 0, full token usage: 0.04, mamba usage: 0.38, #running-req: 3, #queue-req: 29, #pending-token: 14845, cuda graph: False, input throughput (token/s): 8281.55
+[2026-10-15 22:39:54 TP0] Prefill batch, #new-seq: 26, #new-token: 13310, #cached-token: 0, full token usage: 0.06, mamba usage: 0.66, #running-req: 35, #queue-req: 3, #pending-token: 1535, cuda graph: False, input throughput (token/s): 8271.22
+[2026-10-15 22:39:56 TP0] Decode batch, #running-req: 61, #full token: 32841, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 408.07, #queue-req: 3
+[2026-10-15 22:39:58 TP0] Decode batch, #running-req: 61, #full token: 35281, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1128.91, #queue-req: 3
+[2026-10-15 22:40:00 TP0] Decode batch, #running-req: 61, #full token: 37721, full token usage: 0.08, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1125.27, #queue-req: 3
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57876 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57892 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57896 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57910 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57926 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57934 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57946 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57956 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57958 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57960 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57964 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57972 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57974 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57978 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57992 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:57996 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58008 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58012 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58022 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58030 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58042 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58054 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58060 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58068 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58080 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58084 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58088 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58098 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58108 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58118 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58130 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58136 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58138 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58154 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58166 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58178 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58192 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58202 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58210 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58224 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58228 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58242 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58258 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58264 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58266 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58268 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58278 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58280 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58292 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58304 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58306 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58310 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58312 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58328 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58330 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58346 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58354 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58360 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58376 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58392 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:01] INFO:     127.0.0.1:58398 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:02 TP0] Prefill batch, #new-seq: 3, #new-token: 1535, #cached-token: 0, full token usage: 0.00, mamba usage: 0.03, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 215.68
+[2026-10-15 22:40:03 TP0] Prefill batch, #new-seq: 32, #new-token: 16287, #cached-token: 0, full token usage: 0.04, mamba usage: 0.38, #running-req: 3, #queue-req: 29, #pending-token: 14842, cuda graph: False, input throughput (token/s): 8255.29
+[2026-10-15 22:40:05 TP0] Prefill batch, #new-seq: 26, #new-token: 13306, #cached-token: 0, full token usage: 0.06, mamba usage: 0.66, #running-req: 35, #queue-req: 3, #pending-token: 1536, cuda graph: False, input throughput (token/s): 8310.78
+[2026-10-15 22:40:06 TP0] Decode batch, #running-req: 61, #full token: 32368, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 407.47, #queue-req: 3
+[2026-10-15 22:40:08 TP0] Decode batch, #running-req: 61, #full token: 34808, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1129.10, #queue-req: 3
+[2026-10-15 22:40:11 TP0] Decode batch, #running-req: 61, #full token: 37248, full token usage: 0.08, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1124.01, #queue-req: 3
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49892 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49900 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49914 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49916 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49926 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49932 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49934 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49948 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49950 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49954 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49958 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49966 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49982 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49988 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:49998 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50000 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50016 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50032 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50038 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50048 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50064 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50076 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50090 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50098 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50102 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50110 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50122 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50134 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50142 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50158 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50160 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50166 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50180 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50192 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50202 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50216 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50222 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50224 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50236 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50244 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50256 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50262 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50276 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50290 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50302 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50306 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50318 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50330 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50332 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50344 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50360 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50372 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50384 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50390 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50400 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50406 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50412 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50416 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50422 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50430 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12] INFO:     127.0.0.1:50442 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:12 TP0] Prefill batch, #new-seq: 3, #new-token: 1536, #cached-token: 0, full token usage: 0.00, mamba usage: 0.03, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 215.68
+[2026-10-15 22:40:14 TP0] Prefill batch, #new-seq: 32, #new-token: 16305, #cached-token: 0, full token usage: 0.04, mamba usage: 0.38, #running-req: 3, #queue-req: 29, #pending-token: 14811, cuda graph: False, input throughput (token/s): 8244.54
+[2026-10-15 22:40:16 TP0] Prefill batch, #new-seq: 26, #new-token: 13275, #cached-token: 0, full token usage: 0.06, mamba usage: 0.66, #running-req: 35, #queue-req: 3, #pending-token: 1536, cuda graph: False, input throughput (token/s): 8265.10
+[2026-10-15 22:40:17 TP0] Decode batch, #running-req: 61, #full token: 31936, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 406.95, #queue-req: 3
+[2026-10-15 22:40:19 TP0] Decode batch, #running-req: 61, #full token: 34376, full token usage: 0.07, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1138.89, #queue-req: 3
+[2026-10-15 22:40:21 TP0] Decode batch, #running-req: 61, #full token: 36816, full token usage: 0.08, mamba num: 122, mamba usage: 0.66, cuda graph: True, gen throughput (token/s): 1136.37, #queue-req: 3
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36018 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36032 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36034 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36036 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36040 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36048 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36056 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36062 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36072 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36084 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36100 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23] INFO:     127.0.0.1:36102 - "POST /generate HTTP/1.1" 200 OK
+[2026-10-15 22:40:23 TP0] Prefill batch, #new-seq: 3, #new-token: 1536, #cached-token: 0, full token usage: 0.00, mamba usage: 0.03, #running-req: 0, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 217.40
+[2026-10-15 22:40:24 TP0] Prefill batch, #new-seq: 12, #new-token: 6143, #cached-token: 0, full token usage: 0.02, mamba usage: 0.16, #running-req: 3, #queue-req: 0, #pending-token: 0, cuda graph: False, input throughput (token/s): 7818.07
+[2026-10-15 22:40:24 TP0] Decode batch, #running-req: 15, #full token: 7778, full token usage: 0.02, mamba num: 30, mamba usage: 0.16, cuda graph: True, gen throughput (token/s): 627.53, #queue-req: 0
+[2026-10-15 22:40:26 TP0] Decode batch, #running-req: 15, #full token: 8378, full token usage: 0.02, mamba num: 30, mamba usage: 0.16, cuda graph: True, gen throughput (token/s): 426.26, #queue-req: 0
+[2026-10-15 22:40:27 TP0] Decode batch, #running-req: 15, #full token: 8978, full token usage: 0.02, mamba num: 30, mamba usage: 0.16, cuda graph: True, gen throughput (token/s): 427.16, #queue-req: 0
+[2026-10-15 22:40:28 TP0] Decode batch, #running-req: 15, #full token: 0, full token usage: 0.00, mamba num: 0, mamba usage: 0.00, cuda graph: True, gen throughput (token/s): 426.81, #queue-req: 0
+[2026-10-15 22:40:28] INFO:     127.0.0.1:52698 - "GET /server_info HTTP/1.1" 200 OK
+[2026-10-15 22:40:29] INFO:     127.0.0.1:52712 - "GET /server_info HTTP/1.1" 200 OK
+[2026-10-15 22:40:36] SIGTERM received. signum=None frame=None. Draining requests and shutting down...
+[2026-10-15 22:40:37] Subprocess scheduler_0 (pid=2369598) crashed with exit code -15. Triggering SIGQUIT for cleanup...
+[2026-10-15 22:40:37] SIGQUIT received. signum=None, frame=None. It usually means one child failed.
