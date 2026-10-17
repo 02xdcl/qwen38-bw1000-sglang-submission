@@ -1,0 +1,36 @@
+hardware:
+  card_model: "BW1000（用户确认；待补计算节点硬件日志）"
+  card_count: 2
+  interconnect_topology: "TODO"
+  cpu: "TODO"
+  memory: "TODO"
+  storage: "TODO"
+software:
+  os_kernel: "TODO"
+  driver_version: "TODO"
+  dtk_das_version: "DTK 26.04；DAS 版本待确认"
+  container_image_tag: "TODO：本次严格测试使用 /public/home/zzu_dcf/sglang 虚拟环境；项目另有 SIF，但不能断言测试使用了它"
+framework:
+  inference_framework: "SGLang 0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025"
+  torch: "2.10.0+das.opt1.dtk2604.2608141812.g28498c"
+  triton: "3.6.0+das185.dtk2604.torch2100.2608141110.g65af71"
+model:
+  name: "Qwen3.8-27B"
+  weights_source: "TODO"
+  weights_sha256: "TODO"
+  precision: "BF16"
+run:
+  launch_command_source: "source/results/strict_formal_20261017_155319/provenance.txt"
+  tp_size: 2
+  context_length: 131072
+  chunked_prefill_size: 8192
+  max_prefill_tokens: 16384
+  schedule_conservativeness: 0.4
+  attention_backend: "triton"
+  environment_variables: "见 provenance.txt；其他值待核对"
+measurement:
+  benchmark_source_sha256: "f2206dcda74932e1b148cdf7b5ef07443bb5d9e0f2729b7a67d602182e3aa050"
+  benchmark_source: "sglang.bench_serving；具体官方版本对应关系待确认"
+  concurrency_levels: "4K: 1,8,16,32,64,128；64K: 1,8,16,32；ShareGPT: 1,4,16,32,64"
+  warmup_rounds: "4K/64K 目标 2；ShareGPT 1"
+  measurement_rounds: "4K/64K 目标 3；ShareGPT 1"

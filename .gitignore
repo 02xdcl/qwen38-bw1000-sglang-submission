@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.sif
+*.tar
+*.tar.gz
+models/
+dataset/
+*.so
