@@ -47,6 +47,8 @@ A3 的 `num_warps: 1→2` 候选差异见 `source/results/submission_audit_20261
 
 以下为本地补包中 JobID `934852` 的三轮均值，列定义与上表相同。每档三轮均从 `.jsonl` 汇总计算并与 `.log` 核对。原件位于 `results/strict_4k64k_job934852/`，归档包 SHA256 为 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`。
 
+逐轮指标摘录见 `evidence/job934852_rounds.csv`，其中记录每份源 JSONL 的 SHA256；提取与复算方法见 `evidence/README.md`。该摘录不包含逐请求结果。
+
 | 场景 | 并发 | 正式轮数 | 每轮成功请求 | 输出吞吐 tok/s | 平均 TTFT ms | 平均 TPOT ms | 三轮 P99 E2E 均值 ms |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 4K/1K | 1 | 3 | 8 | 25.09 | 596.76 | 39.30 | 40990.91 |
