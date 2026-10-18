@@ -6,6 +6,8 @@
 
 `evidence/job934852_rounds.csv` 公开了该作业 30 轮正式测试的指标摘录、源文件名和各源文件 SHA256；`scripts/summarize_934852.py` 可从原始补包重新生成。原始补包并未包含在 GitHub 仓库中。
 
+`evidence/gsm8k_935993_scores.csv` 公开独立 GSM8K 运行的逐题评分摘录，可复算 1266/1314 的历史准确率；原始题目和答案仍以本地归档为准。
+
 独立的 4K C64 单轮日志保存在本地 `source/results/final_4k_c64_20261017_020528/`；其 benchmark backend 与历史基线不同，报告单独列示。
 
 ## 已确认的运行配置
@@ -31,8 +33,8 @@ bash scripts/run.sh
 - `论坛回复_已核实数据草稿.md`：仅汇集已核实数据的论坛回复草稿。
 - `论坛回复_第2版更正草稿.md`：历史备选草稿；用户决定保持已发表论坛回复原样。
 - `env_declare.yaml`：有来源记录的环境和运行字段。
-- `scripts/`：原始复测、严格测试脚本副本及逐轮指标提取脚本。
-- `evidence/`：JobID 934852 的逐轮指标摘录与复算说明。
+- `scripts/`：原始复测、严格测试脚本副本及指标提取脚本。
+- `evidence/`：JobID 934852 和独立 GSM8K 运行的指标摘录与复算说明。
 - `patch/a3_warp2_candidate.patch`：A3 实验的一行候选补丁。
 - `source/experiments/`：A9/A10/A11/A13 参数 A/B 原始脚本与日志。
 - `source/results/`：历史基线、复测和审计原文。
