@@ -15,11 +15,10 @@
 
 ## 在原集群复现
 
-在 BW1000 计算节点、已有 `~/sglang` 环境和模型权重就位后，核对脚本内路径与参数，再执行：
+在 BW1000 计算节点、已有 `~/sglang` 环境和模型权重就位后，从本仓库根目录核对脚本内路径与参数，再执行：
 
 ```bash
-cd /public/home/zzu_dcf/qwen38_dcu_competition
-bash experiments/sharegpt_retest/run.sh
+bash scripts/run.sh
 ```
 
 该脚本依次运行 ShareGPT 并发 C1/C4/C16/C32/C64，每档 1 次预热及 1 次正式测试，每次正式测试 1000 请求。原始脚本及原始结果均保存在 `source/`。严格 4K/64K 测试由 `scripts/bench_strict_4k64k.sh OUTPUT_DIR` 执行，前提是唯一 SGLang 服务已在端口 18580 运行；其本次归档中的 15:53 运行仅完成部分 4K C1 预热，不可作为完整成绩。
