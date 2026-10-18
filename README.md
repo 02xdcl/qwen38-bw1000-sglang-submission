@@ -43,3 +43,7 @@ bash scripts/run.sh
 
 模型权重、SIF 镜像和原始补包保存在仓库外。
 
+## 许可证
+
+本仓库按 Apache License 2.0 开源，详见 `LICENSE`。模型权重、数据集、推理框架及厂商软件栈分别遵循其原始许可证。
+
