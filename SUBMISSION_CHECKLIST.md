@@ -1,6 +1,6 @@
 # Qwen3.8-27B BW1000 / SGLang 提交主清单
 
-最后更新：2026-10-18 12:45 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P0-01（BLOCKED，等待 BW1000 自测基线合规证据和剩余正式证据）。完成进度：1/9 项 DONE。**本文件是唯一进度主清单。**
+最后更新：2026-10-18 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P0-02/P0-03/P0-05 可独立证据整理；P0-01 仍 BLOCKED，等待 BW1000 自测基线合规证据。完成进度：1/9 项 DONE。**本文件是唯一进度主清单。**
 
 ## 状态与证据规则
 
@@ -11,7 +11,7 @@
 - 已有：`README.md`、`report.md`、`env_declare.yaml`、`requirements.txt`、`scripts/run.sh`、`scripts/bench_strict_4k64k.sh`；`source/results/` 有历史 4K、64K、ShareGPT 基线、10/16 ShareGPT 复测、10/17 不完整严格复测及审计；`source/experiments/` 有 A9/A10/A11/A13 探索实验。克隆时工作树干净，仓库跟踪文件 198 个；没有 `patch/`、`logs/` 或原有 `SUBMISSION_CHECKLIST.md`。
 - 用户提供的赛事规则文本（本地 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/requirements.md`，源于 `拿.docx`）要求五段式报告、四类原始日志、至少三张含命令上下文和时间戳的截图，以及论坛《作品提交专区》回复；文本写明截止 2026-10-18 17:59。该文本将 BW100 列为先锋组、其他卡型列为开放组；无官方基线卡型可用自测基线，但要求同机同软件环境、官方默认配置、四类原始日志与 3 天公示接受质疑。用户确认 BW1000 采用自测基线。另提供的 11 页赛题详情 PDF（本地 `C:/Users/admin/Desktop/社区qwen3.8挑战赛.pdf`，SHA256 `a75d6e9e35414a51a2d99eba86feca591d875f08e29aa0231d177965c09ae90c`）只列 BW100/K100-AI 的性能基线及 SLA；末页注明部分内容由 AI 生成。BW1000 的 SLA 与综合评分细则仍需确认。
 - 参考仓库只用于目录组织对照：[myrfy001/qwen38-k100ai-sglang](https://github.com/myrfy001/qwen38-k100ai-sglang) 根目录有 `bench/`、`config/`、`kernels/`、`logs/`、`patch/`、`scripts/`、`report.md`、`env_declare.yaml`；[codingmiao/q38-k100ai-submission](https://github.com/codingmiao/q38-k100ai-submission) 有 `config/`、`logs/`、`patch/`、`result/`、`scripts/`、`论坛提交回复.md`。这不是本项目的成绩或官方要求。
-- DCU 整理稿 `优化后.md` 声称 JobID 934852 的 64K/C128 三轮及 ShareGPT 为优化版正式结果，但本地已知材料中没有 `strict_4k64k_job934852/` 原始目录。`Qwen38_DCU_优化与实验记录汇总.md` 同时指出 live A2 内核哈希与基线相同，无法证明 A2 被正式服务加载。`report.md` 写 BW100 ×2，与用户确认的 BW1000 冲突；其 GSM8K 数值缺原始评测。`代码改动.patch` 仅含 `num_warps=1→2`，不证明正式服务已加载。不能将这些材料直接覆盖仓库 `report.md`。
+- DCU 整理稿 `优化后.md` 曾声称 JobID 934852 的 64K/C128 三轮及 ShareGPT 为优化版正式结果；后续补包已补到 934852 的 **4K C128 与 64K C1/8/16/32** 原始目录，但该包没有 64K C128 正式档位，也不能证明 ShareGPT 为统一服务会话。`Qwen38_DCU_优化与实验记录汇总.md` 指出 live A2 内核哈希与基线相同，无法证明 A2 被正式服务加载。其 `report.md` 写 BW100 ×2，与用户确认的 BW1000 冲突；GSM8K 数值缺原始评测。`代码改动.patch` 仅含 `num_warps=1→2`，不证明正式服务已加载。不能将这些材料直接覆盖仓库 `report.md`。
 
 ## 逐项清单
 
@@ -30,35 +30,35 @@
 - 仓库文件：历史目录、`scripts/bench_strict_4k64k.sh`、`scripts/run.sh`；新增补包尚未公开入库。补包还含 JobID 934852 服务日志与三份后续 ShareGPT 目录。早期 ShareGPT 运行失败/中断；warp1 C1 与恢复后的 C4/C16/C32/C64 分属不同服务会话，不能拼作统一正式成绩。
 - 赛题详情核对：用户提供的 PDF 第 1—4 页指定 SGLang 2 卡、ShareGPT 与固定长度随机负载，以及输出吞吐、TTFT、TPOT 和 SLA 最大并发；第 7—9 页列出 BW100/K100-AI 的 ShareGPT C1/4/16/32/64、4K C1/8/16/32/64/128、64K C1/8/16/32 基线与各自 SLA。30 轮 934852 日志的场景和档位与随机负载表对应，但官方镜像/脚本来源尚未证实，PDF 没有 BW1000 基线或 SLA，也把综合评分归一化方法留待最终文档。第 2 页四项精度最低值见 `report.md`；本地无对应原始精度输出。
 - 自测基线核验：用户确认 BW1000 使用自测基线。10 月 7 日 4K/64K 三轮历史日志可作基线候选，与 JobID 934852 对应的全部 30 轮 `benchmark_args` 除输出路径外一致；但候选目录仅有 benchmark 输出，尚无当时服务启动、同节点硬件驱动/软件环境、官方镜像及框架默认参数的原件，不能据此认定满足自测基线三条规则。ShareGPT 历史候选与 10 月 16 日复测的五档客户端参数也除输出路径外一致；后续 warp1 结果再多服务端口差异 18580→18581，且跨会话。上述一致性不证明服务端配置或同窗环境相同。
-- 阻塞/下一步：请补充或定位基线服务启动日志、节点/驱动环境快照、官方镜像/默认配置与脚本来源、四类原始日志；确认 BW1000 SLA 和最终评分口径，并核实代码实际生效及 ShareGPT 正式统一运行。需要新计算任务时另行明确授权。按用户本轮逐项指令，**P0-01 未完成前暂停后续事项**。
+- 阻塞/下一步：请补充或定位基线服务启动日志、节点/驱动环境快照、官方镜像/默认配置与脚本来源、四类原始日志；确认 BW1000 SLA 和最终评分口径，并核实代码实际生效及 ShareGPT 正式统一运行。需要新计算任务时另行明确授权。用户现要求不要卡在单一问题上；因此只推进不依赖 P0-01 的静态证据整理，后续事项不标 DONE。
 - 补充修改：`report.md` 已加入从现有原始日志重算的 4K/64K 历史基线表、单轮 4K 复测表及 ShareGPT P99；10 行基线、4 行 4K 复测与 5 行 ShareGPT 数值逐项用原始 `.log` 验证通过。新补包到位后，另增 JobID 934852 的 10 行三轮均值和 ShareGPT 分会话说明。此前非交互 SSH 无法解析 `zz-login02`；材料由用户自行上传。
 - 新发现：重新核对原始压缩包 `submission_materials_20261017_155641.tar.gz` 后，找回独立 C64 单轮 `c64.log` 与 `c64.jsonl`，两者与已解压副本逐字节一致，SHA256 分别为 `eb648fe9409742f41a53047b35b46afe3140fd5d46edfa5971db73c420226f81`、`35cf26d1da3a2198163dda8b7408f7ee688209243bde16336e2e7585ad304a05`。已保留原件并复制入 `source/results/final_4k_c64_20261017_020528/`。日志记载 C64、128 成功请求、599.19 tok/s、TTFT 18836.21 ms、TPOT 71.75 ms、P99 E2E 179577.53 ms；`.jsonl` 汇总字段与日志一致。其 backend=`sglang`，历史基线 C64 为 `sglang-oai-chat`，且只有单轮，不能计算正式提升率。
 - 旧原始压缩包中的 `strict_4k64k_job933420/` 只有完整 4K C1 三轮及 C8 run1，C8 run2 中断；`strict_4k64k_job934173/` 只有服务日志。这些是部分/中断测试，不能代替现已补到的 934852。赛题规则文本把精确评测口径指向飞书详情页；该页跳转登录，正式协议未核实。
 - 已验证的历史值（仅为基线/跨会话复测）：直接解析每份 `c*_run*.log` 的 `Successful requests` 与 `Output token throughput`。4K 基线 C1/8/16/32/64/128 均有 3 轮，成功请求每轮分别 8/16/32/64/128/256，三轮平均吞吐依次 26.44/218.96/368.24/555.59/559.95/606.17 tok/s；64K 基线 C1/8/16/32 均有 3 轮，成功请求每轮 8/16/32/64，平均吞吐 17.51/47.08/48.56/47.44 tok/s。与 DCU `基线.md` 吞吐列一致。ShareGPT 历史基线五档各单轮 1000 成功请求，吞吐 21.15/80.30/184.24/239.20/281.84；10/16 复测五档各单轮 1000 成功请求，吞吐 25.38/112.07/320.15/467.39/570.86。**只验证这些日志中的成功数和吞吐，不代表官方协议、同环境或最终成绩通过验收。**
 
-### P0-02 硬件、驱动和软件环境声明 — BLOCKED，P0（最后更新：2026-10-18 11:43 CST）
+### P0-02 硬件、驱动和软件环境声明 — BLOCKED，P0（最后更新：2026-10-18 CST）
 
 - 完成标准：`env_declare.yaml` 的关键字段对应正式测试的同节点快照与模型校验原件，未知项明确标记。
 - 已检查/验证：现有 YAML 保留 TODO。DCU 汇总称 JobID 935993 节点 `a01r3n15` 有 8 张显示为 `BW` 的 HCU、驱动 `6.3.31-V1.5.0a`、DTK 26.04、HSW 拓扑，且模型 33 文件清单；**该节点快照不是 JobID 934852 的正式测试证据**。DAS 25.6 仅为可用模块线索，33 条完整 OK 校验日志未见。
-- 仓库文件：`env_declare.yaml`、`source/results/strict_formal_20261017_155319/provenance.txt`。原件：`C:/Users/admin/Desktop/DCU/Qwen38_DCU_优化与实验记录汇总.md`。
+- 仓库文件：`env_declare.yaml`；较早不完整运行的 `source/results/strict_formal_20261017_155319/provenance.txt`。正式测试原件：用户补包 `q38_late_results.tar.gz` 内 `results/strict_4k64k_job934852/provenance.txt`（包 SHA256 见 P0-01）。该文件直接记录节点 `a01r3n19`、JobID `934852`、服务 PID `653002`、启动时间、TP=2、BF16、SGLang/Torch/Triton 版本及启动参数；已据此校正 YAML 的启动来源和可证字段。另有旁证：`C:/Users/admin/Desktop/DCU/Qwen38_DCU_优化与实验记录汇总.md`。
 - 未解决/下一步：找回正式测试时 `hy-smi`、CPU/内存/OS、驱动、模块、权重 SHA256 验证全文；确认 BW1000 组别和所用 HCU 编号。未知字段不能由 935993 旁证覆盖。Feishu 赛题详情链接经联网只读访问返回不可访问，搜索该页面标识也没有结果；无法独立核实官方细则。当前 Windows 机器不是集群计算节点，不能从本机硬件代填。没有对 `env_declare.yaml` 填入未证实值。
 - 补充修改：`report.md` 明确列出 935993 快照与正式测试不是同一作业；`env_declare.yaml` 在拓扑、驱动、模型哈希的 TODO 旁标注 DCU 汇总提供的线索及为什么不能代填。正式字段继续保留 TODO。
 
-### P0-03 精度评测与结果证据 — BLOCKED，P0（最后更新：2026-10-18 04:56 CST）
+### P0-03 精度评测与结果证据 — BLOCKED，P0（最后更新：2026-10-18 CST）
 
 - 完成标准：核实官方 BF16 精度协议；有最终方案的配置、逐题原始输出、汇总和阈值判定。
-- 已检查/验证：在 DCU 文件夹和已知本地项目文件中按 GSM8K、MathVision、LiveCodeBench、accuracy 等文件名搜索，没有找到原始逐题结果。DCU `report.md` 声称 GSM8K 96.347%，但无对应原始记录；不能沿用。仓库文件：`report.md`。阻塞/下一步：提供精度评测原始目录和官方协议；若需新 GPU 评测，夜间规则禁止未经授权启动。
+- 已检查/验证：在 DCU 文件夹和已知本地项目文件中按 GSM8K、MathVision、LiveCodeBench、accuracy 等文件名搜索，没有找到原始逐题结果。赛题 PDF 第 2 页列 GSM8K、LiveCodeBench v6、RealWorldQA、MathVision (Without CI) 准入值 95.0/88.3/83.9/88.0，降幅不超过 2 个百分点；已记录于 `report.md`。DCU `report.md` 声称 GSM8K 96.347%，但无对应原始记录，不能沿用。仓库文件：`report.md`。阻塞/下一步：提供四项精度评测原始目录、评分脚本和服务版本关联；若需新 GPU 评测，未经授权不启动。
 
 ### P0-04 固定最终优化版本与生效证据 — BLOCKED，P0（最后更新：2026-10-18 04:56 CST）
 
 - 完成标准：正式结果可关联准确的代码 commit/patch、启动命令、进程环境和 live 文件哈希。
 - 已检查/验证：`source/results/submission_audit_20261017_150109/warnings.txt` 有 `LATEST_KERNEL_NOT_PROVEN` 和 `ORIGINAL_LAUNCH_NOT_SPECIFIED`；同目录 `audit.json` 记录安装文件 SHA256 `a7e469f8…` 与 A2 baseline 相同，A3 warp2 候选为 `a9ec351b…`。DCU 汇总也明确 A2 live 文件与基线一致。DCU `代码改动.patch` 与仓库 A3 diff 的实际修改同为 `num_warps=1→2`，只是目标路径/上下文不同，不证明服务加载。阻塞/下一步：提供 JobID 934852 测试时 live 文件哈希、启动进程、安装包版本及最终代码 commit/patch 应用记录；未取得前不得宣称 A2 或该 patch 已生效。
 
-### P0-05 正式日志与辅助证据索引 — BLOCKED，P0（最后更新：2026-10-18 04:56 CST）
+### P0-05 正式日志与辅助证据索引 — BLOCKED，P0（最后更新：2026-10-18 CST）
 
 - 完成标准：正式成绩可沿索引追到原始日志、命令、环境、时间戳及至少三张真实截图；保留历史/失败记录。
 - 已检查/验证：`source/results/` 的 4K 基线有 33 份 `.log`、18 份 `.jsonl`；64K 基线 20 份 `.log`、12 份 `.jsonl`；ShareGPT 基线 13 份 `.log`、5 份 `.jsonl`；10/16 ShareGPT 复测 11 份 `.log`、5 份 `.jsonl`；10/17 `final_retest` 6 份 `.log`、4 份 `.jsonl`；15:53 `strict_formal` 只有 1 份 `.log`、无 `.jsonl`。仓库未找到截图图像、硬件原始输出、JobID 934852 目录或精度目录。`logs/` 不存在；不为形式复制或重命名。
-- 现有证据索引：历史基线→`source/results/sglang_bf16_4k_20261007_163756/`、`sglang_bf16_64k_20261007_201746/`、`sglang_bf16_sharegpt_893107/`；跨会话复测→`source/results/sharegpt_retest_20261016_011410/`；部分复测→`source/results/final_retest_20261017/`；不完整严格运行→`source/results/strict_formal_20261017_155319/`；代码/启动审计→`source/results/submission_audit_20261017_150109/`。**无目录可被标为已核实最终成绩。**
+- 现有证据索引：历史基线→`source/results/sglang_bf16_4k_20261007_163756/`、`sglang_bf16_64k_20261007_201746/`、`sglang_bf16_sharegpt_893107/`；跨会话复测→`source/results/sharegpt_retest_20261016_011410/`；部分复测→`source/results/final_retest_20261017/`；不完整严格运行→`source/results/strict_formal_20261017_155319/`；代码/启动审计→`source/results/submission_audit_20261017_150109/`。用户补包内 `results/strict_4k64k_job934852/` 是已核验 30 轮 4K/64K 实测原件；同包 `sharegpt_baseline_envfix_20261017_165431/` 和 `sharegpt_retest_hcu23_20261017_190126/` 为中断/失败记录，`sharegpt_warp1_baseline_20261017_213815/` 与其 resume 子目录跨会话。补包尚未公开入库，**尚无目录可被标为赛事已验收最终成绩。**
 - 阻塞/下一步：补齐正式服务、benchmark、硬件驱动、结束统计及时间戳四类原始日志和至少 3 张真实截图，随后按最终成绩建索引；不得用 DCU 整理文字替代原件。
 
 ### P0-06 最终报告与论坛材料 — BLOCKED，P0（最后更新：2026-10-18 11:43 CST）
@@ -98,7 +98,8 @@
 - 2026-10-18 12:18 CST，用户明确 BW1000 使用自测基线。按赛事规则重查候选材料：10 月 7 日历史基线有三轮 benchmark 输出，逐轮比较 30 组 benchmark 参数与 934852 除输出路径外相同；但缺候选测试当时服务、同机环境与官方默认配置原件。修订 README、报告和 P0-01 阻塞原因；未把候选升级为合规基线，也未启动新计算。
 - 2026-10-18 12:45 CST，继续 P0-01 静态检查：934852 的 30 份正式 JSONL 各只有单行汇总，ShareGPT 五份结果亦同；`output_details=False`。据此明确“日志与 JSONL 指标一致”并非“从逐请求数据独立重算 P99”；更新报告与本清单，等待用户整理的基线包。
 - 2026-10-18 12:45 CST，继续 P0-01 客户端参数核验：ShareGPT 历史候选与 10 月 16 日复测五档一致；warp1 五档除端口外也一致，但跨服务会话。只证明客户端测试参数相似，未升级正式对照结论。
+- 2026-10-18，用户要求加快并在 P0-01 等待基线材料期间推进独立事项。P0-02：复核补包中 934852 `provenance.txt`，校正 `env_declare.yaml`、`report.md` 和 `README.md` 的正式启动证据来源，补入 JobID、节点、PID、时间及可证启动参数；未填驱动、CPU、镜像、模型哈希。P0-03：将 PDF 四项精度门槛与缺少逐题原件的状态写入清单。P0-05：补上 934852 和 ShareGPT 失败/分会话目录的索引，保持 BLOCKED。未启动 GPU 作业，未改原始日志。
 
 ## 断点恢复
 
-先读取本清单，检查 GitHub `main` 与本地文件是否一致，再验证上述证据仍存在。已收到的赛题 PDF 原件位于用户桌面；后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`。`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件。**论坛回复仍未发布**。优先补齐 BW1000 自测默认基线的同机、同软件环境、官方配置与原始日志证据，再核对剩余正式结果；从 P0-01 恢复，P0-01 通过验收前不推进 P0-02。P1-01/P1-02 仍未启动。
+先读取本清单，检查 GitHub `main` 与本地文件是否一致，再验证上述证据仍存在。已收到的赛题 PDF 原件位于用户桌面；后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`。`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件。**论坛回复仍未发布**。优先补齐 BW1000 自测默认基线的同机、同软件环境、官方配置与原始日志证据；同时允许推进不依赖该证据的静态核验。P0-02/P0-03/P0-05 均未达到 DONE，P1-01/P1-02 仍未启动。
