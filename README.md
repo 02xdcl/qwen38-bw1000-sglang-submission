@@ -21,7 +21,7 @@
 bash scripts/run.sh
 ```
 
-该脚本依次运行 ShareGPT 并发 C1/C4/C16/C32/C64，每档 1 次预热及 1 次正式测试，每次正式测试 1000 请求。原始脚本及原始结果均保存在 `source/`。严格 4K/64K 测试由 `scripts/bench_strict_4k64k.sh OUTPUT_DIR` 执行，前提是唯一 SGLang 服务已在端口 18580 运行；其本次归档中的 15:53 运行仅完成部分 4K C1 预热，不可作为完整成绩。
+该脚本依次运行 ShareGPT 并发 C1/C4/C16/C32/C64，每档 1 次预热及 1 次正式测试，每次正式测试 1000 请求。原始脚本及原始结果均保存在 `source/`。严格 4K/64K 测试由 `bash scripts/bench_strict_4k64k.sh OUTPUT_DIR` 执行，前提是唯一 SGLang 服务已在端口 18580 运行；其本次归档中的 15:53 运行仅完成部分 4K C1 预热，不可作为完整成绩。
 
 ## 文件说明
 
