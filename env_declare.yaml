@@ -14,7 +14,7 @@ run:
   job_id: "934852"
   node: "a01r3n19"
   server_pid: 653002
-  start_time: "2026-10-17T16:27:53+08:00"
+  provenance_capture_time: "2026-10-17T16:27:53+08:00"
   tp_size: 2
   context_length: 131072
   max_running_requests: 128
