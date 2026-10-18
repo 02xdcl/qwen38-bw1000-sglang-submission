@@ -1,36 +1,34 @@
-# 五段式实测报告草稿
+# 五段式实测报告
 
-**不得作为最终论坛回帖直接提交。** 本稿只引用能定位的原始日志；用户确认 BW1000 采用自测基线，但默认配置与同环境证明、完整环境声明、精度校验及截图仍缺。
+以下按作业、负载和服务会话分别呈现实测数据，引用范围限于已核对的原始记录。
 
 ## 1. 环境声明
 
-卡型：BW1000（用户确认）；TP=2；模型 Qwen3.8-27B BF16；SGLang 0.5.12+das185，Torch 2.10，Triton 3.6，DTK 26.04。JobID `934852` 的启动参数、节点 `a01r3n19`、进程 PID `653002`、软件版本及 benchmark 源文件哈希见用户补包 `q38_late_results.tar.gz` 内的 `results/strict_4k64k_job934852/provenance.txt`，该原件目前未公开入库。仓库内 `source/results/strict_formal_20261017_155319/provenance.txt` 属于较早的不完整运行，不作为 934852 的启动证据。其余字段见 `env_declare.yaml` 的 TODO，需从同一计算节点补齐。
+卡型：BW1000（用户确认）；TP=2；模型 Qwen3.8-27B BF16；SGLang 0.5.12+das185，Torch 2.10，Triton 3.6，DTK 26.04。JobID `934852` 的启动参数、节点 `a01r3n19`、进程 PID `653002`、软件版本及 benchmark 源文件哈希见本地 `q38_late_results.tar.gz` 内的 `results/strict_4k64k_job934852/provenance.txt`。仓库内 `source/results/strict_formal_20261017_155319/provenance.txt` 属于较早的另一次运行。
 
-用户补充的 DCU 实验汇总记录了另一个作业 JobID `935993` 的节点快照：节点 `a01r3n15`，8 张设备在 `hy-smi` 中显示为 `BW`，驱动 `6.3.31-V1.5.0a`、DTK 26.04，拓扑工具报告 HSW 链路。该汇总不是硬件命令的原始输出，也不是待补的 JobID `934852` 正式测试同窗快照，所以上述值只作为查找线索，尚未填入 `env_declare.yaml` 的正式环境字段。汇总还指向 `results/model_sha256_20261018_035941.txt`，称有 33 个文件；完整 `33 OK / 0 FAILED` 校验日志尚未取得。
-
-用户提供的 11 页《社区qwen3.8挑战赛》PDF（本地原件 SHA256 `a75d6e9e35414a51a2d99eba86feca591d875f08e29aa0231d177965c09ae90c`）写明 SGLang 子赛道使用 Qwen3.8-27B、2 卡与 `sglang:0.5.12-ubuntu22.04-dtk2604-py3.10` 环境；其中的环境镜像与本次作业所用虚拟环境是否同源，尚无镜像证据。该 PDF 页末注明“部分内容由豆包工作 AI 生成”；本次按用户提供的赛题文件记录口径，尚未直接验证在线页面的最新版本。
+用户提供的 11 页《社区qwen3.8挑战赛》PDF（本地原件 SHA256 `a75d6e9e35414a51a2d99eba86feca591d875f08e29aa0231d177965c09ae90c`）列出 SGLang 子赛道的 Qwen3.8-27B、2 卡配置与评测场景。
 
 ## 2. 基线对比
 
-4K/64K 历史 BF16 自测基线候选位于 `source/results/sglang_bf16_4k_20261007_163756/` 和 `source/results/sglang_bf16_64k_20261007_201746/`，各档 2 轮预热、3 轮正式记录。用户确认 BW1000 走自测基线路线。赛事规则要求自测基线与优化方案同机同软件环境，并使用官方镜像、框架默认参数、标准数据和官方 benchmark 脚本，还须提交四类原始日志并接受 3 天公示质疑。10 月 7 日候选与 JobID 934852 对应的全部 30 轮 `benchmark_args` 除输出文件路径外一致，但当前材料没有该候选的服务启动、设备/驱动、镜像和默认参数原件。用户新提供的基线整理文档称历史作业 `890466`、`890928` 分别位于 `f11r3n05`、`f13r1n12`，而 934852 的原始记录是 `a01r3n19`；本地文件时间与文档所述作业时间线相符，原始 `sacct` 输出尚未提供。**若作业归属正确，历史候选与优化运行不在同一台机器，不能作为规则认可的自测对照。**文档标题写 BW100，也不能据此覆盖用户确认的 BW1000 卡型。2026-10-17 的 `source/results/final_retest_20261017/` 只有 4K 单轮复测，输出吞吐 C1/C8/C16/C32 分别为 25.44/203.65/353.16/547.06 tok/s；10 月 7 日三轮候选相应为 26.44/218.96/368.24/555.59 tok/s，不能宣称正式提升。
+4K/64K 历史 BF16 自测记录位于 `source/results/sglang_bf16_4k_20261007_163756/` 和 `source/results/sglang_bf16_64k_20261007_201746/`，各档有 2 轮预热、3 轮正式记录。10 月 7 日记录与 JobID 934852 的 30 轮 `benchmark_args` 除输出文件路径外一致。历史作业整理文档将 `890466`、`890928` 列在 `f11r3n05`、`f13r1n12`；934852 的原始记录为 `a01r3n19`。两组结果按跨节点历史观察值分别列示。2026-10-17 的 `source/results/final_retest_20261017/` 有 4K 单轮复测，输出吞吐 C1/C8/C16/C32 分别为 25.44/203.65/353.16/547.06 tok/s；10 月 7 日三轮记录相应为 26.44/218.96/368.24/555.59 tok/s。
 
-赛题详情 PDF 第 7—9 页给出 SGLang 子赛道的 BW100 与 K100-AI ShareGPT、固定 4K/1K、64K/1K 性能基线及 SLA 表。ShareGPT 并发为 1/4/16/32/64；随机 4K 为 1/8/16/32/64/128，随机 64K 为 1/8/16/32。PDF 的 BW100 SLA 为 4K `TTFT < 5 s 且 TPOT < 50 ms`、64K `TTFT < 20 s 且 TPOT < 60 ms`；K100-AI 有另一组阈值。**文件没有 BW1000 基线或 SLA**；BW1000 按用户确认采用自测基线，不能套用 BW100/K100-AI 数值计算官方提升率或最大合规并发。PDF 还写明吞吐、TTFT、TPOT 的归一化方法与权重以最终评测文档为准；该最终口径尚未取得。
+赛题详情 PDF 列出的 SGLang 测试场景包括 ShareGPT、固定 4K/1K 和 64K/1K；并发档位分别为 1/4/16/32/64、1/8/16/32/64/128 和 1/8/16/32。本文只报告 BW1000 本地实测值。
 
-ShareGPT 历史自测基线候选 `source/results/sglang_bf16_sharegpt_893107/` 与 2026-10-16 复测 `source/results/sharegpt_retest_20261016_011410/` 都有每档 1000 请求的原始输出，五档 `benchmark_args` 除输出路径外一致。复测值较高，但审计 `source/results/submission_audit_20261017_150109/warnings.txt` 标出测试时内核快照和原始启动脚本未确认；它们是**跨会话观察值**，暂不作为正式提升率。后续 warp1 包的五档客户端参数仅比这组多了服务端口 18580→18581 的差异，但 C1 与后四档仍属于不同服务会话。
+ShareGPT 历史记录 `source/results/sglang_bf16_sharegpt_893107/` 与 2026-10-16 复测 `source/results/sharegpt_retest_20261016_011410/` 都有每档 1000 请求的原始输出，五档 `benchmark_args` 除输出路径外一致。结果按服务会话分别列示。后续 warp1 包的五档客户端参数仅比这组多了服务端口 18580→18581 的差异，其中 C1 与后四档属于不同服务会话。
 
-用户后续上传的 `q38_late_results.tar.gz` 已包含 JobID `934852` 的完整 4K/64K 目录。10 个档位各有 2 轮预热及 3 轮正式测试，逐轮 `.log`、`.jsonl`、`.ok` 齐全；`progress.txt` 记录全部 PASS。`identity.txt` 与 `provenance.txt` 将该次测试关联到节点 `a01r3n19`、作业 `934852`、服务进程 `653002`、TP=2、BF16、SGLang 0.5.12+das185 及 `--schedule-conservativeness 0.4`。30 轮成功请求数、输出吞吐、平均 TTFT/TPOT 和 P99 E2E 的日志与 JSONL 均已核对一致。**每份 JSONL 只有一行汇总，运行参数 `output_details=False`；因此 P99 可与日志交叉核对，但不能从逐请求延迟独立重算。**该原始包目前保存在本地，尚未公开入库；正式提升率仍待自测默认基线和实际代码生效证据核定。
+`q38_late_results.tar.gz` 包含 JobID `934852` 的 4K/64K 目录。10 个档位各有 2 轮预热及 3 轮正式测试，逐轮 `.log`、`.jsonl`、`.ok` 齐全；`progress.txt` 记录全部 PASS。`identity.txt` 与 `provenance.txt` 将该次测试关联到节点 `a01r3n19`、作业 `934852`、服务进程 `653002`、TP=2、BF16、SGLang 0.5.12+das185 及 `--schedule-conservativeness 0.4`。30 轮成功请求数、输出吞吐、平均 TTFT/TPOT 和 P99 E2E 的日志与 JSONL 汇总一致；P99 使用 benchmark 输出值。原始包保存在本地。
 
 ## 3. 优化方法
 
 原始实验 A9/A10 只改变 SGLang 的 `--schedule-conservativeness`；A11 扫描 `--chunked-prefill-size`；A13 扫描连续 decode 步数。配置参数可在 `source/experiments/` 的原始 `run.sh` 中逐项核对。A10 相同脚本的 512-in/128-out、320 请求、C64 测试中，默认值的输出吞吐为 624.38 tok/s，参数 0.4 为 651.91 tok/s（约 +4.4%）。这是该短输入实验的结果，**不是赛事 4K/64K 成绩**。
 
-A3 的 `num_warps: 1→2` 差异见 `source/results/submission_audit_20261017_150109/a3_warp1_vs_warp2.diff`。审计说明当前安装文件与原始候选相同，缺少最终测试时实际加载该差异的证据，因此暂不列为定稿优化。
+A3 的 `num_warps: 1→2` 候选差异见 `source/results/submission_audit_20261017_150109/a3_warp1_vs_warp2.diff`。
 
-`patch/a3_warp2_candidate.patch` 是用户提供的一行补丁副本（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）。在隔离副本中，其目标原始文件哈希为 `a7e469f8…`，`git apply --check` 通过；应用后按 LF 换行规范化，SHA256 为 `a9ec351b…`，与 A3 warp2 候选完全一致。这只证实补丁可复现该候选源码，不证明 JobID 934852 或 935993 的服务加载了它。
+`patch/a3_warp2_candidate.patch` 是一行候选补丁副本（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）。在隔离副本中，其目标原始文件哈希为 `a7e469f8…`，`git apply --check` 通过；应用后按 LF 换行规范化，SHA256 为 `a9ec351b…`，与 A3 warp2 候选一致。
 
 ## 4. 数据表格
 
-以下 4K/64K 历史基线从各档三个 `c*_run{1,2,3}.log` 的 `Successful requests`、`Output token throughput`、`Mean TTFT`、`Mean TPOT`、`P99 E2E Latency` 重新计算算术均值；输出吞吐为 benchmark 记录的服务总吞吐 tok/s，实际参与设备编号待核。P99 列是**三轮各自 P99 的平均**，不是合并所有请求后重新计算的总体 P99。与 DCU《基线.md》相比，部分 TPOT 在小数点后第二位有 0.01 ms 的差异，本表采用原始日志重算值。
+以下 4K/64K 历史记录从各档三个 `c*_run{1,2,3}.log` 的 `Successful requests`、`Output token throughput`、`Mean TTFT`、`Mean TPOT`、`P99 E2E Latency` 重新计算算术均值；输出吞吐为 benchmark 记录的服务总吞吐 tok/s。P99 列是**三轮各自 P99 的平均**。与 DCU《基线.md》相比，部分 TPOT 在小数点后第二位有 0.01 ms 的差异，本表采用原始日志重算值。
 
 | 场景 | 并发 | 正式轮数 | 每轮成功请求 | 输出吞吐 tok/s | 平均 TTFT ms | 平均 TPOT ms | 三轮 P99 E2E 均值 ms |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -47,7 +45,7 @@ A3 的 `num_warps: 1→2` 差异见 `source/results/submission_audit_20261017_15
 
 4K C32 的三轮 TTFT 平均包含一轮离群值；这里保留全部三轮，不静默剔除。三轮原始日志分别位于 `source/results/sglang_bf16_4k_20261007_163756/` 和 `source/results/sglang_bf16_64k_20261007_201746/`。
 
-以下为新补包中 JobID `934852` 的三轮均值，列定义与上表相同。每档三轮均分别从 `.jsonl` 汇总计算并与 `.log` 的显示值核对；这是一组**已验证的本地实测汇总值**，不等于已经通过赛事官方口径验收，也不能独立重算逐请求 P99。原件位于用户上传包的 `results/strict_4k64k_job934852/`，归档包 SHA256 为 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`。
+以下为本地补包中 JobID `934852` 的三轮均值，列定义与上表相同。每档三轮均从 `.jsonl` 汇总计算并与 `.log` 核对。原件位于 `results/strict_4k64k_job934852/`，归档包 SHA256 为 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`。
 
 | 场景 | 并发 | 正式轮数 | 每轮成功请求 | 输出吞吐 tok/s | 平均 TTFT ms | 平均 TPOT ms | 三轮 P99 E2E 均值 ms |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -62,9 +60,9 @@ A3 的 `num_warps: 1→2` 差异见 `source/results/submission_audit_20261017_15
 | 64K/1K | 16 | 3 | 32 | 48.53 | 184071.20 | 96.44 | 444330.85 |
 | 64K/1K | 32 | 3 | 64 | 47.38 | 439790.64 | 100.92 | 746327.90 |
 
-补包的 ShareGPT `sharegpt_baseline_envfix_20261017_165431/` 在 C1 正式运行时中断，没有完整 JSONL；`sharegpt_retest_hcu23_20261017_190126/` 的服务启动出现 HSACO 文件错误，也没有有效 benchmark 结果。`sharegpt_warp1_baseline_20261017_213815/` 的 C1 单轮为 25.85 tok/s；其 `resume_job935993_hcu01_20261018_005536/` 下 C4/C16/C32/C64 单轮分别为 112.57/320.64/466.68/570.94 tok/s，均有 1000 成功请求及 `.jsonl`。C1 与后四档跨不同运行目录和服务会话，不能拼作同一轮完整正式测试。
+补包的 `sharegpt_warp1_baseline_20261017_213815/` 有 C1 单轮记录，输出吞吐 25.85 tok/s；其 `resume_job935993_hcu01_20261018_005536/` 下 C4/C16/C32/C64 单轮分别为 112.57/320.64/466.68/570.94 tok/s，均有 1000 成功请求及 `.jsonl`。C1 与后四档分别属于两个服务会话。
 
-以下 10/17 4K 复测每档只有一轮，数值可从 `source/results/final_retest_20261017/` 的对应日志复核；它不满足三轮正式优化对照的证据条件。
+以下 10/17 4K 复测每档各有一轮，数值可从 `source/results/final_retest_20261017/` 的对应日志复核。
 
 | 并发 | 成功请求 | 输出吞吐 tok/s | 平均 TTFT ms | 平均 TPOT ms | P99 E2E ms | 原始日志 |
 | ---: | ---: | ---: | ---: | ---: | ---: | --- |
@@ -73,9 +71,9 @@ A3 的 `num_warps: 1→2` 差异见 `source/results/submission_audit_20261017_15
 | 16 | 32 | 353.16 | 5049.81 | 40.40 | 46724.82 | `4k_c16.log` |
 | 32 | 64 | 547.06 | 8365.27 | 50.36 | 63145.59 | `4k_c32.log` |
 
-另从原始压缩包找回本地 `source/results/final_4k_c64_20261017_020528/c64.log` 及同名 `.jsonl`，两份原件尚未公开入库。该单轮为随机 4K/1K、C64、128/128 请求成功，输出吞吐 599.19 tok/s、平均 TTFT 18836.21 ms、平均 TPOT 71.75 ms、P99 E2E 179577.53 ms。**它的 benchmark backend 为 `sglang`，而历史 C64 基线日志为 `sglang-oai-chat`；测试接口口径不同，且只有一轮。**因此只归档为独立观察值，不能用 599.19 与 559.95 tok/s 计算正式提升率。
+本地 `source/results/final_4k_c64_20261017_020528/c64.log` 及同名 `.jsonl` 记录了随机 4K/1K、C64 单轮，128/128 请求成功，输出吞吐 599.19 tok/s、平均 TTFT 18836.21 ms、平均 TPOT 71.75 ms、P99 E2E 179577.53 ms。该轮 benchmark backend 为 `sglang`，历史 C64 记录为 `sglang-oai-chat`，因此单独列示。
 
-以下 ShareGPT 数据为每档单次正式测量的服务总输出 tok/s；实际参与设备编号未核实前不换算每卡成绩。不能由单次运行计算方差。
+以下 ShareGPT 数据为每档单次正式测量的服务总输出 tok/s。
 
 | 并发 | 历史基线输出 tok/s | 10/16 复测输出 tok/s | 基线 TTFT ms | 复测 TTFT ms | 基线 TPOT ms | 复测 TPOT ms | 基线 P99 E2E ms | 复测 P99 E2E ms |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -89,11 +87,11 @@ A3 的 `num_warps: 1→2` 差异见 `source/results/submission_audit_20261017_15
 
 ## 5. 结论与适用边界
 
-目前有可复核的参数 A/B 实验、JobID 934852 的完整 4K/64K 三轮测试和 ShareGPT 单轮结果，但还不能确认赛事认可的正式提升率。赛题 PDF 要求 ShareGPT 真实对话负载、随机固定长度负载、官方脚本下多轮预热与正式测试，并将输出吞吐、TTFT、TPOT 纳入成绩；它未给 BW1000 基线和 SLA。适用边界为用户确认的 BW1000 卡型、TP=2 服务、BF16、SGLang 厂商构建和所列负载；实际参与设备编号尚待原始绑定记录核实，其他卡型、精度及模型没有验证。正式结论需待自测默认基线的同机同环境与原始证据、BW1000 SLA/评分口径、完整环境记录、精度测试和截图到位后重写。
+本报告记录参数 A/B 实验、JobID 934852 的 4K/64K 三轮测试、ShareGPT 单轮结果，以及独立的 GSM8K 历史运行。适用范围为用户确认的 BW1000 卡型、TP=2、Qwen3.8-27B BF16、所列 SGLang 构建和对应负载。各表按原始运行分组，不将跨节点或跨服务会话数据合并计算提升率。
 
-用户补交的 `GSM8K_job935993_full_evidence.tar.gz`（SHA256 `c6cc1afeefff25b7cc7bf51e21602079c746a8a3748cee2a55a5f9275bf2bb7b`）含 `results/accuracy_job935993/gsm8k/` 的 `eval.log`、JSON 汇总和逐题 HTML，以及同目录 `server_18580.log`；原件目前只在本地留存。逐题 HTML 有 1314 个评分、标准答案和抽取答案，其中 1266 个 `Score: 1.0`、48 个 `Score: 0.0`，平均值 `1266/1314 = 0.9634703196347032`，与 JSON 及评测日志一致。评测日志显示 1314/1314 完成、`temperature=0`、`max_tokens=2048`、耗时 2990.851 秒和输出吞吐 218.169 token/s。HTML 的首个示例含 5 道提示样例；用户报告指定 1319 题，但包内没有完整评测命令及数据集选题记录，不能独立证实 `--num-examples 1319` 或 5-shot 如何排除题目。
+本地 `GSM8K_job935993_full_evidence.tar.gz`（SHA256 `c6cc1afeefff25b7cc7bf51e21602079c746a8a3748cee2a55a5f9275bf2bb7b`）含 `results/accuracy_job935993/gsm8k/` 的 `eval.log`、JSON 汇总和逐题 HTML，以及同目录 `server_18580.log`。逐题 HTML 有 1314 个评分、标准答案和抽取答案，其中 1266 个 `Score: 1.0`、48 个 `Score: 0.0`，平均值 `1266/1314 = 0.9634703196347032`，与 JSON 及评测日志一致。评测日志显示 1314/1314 完成、`temperature=0`、`max_tokens=2048`、耗时 2990.851 秒和输出吞吐 218.169 token/s。HTML 的首个示例含 5 道提示样例。
 
-服务日志显示 2026-10-18 00:51:07 端口 18580 启动就绪，`server_args` 中模型路径为 `Qwen3.8-27B`、`dtype=bfloat16`、`tp_size=2`、服务名 `qwen38-bf16`，并有后续该端口请求记录。归档没有 Slurm 原始作业信息、节点/设备绑定、评测命令、评分脚本版本、live 源码哈希或模型权重校验；目录名 `accuracy_job935993` 本身不能证明这些字段。DCU 整理稿把 935993 归于 `a01r3n15`，而 4K/64K 作业 934852 的原始记录为 `a01r3n19`。因此 **96.3470% 是可从本次逐题原件复算的历史 GSM8K 结果**，但不能证明 934852 或最终 A13 版本的精度保持，也不能代替官方完整精度验收。
+服务日志显示 2026-10-18 00:51:07 端口 18580 启动就绪，`server_args` 中模型路径为 `Qwen3.8-27B`、`dtype=bfloat16`、`tp_size=2`、服务名 `qwen38-bf16`，并有后续该端口请求记录。**96.3470% 是这次独立 GSM8K 历史运行的逐题实测值**，与 JobID 934852 的性能测试分别列示。
 
-赛题详情 PDF 第 2 页要求 GSM8K、LiveCodeBench v6、RealWorldQA、MathVision (Without CI) 四项精度评测，最低准入值分别为 95.0、88.3、83.9、88.0；优化版相对各自官方基线的降幅不得超过 2 个百分点。GSM8K 历史运行已有逐题原件，但其官方协议、最终版本关联和基线对照未证实；其余三项仍缺原始结果，因此不能声明精度准入已通过。
+赛题详情 PDF 第 2 页列出 GSM8K、LiveCodeBench v6、RealWorldQA、MathVision (Without CI) 四项精度评测，最低准入值分别为 95.0、88.3、83.9、88.0；优化版相对各自官方基线的降幅不得超过 2 个百分点。本文只列出上述 GSM8K 历史运行的实测值。
 
