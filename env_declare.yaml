@@ -26,7 +26,7 @@ run:
 measurement:
   benchmark_source_sha256: "f2206dcda74932e1b148cdf7b5ef07443bb5d9e0f2729b7a67d602182e3aa050"
   benchmark_source: "sglang.bench_serving"
-  concurrency_levels: "4K: 1,8,16,32,64,128；64K: 1,8,16,32；ShareGPT: 1,4,16,32,64"
-  warmup_rounds: "4K/64K 目标 2；ShareGPT 1"
-  measurement_rounds: "4K/64K 目标 3；ShareGPT 1"
+  concurrency_levels: "4K: 1,8,16,32,64,128；64K: 1,8,16,32"
+  warmup_rounds: 2
+  measurement_rounds: 3
 
