@@ -7,7 +7,7 @@ PY="$SGENV/bin/python"
 MODEL="$BASE/models/Qwen3.8-27B"
 DATASET="$BASE/dataset/ShareGPT_V3_unfiltered_cleaned_split.json"
 
-OUT="${1:?Usage: run_strict_4k64k.sh OUTPUT_DIR}"
+OUT="${1:?Usage: bash scripts/bench_strict_4k64k.sh OUTPUT_DIR}"
 mkdir -p "$OUT"
 OUT="$(cd "$OUT" && pwd)"
 
