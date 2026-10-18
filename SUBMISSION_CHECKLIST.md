@@ -69,7 +69,7 @@
 
 ### P1-01 复现脚本、依赖和说明 — BLOCKED，P1（最后更新：2026-10-18 CST）
 
-- 完成标准：脚本、依赖、路径、许可证和 README 与最终方案一致，静态检查通过。仓库文件：`scripts/`、`requirements.txt`、`README.md`。只读盘点确认 `scripts/run.sh` 执行 ShareGPT 五档，`scripts/bench_strict_4k64k.sh` 执行 4K 六档和 64K 四档；均含原集群绝对路径。README 原复现命令指向仓库不存在的 `experiments/sharegpt_retest/run.sh`，已改为现有的 `scripts/run.sh`。本机无 Bash/shellcheck，未运行脚本；最终版本、许可和目标集群环境仍未定，故保持 BLOCKED，不标 DONE。
+- 完成标准：脚本、依赖、路径、许可证和 README 与最终方案一致，静态检查通过。仓库文件：`scripts/`、`requirements.txt`、`README.md`。只读盘点确认 `scripts/run.sh` 执行 ShareGPT 五档，`scripts/bench_strict_4k64k.sh` 执行 4K 六档和 64K 四档；均含原集群绝对路径。README 的 ShareGPT 命令已指向现有的 `scripts/run.sh`；严格脚本是 Git 100644 文件，README 已改为 `bash scripts/bench_strict_4k64k.sh OUTPUT_DIR`，脚本自身的 usage 提示同步修正。使用 Git Bash 执行 `bash -n` 静态语法检查通过；未运行 GPU 测试。最终版本、许可和目标集群环境仍未定，故保持 BLOCKED，不标 DONE。
 
 ### P1-02 最终提交前审计 — BLOCKED，P1（最后更新：2026-10-18 CST）
 
@@ -108,6 +108,7 @@
 - 2026-10-18，等待用户查找 GSM8K 原件期间推进 P0-04 静态核验：用原始内核候选的隔离副本验证 `代码改动.patch` 可应用，并与 A3 warp2 候选按 LF 规范化后逐字节一致；复制候选补丁到 `patch/`，在 README/报告中限定为候选。P0-04 保持 BLOCKED，正式服务生效仍无证据。
 - 2026-10-18，收到 `GSM8K_job935993_full_evidence.tar.gz`，检查归档路径及文件类型后解压至 `work/gsm8k_job935993_evidence/`。逐题 HTML 独立统计 1314 条、1266 对/48 错，均值与 JSON、日志一致；服务日志核到 BF16/TP=2/端口 18580。更新 `report.md` 与 P0-03；四项官方协议、基线对照及最终源码关联未齐，P0-03 保持 BLOCKED。原始包和逐题答案仅本地保留，未公开。
 - 2026-10-18，按用户要求将缺少的字段从对外 README、报告和环境声明中省略，不再使用 `TODO` 或“待核实”占位；只保留已核对的实测数据与必要的运行范围。主清单继续如实记录 P0-01 至 P0-06、P1-01/P1-02 的状态和证据缺口；没有把任何 BLOCKED 项改为 DONE。修改文件：`README.md`、`report.md`、`env_declare.yaml`、本清单；原始日志未改动，本地未跟踪的 C64 原件仍保留。
+- 2026-10-18，继续 P1-01 静态复现检查：确认两个根目录脚本的 Git 模式均为 100644，修正 README 中严格脚本的调用方式和脚本自身旧文件名提示；用 Git Bash 对两个脚本执行 `bash -n` 通过。仅调整命令说明，不改负载、参数或已有实验数据；P1-01 仍 BLOCKED。
 
 ## 断点恢复
 
