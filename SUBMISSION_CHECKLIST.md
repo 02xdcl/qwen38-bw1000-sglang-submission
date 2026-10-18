@@ -67,9 +67,9 @@
 - 已检查/验证：现有 `report.md` 明确为草稿；DCU `report.md` 有 BW100/BW1000 冲突及无原件 GSM8K 结论。依赖 P0-01 至 P0-05，不能据整理稿改为最终报告；用户已授权更新 GitHub 仓库，论坛回复仍未授权且材料未完成。下一步待证据补齐后修订。
 - 补充修改：在原五段式 `report.md` 中加入已核验历史结果、环境旁证的归属边界和精度证据缺口；JobID 934852 原始日志随后已收到并加入本地核验表。`README.md` 提供补充核验入口。仍不是最终论坛正文。
 
-### P1-01 复现脚本、依赖和说明 — NOT_STARTED，P1（最后更新：2026-10-18 04:53 CST）
+### P1-01 复现脚本、依赖和说明 — BLOCKED，P1（最后更新：2026-10-18 CST）
 
-- 完成标准：脚本、依赖、路径、许可证和 README 与最终方案一致，静态检查通过。仓库文件：`scripts/`、`requirements.txt`、`README.md`。依赖 P0 定稿；可先作只读静态盘点。
+- 完成标准：脚本、依赖、路径、许可证和 README 与最终方案一致，静态检查通过。仓库文件：`scripts/`、`requirements.txt`、`README.md`。只读盘点确认 `scripts/run.sh` 执行 ShareGPT 五档，`scripts/bench_strict_4k64k.sh` 执行 4K 六档和 64K 四档；均含原集群绝对路径。README 原复现命令指向仓库不存在的 `experiments/sharegpt_retest/run.sh`，已改为现有的 `scripts/run.sh`。本机无 Bash/shellcheck，未运行脚本；最终版本、许可和目标集群环境仍未定，故保持 BLOCKED，不标 DONE。
 
 ### P1-02 最终提交前审计 — NOT_STARTED，P1（最后更新：2026-10-18 04:53 CST）
 
@@ -99,6 +99,7 @@
 - 2026-10-18 12:45 CST，继续 P0-01 静态检查：934852 的 30 份正式 JSONL 各只有单行汇总，ShareGPT 五份结果亦同；`output_details=False`。据此明确“日志与 JSONL 指标一致”并非“从逐请求数据独立重算 P99”；更新报告与本清单，等待用户整理的基线包。
 - 2026-10-18 12:45 CST，继续 P0-01 客户端参数核验：ShareGPT 历史候选与 10 月 16 日复测五档一致；warp1 五档除端口外也一致，但跨服务会话。只证明客户端测试参数相似，未升级正式对照结论。
 - 2026-10-18，用户要求加快并在 P0-01 等待基线材料期间推进独立事项。P0-02：复核补包中 934852 `provenance.txt`，校正 `env_declare.yaml`、`report.md` 和 `README.md` 的正式启动证据来源，补入 JobID、节点、PID、时间及可证启动参数；未填驱动、CPU、镜像、模型哈希。P0-03：将 PDF 四项精度门槛与缺少逐题原件的状态写入清单。P0-05：补上 934852 和 ShareGPT 失败/分会话目录的索引，保持 BLOCKED。未启动 GPU 作业，未改原始日志。
+- 2026-10-18，上述四份文档经 `git diff --check` 检查后本地提交 `04c5c3450aff4fedf55fb0a33a88ece90e5fbc56`。命令行 Git 因 Windows 凭据不可用无法推送；通过已授权 GitHub 连接逐文件更新 `main`，末次远端 commit `665bba1c1a621541620afca69a18fa90eb57d87c`，四份文件远端 blob 与本地文件内容核对一致。原始日志未公开。随后 P1-01 静态检查发现 README 命令指向不存在的文件，已修为仓库内 `scripts/run.sh`；仍有依赖阻塞。
 
 ## 断点恢复
 
