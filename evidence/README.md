@@ -1,5 +1,7 @@
 # JobID 934852 逐轮指标
 
+完整原始归档的内容及重新获取命令见 `ORIGINAL_ARCHIVES.md`。
+
 `job934852_rounds.csv` 从 `q38_late_results.tar.gz` 内 `results/strict_4k64k_job934852/` 的 30 份正式轮次 `.jsonl` 提取。归档包 SHA256：`37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`。每行保留源文件名和该文件的 SHA256；该 CSV 是指标摘录，不是原始 benchmark 日志，也不包含逐请求数据。
 
 在取得并解压原始归档后，从仓库根目录重新生成：
