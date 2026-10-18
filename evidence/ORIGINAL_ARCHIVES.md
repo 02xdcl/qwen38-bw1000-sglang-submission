@@ -19,12 +19,13 @@ SHA256：`37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`
 
 ```bash
 cd /public/home/zzu_dcf/qwen38_dcu_competition
-tar -czf ~/q38_late_results.tar.gz \
+archive_dir=$(mktemp -d "$HOME/q38_archive_XXXXXXXX")
+tar -czf "$archive_dir/q38_late_results.tar.gz" \
   results/strict_4k64k_job934852 \
   results/sharegpt_baseline_envfix_20261017_165431 \
   results/sharegpt_retest_hcu23_20261017_190126 \
   results/sharegpt_warp1_baseline_20261017_213815
-sha256sum ~/q38_late_results.tar.gz
+sha256sum "$archive_dir/q38_late_results.tar.gz"
 ```
 
 ## 2. GSM8K 精度补包
@@ -39,14 +40,15 @@ SHA256：`c6cc1afeefff25b7cc7bf51e21602079c746a8a3748cee2a55a5f9275bf2bb7b`
 
 ```bash
 cd /public/home/zzu_dcf/qwen38_dcu_competition
-tar -czf ~/GSM8K_job935993_full_evidence.tar.gz \
+archive_dir=$(mktemp -d "$HOME/q38_archive_XXXXXXXX")
+tar -czf "$archive_dir/GSM8K_job935993_full_evidence.tar.gz" \
   results/accuracy_job935993
-sha256sum ~/GSM8K_job935993_full_evidence.tar.gz
+sha256sum "$archive_dir/GSM8K_job935993_full_evidence.tar.gz"
 ```
 
 ## 3. 下载到本机
 
-在能够访问集群登录节点的本机 PowerShell 中执行；把 `<登录节点地址>` 替换为实际地址：
+下面命令下载用户目录中原先已有的两份归档。在能够访问集群登录节点的本机 PowerShell 中执行；把 `<登录节点地址>` 替换为实际地址。下载新打包的归档时，使用上一步 `sha256sum` 显示的新目录路径。打包命令用 `mktemp -d` 创建独立目录，保留原归档。
 
 ```powershell
 scp zzu_dcf@<登录节点地址>:~/q38_late_results.tar.gz "$env:USERPROFILE\Downloads\"
@@ -55,6 +57,8 @@ Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\q38_late_results.tar.
 Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\GSM8K_job935993_full_evidence.tar.gz"
 ```
 
-若本机无法解析登录节点，可从集群门户的文件管理器下载用户目录中的两个文件，或先下载到可连集群的电脑。下载后的 SHA256 应与上文一致。
+若本机无法解析登录节点，可从集群门户的文件管理器下载用户目录中的两个文件，或先下载到可连集群的电脑。传输现有原始压缩包时，下载后的 SHA256 应与上文一致。
+
+重新执行 `tar` 会产生新的归档；gzip 时间戳、目录元数据及文件变化都可能改变压缩包哈希。新包应在集群计算自己的 SHA256，下载后与该次记录比对。原包哈希仅标识此前收到的那份归档。解压后还可在 `results/strict_4k64k_job934852/` 中对本仓库的 `evidence/job934852_manifest.sha256` 执行 `sha256sum -c`，核对 155 个原始文件内容。
 
 当前仓库只公开由这些原件提取的指标 CSV及其源文件哈希；完整归档包含集群路径、启动日志和逐题答案，没有直接提交到 GitHub。
