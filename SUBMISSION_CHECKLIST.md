@@ -1,6 +1,6 @@
 # Qwen3.8-27B BW1000 / SGLang 提交主清单
 
-最后更新：2026-10-18 12:07 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P0-01（BLOCKED，等待官方协议和剩余正式证据）。完成进度：1/9 项 DONE。**本文件是唯一进度主清单。**
+最后更新：2026-10-18 12:12 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P0-01（BLOCKED，等待 BW1000 官方对照口径和剩余正式证据）。完成进度：1/9 项 DONE。**本文件是唯一进度主清单。**
 
 ## 状态与证据规则
 
@@ -9,7 +9,7 @@
 ## 项目基线与来源区分
 
 - 已有：`README.md`、`report.md`、`env_declare.yaml`、`requirements.txt`、`scripts/run.sh`、`scripts/bench_strict_4k64k.sh`；`source/results/` 有历史 4K、64K、ShareGPT 基线、10/16 ShareGPT 复测、10/17 不完整严格复测及审计；`source/experiments/` 有 A9/A10/A11/A13 探索实验。克隆时工作树干净，仓库跟踪文件 198 个；没有 `patch/`、`logs/` 或原有 `SUBMISSION_CHECKLIST.md`。
-- 用户提供的赛事规则文本（本地 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/requirements.md`，源于 `拿.docx`）要求五段式报告、四类原始日志、至少三张含命令上下文和时间戳的截图，以及论坛《作品提交专区》回复；文本写明截止 2026-10-18 17:59。该文本将 BW100 列为先锋组、其他卡型列为开放组；**BW1000 的组别需按论坛最新说明确认**。文本中的赛事细节链接、官方基线与精度阈值尚未独立核对；不能把文本外推为已核实的测试协议。
+- 用户提供的赛事规则文本（本地 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/requirements.md`，源于 `拿.docx`）要求五段式报告、四类原始日志、至少三张含命令上下文和时间戳的截图，以及论坛《作品提交专区》回复；文本写明截止 2026-10-18 17:59。该文本将 BW100 列为先锋组、其他卡型列为开放组。用户另提供的 11 页赛题详情 PDF（本地 `C:/Users/admin/Desktop/社区qwen3.8挑战赛.pdf`，SHA256 `a75d6e9e35414a51a2d99eba86feca591d875f08e29aa0231d177965c09ae90c`）列出 BW100 和 K100-AI 的性能基线及 SLA，**没有 BW1000 对照口径**；末页注明部分内容由 AI 生成。两份材料合看仍不能自行确定 BW1000 的组别、基线与 SLA，需主办方明确答复。
 - 参考仓库只用于目录组织对照：[myrfy001/qwen38-k100ai-sglang](https://github.com/myrfy001/qwen38-k100ai-sglang) 根目录有 `bench/`、`config/`、`kernels/`、`logs/`、`patch/`、`scripts/`、`report.md`、`env_declare.yaml`；[codingmiao/q38-k100ai-submission](https://github.com/codingmiao/q38-k100ai-submission) 有 `config/`、`logs/`、`patch/`、`result/`、`scripts/`、`论坛提交回复.md`。这不是本项目的成绩或官方要求。
 - DCU 整理稿 `优化后.md` 声称 JobID 934852 的 64K/C128 三轮及 ShareGPT 为优化版正式结果，但本地已知材料中没有 `strict_4k64k_job934852/` 原始目录。`Qwen38_DCU_优化与实验记录汇总.md` 同时指出 live A2 内核哈希与基线相同，无法证明 A2 被正式服务加载。`report.md` 写 BW100 ×2，与用户确认的 BW1000 冲突；其 GSM8K 数值缺原始评测。`代码改动.patch` 仅含 `num_warps=1→2`，不证明正式服务已加载。不能将这些材料直接覆盖仓库 `report.md`。
 
@@ -23,12 +23,13 @@
 - 原始证据：`source/results/` 下历史日志；官方规则文本 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/requirements.md`；DCU 五份原件位于 `C:/Users/admin/Desktop/DCU/`，均未改动。
 - 未解决：赛事链接/最新论坛细则未独立核验；不妨碍完成现状盘点。下一步 P0-01。
 
-### P0-01 最终正式性能测试 — BLOCKED，P0（最后更新：2026-10-18 12:02 CST）
+### P0-01 最终正式性能测试 — BLOCKED，P0（最后更新：2026-10-18 12:12 CST）
 
 - 完成标准：官方测试范围已核实；4K、64K、ShareGPT 必要档位的真实原始日志、逐请求结果、成功数、P99/SLA、计算汇总及同一运行配置关联齐全。
 - 已检查/验证：历史基线及部分复测见下文。新补包 `C:/Users/admin/Downloads/q38_late_results.tar.gz`（SHA256 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`）已提供 JobID 934852 完整 4K/64K 原始目录，暂在 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/q38_late_results/results/` 校验，未公开入库。压缩包 221 条目、215 文件、无重复或越界路径；10 档 × 3 正式轮的 `.log`、`.jsonl`、`.ok` 齐全，成功数、吞吐、TTFT、TPOT、P99 E2E 双源一致。`progress.txt` 全部 PASS；`identity.txt` 与 `provenance.txt` 记录节点 a01r3n19、JobID 934852、服务 PID 653002、TP=2、BF16 和启动参数。未启动 GPU 作业。
 - 仓库文件：历史目录、`scripts/bench_strict_4k64k.sh`、`scripts/run.sh`；新增补包尚未公开入库。补包还含 JobID 934852 服务日志与三份后续 ShareGPT 目录。早期 ShareGPT 运行失败/中断；warp1 C1 与恢复后的 C4/C16/C32/C64 分属不同服务会话，不能拼作统一正式成绩。
-- 阻塞/下一步：飞书赛题详情页当前跳转登录，官方 benchmark 指标、阈值和基线未核实；需要页面 PDF/截图或用户登录。还需核实同窗默认基线、代码实际生效和 ShareGPT 正式统一运行的证据。需要新计算任务时另行明确授权。按用户本轮逐项指令，**P0-01 未完成前暂停后续事项**。
+- 赛题详情核对：用户提供的 PDF 第 1—4 页指定 SGLang 2 卡、ShareGPT 与固定长度随机负载，以及输出吞吐、TTFT、TPOT 和 SLA 最大并发；第 7—9 页列出 BW100/K100-AI 的 ShareGPT C1/4/16/32/64、4K C1/8/16/32/64/128、64K C1/8/16/32 基线与各自 SLA。30 轮 934852 日志的场景和档位与随机负载表对应，但官方镜像/脚本来源尚未证实，PDF 没有 BW1000 基线或 SLA，也把综合评分归一化方法留待最终文档。第 2 页四项精度最低值见 `report.md`；本地无对应原始精度输出。
+- 阻塞/下一步：请主办方明确 BW1000 适用组别、官方或允许自测的默认基线、SLA 阈值与综合评分口径；核实同窗默认基线、代码实际生效和 ShareGPT 正式统一运行证据。需要新计算任务时另行明确授权。按用户本轮逐项指令，**P0-01 未完成前暂停后续事项**。
 - 补充修改：`report.md` 已加入从现有原始日志重算的 4K/64K 历史基线表、单轮 4K 复测表及 ShareGPT P99；10 行基线、4 行 4K 复测与 5 行 ShareGPT 数值逐项用原始 `.log` 验证通过。新补包到位后，另增 JobID 934852 的 10 行三轮均值和 ShareGPT 分会话说明。此前非交互 SSH 无法解析 `zz-login02`；材料由用户自行上传。
 - 新发现：重新核对原始压缩包 `submission_materials_20261017_155641.tar.gz` 后，找回独立 C64 单轮 `c64.log` 与 `c64.jsonl`，两者与已解压副本逐字节一致，SHA256 分别为 `eb648fe9409742f41a53047b35b46afe3140fd5d46edfa5971db73c420226f81`、`35cf26d1da3a2198163dda8b7408f7ee688209243bde16336e2e7585ad304a05`。已保留原件并复制入 `source/results/final_4k_c64_20261017_020528/`。日志记载 C64、128 成功请求、599.19 tok/s、TTFT 18836.21 ms、TPOT 71.75 ms、P99 E2E 179577.53 ms；`.jsonl` 汇总字段与日志一致。其 backend=`sglang`，历史基线 C64 为 `sglang-oai-chat`，且只有单轮，不能计算正式提升率。
 - 旧原始压缩包中的 `strict_4k64k_job933420/` 只有完整 4K C1 三轮及 C8 run1，C8 run2 中断；`strict_4k64k_job934173/` 只有服务日志。这些是部分/中断测试，不能代替现已补到的 934852。赛题规则文本把精确评测口径指向飞书详情页；该页跳转登录，正式协议未核实。
@@ -92,7 +93,8 @@
 - 2026-10-18，尝试发布上述本地修改时，GitHub 自动审批因公开原始日志含集群路径和配置、公开原件的授权不够明确而拒绝创建 commit。远端 `main` 未更新；本地 `README.md`、`report.md`、本清单及两份 C64 原件尚未提交。当时等待 934852 与官方协议材料，不绕过审批限制。
 - 2026-10-18 12:02 CST，收到用户补包与飞书链接。安全检查压缩包并校验 30 轮 4K/64K 原始日志及 JSONL；更新报告和本清单。ShareGPT 结果按失败、独立 C1 和恢复后四档分别记录。飞书链接在网页工具不可访问、应用内浏览器跳转登录；已请用户登录或上传 PDF/截图。P0-01 维持 BLOCKED；本地修改尚未提交或推送。
 - 2026-10-18 12:07 CST，采用较窄的公开范围，仅将核验后的 `README.md`、`report.md` 和本清单发布到 GitHub `main`；原始 C64 日志和用户补包未上传。远端 compare 显示相对上一提交仅上述 3 个文档变化；本地已同步到 `8dea39c…`，剩余未跟踪文件只有两份 C64 原件。GitHub 对原始日志的自动审批拒绝仍有效。
+- 2026-10-18 12:12 CST，用户上传 11 页赛题详情 PDF；逐页渲染阅读后核对 SGLang 场景、档位、精度门槛及 BW100/K100-AI 性能基线和 SLA。PDF 末页有 AI 生成内容说明，且未列 BW1000 基线/SLA 或最终评分权重。更新 README、报告和 P0-01 清单，维持 BLOCKED；未运行新 benchmark。
 
 ## 断点恢复
 
-先读取本清单，检查 GitHub `main` 与本地文件是否一致，再验证上述证据仍存在。三个文档已发布；`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件，后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`。**论坛回复仍未发布**。优先读取用户待上传的飞书页面 PDF/截图，核对官方评测协议和默认基线，再核对剩余正式证据；从 P0-01 恢复，P0-01 通过验收前不推进 P0-02。P1-01/P1-02 仍未启动。
+先读取本清单，检查 GitHub `main` 与本地文件是否一致，再验证上述证据仍存在。已收到的赛题 PDF 原件位于用户桌面；后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`。`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件。**论坛回复仍未发布**。优先取得 BW1000 官方对照口径，再核对剩余正式证据；从 P0-01 恢复，P0-01 通过验收前不推进 P0-02。P1-01/P1-02 仍未启动。
