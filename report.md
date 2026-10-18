@@ -26,6 +26,8 @@ ShareGPT 历史自测基线候选 `source/results/sglang_bf16_sharegpt_893107/` 
 
 A3 的 `num_warps: 1→2` 差异见 `source/results/submission_audit_20261017_150109/a3_warp1_vs_warp2.diff`。审计说明当前安装文件与原始候选相同，缺少最终测试时实际加载该差异的证据，因此暂不列为定稿优化。
 
+`patch/a3_warp2_candidate.patch` 是用户提供的一行补丁副本（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）。在隔离副本中，其目标原始文件哈希为 `a7e469f8…`，`git apply --check` 通过；应用后按 LF 换行规范化，SHA256 为 `a9ec351b…`，与 A3 warp2 候选完全一致。这只证实补丁可复现该候选源码，不证明 JobID 934852 或 935993 的服务加载了它。
+
 ## 4. 数据表格
 
 以下 4K/64K 历史基线从各档三个 `c*_run{1,2,3}.log` 的 `Successful requests`、`Output token throughput`、`Mean TTFT`、`Mean TPOT`、`P99 E2E Latency` 重新计算算术均值；输出吞吐为 benchmark 记录的服务总吞吐 tok/s，实际参与设备编号待核。P99 列是**三轮各自 P99 的平均**，不是合并所有请求后重新计算的总体 P99。与 DCU《基线.md》相比，部分 TPOT 在小数点后第二位有 0.01 ms 的差异，本表采用原始日志重算值。
