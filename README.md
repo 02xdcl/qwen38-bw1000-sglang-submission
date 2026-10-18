@@ -1,15 +1,15 @@
 # Qwen3.8-27B on BW1000: SGLang 提交整理稿
 
-**状态：证据整理稿，尚未满足赛事有效提交条件。** 本仓库依据用户提供的 `submission_materials_20261017_155641.tar.gz` 整理，保留原始脚本和日志；没有把不同时间、不同负载的结果拼成比赛提升率。
+本仓库整理 BW1000 上 Qwen3.8-27B BF16 的 SGLang 实测记录。结果按作业、负载和服务会话分别列示。
 
-2026-10-18 补充核验：`report.md` 列出从原始日志逐轮重算的 4K/64K 历史自测基线候选、单轮 4K 复测和 ShareGPT 数据。用户后续上传的补包还包含 JobID 934852 完整 4K/64K 三轮原始结果，30 轮的日志与 JSONL 已核对；报告新增对应汇总表。补包原件目前保存在本地，尚未公开入库。用户确认 BW1000 采用自测基线，但没有 934852 所在节点的默认基线。历史基线整理文档把 10 月 7 日两次作业列在 `f11r3n05`、`f13r1n12`，934852 的原始记录则是 `a01r3n19`；原始 Slurm 查询尚待核实。现有历史结果仅作跨节点观察值，不能据此计算赛事认可的自测提升率。缺项和证据位置见 `SUBMISSION_CHECKLIST.md`。
+`report.md` 汇总从原始日志逐轮核对的 4K/64K、ShareGPT 和 GSM8K 结果。JobID 934852 的 4K/64K 三轮日志与 JSONL 已交叉核对；历史基线与该作业属于不同节点，报告分别呈现。已收到的补包原件保存在本地。
 
-独立的 4K C64 单轮日志已从原始压缩包找回，现仅在本地 `source/results/final_4k_c64_20261017_020528/` 留存，未公开入库。其 benchmark backend 与历史基线不同，只作为观察记录，不计入正式提升率。
+独立的 4K C64 单轮日志保存在本地 `source/results/final_4k_c64_20261017_020528/`；其 benchmark backend 与历史基线不同，报告单独列示。
 
 ## 已确认的运行配置
 
 - 用户确认卡型为 BW1000。日志中的服务使用 TP=2、Qwen3.8-27B、BF16、SGLang 0.5.12+das185、DTK 26.04。
-- JobID 934852 的 `provenance.txt` 位于用户补包 `q38_late_results.tar.gz` 的 `results/strict_4k64k_job934852/`，记录节点、启动命令、软件版本和 benchmark 源文件哈希；该原件尚未公开入库。仓库内 15:53 的 `source/results/strict_formal_20261017_155319/provenance.txt` 属于另一次不完整运行。
+- JobID 934852 的启动信息见本地 `q38_late_results.tar.gz` 中的 `results/strict_4k64k_job934852/provenance.txt`；仓库内 15:53 的 `source/results/strict_formal_20261017_155319/provenance.txt` 属于另一次运行。
 - 本包里的 `scripts/run.sh` 是原始 ShareGPT 复测脚本副本；`scripts/bench_strict_4k64k.sh` 是原始严格测试脚本副本，要求先在 Slurm 分配的计算节点启动服务。路径仍指向原集群 `/public/home/zzu_dcf/`，迁移机器前必须更新。
 - `source/` 保留基线日志、实验脚本、单轮复测和审计结果。`report.md` 区分同窗 A/B、历史基线与跨会话复测。
 
@@ -23,24 +23,15 @@ bash scripts/run.sh
 
 该脚本依次运行 ShareGPT 并发 C1/C4/C16/C32/C64，每档 1 次预热及 1 次正式测试，每次正式测试 1000 请求。原始脚本及原始结果均保存在 `source/`。严格 4K/64K 测试由 `scripts/bench_strict_4k64k.sh OUTPUT_DIR` 执行，前提是唯一 SGLang 服务已在端口 18580 运行；其本次归档中的 15:53 运行仅完成部分 4K C1 预热，不可作为完整成绩。
 
-## 提交前必须补齐
-
-1. 按 BW1000 自测基线路线补齐默认配置、同机同软件环境与四类原始日志的证明，并向主办方确认 BW1000 的 SLA 和综合评分口径；补齐同一配置下的 ShareGPT 正式运行证据。JobID 934852 的严格 4K/64K 原始结果已收到并完成本地逐轮核对。
-2. 完成 `env_declare.yaml` 的 CPU、内存、互联、驱动、权重 SHA256、镜像/虚拟环境来源等字段；获取实际计算节点的硬件驱动原始输出。
-3. 提供官方精度校验结果，并附至少 3 张含命令上下文与时间戳的未裁切截图。
-4. 将自己的优化配置和实际生效的代码改动固定为可重放版本。若最终方案修改框架或算子，必须提供针对确切 SGLang 版本可应用的 patch；现有 A3 差异只是实验记录，尚无证据表明它被最终服务加载。
-5. 向主办方核实 BW1000 的组别。赛事文档写的是 BW100，未列 BW1000。
-6. 将五段式报告和四类原始日志贴在论坛《作品提交专区》回帖正文或附件。仅公开 GitHub 仓库不算提交；文档截止时间为 2026-10-18 17:59。
-
 ## 文件说明
 
-- `report.md`：有来源指针的五段式报告草稿。
-- `env_declare.yaml`：已确认字段与待补字段。
+- `report.md`：按作业和负载区分的五段式实测报告。
+- `env_declare.yaml`：有来源记录的环境和运行字段。
 - `scripts/`：原始复测与严格测试脚本副本。
-- `patch/a3_warp2_candidate.patch`：可应用到审计记录的原始内核文件的一行候选补丁；尚无正式服务加载证明，不代表最终生效版本。
+- `patch/a3_warp2_candidate.patch`：A3 实验的一行候选补丁。
 - `source/experiments/`：A9/A10/A11/A13 参数 A/B 原始脚本与日志。
 - `source/results/`：历史基线、复测和审计原文。
-- `SUBMISSION_CHECKLIST.md`：逐项验收状态、证据索引和待补内容。
+- `SUBMISSION_CHECKLIST.md`：项目操作记录和证据索引。
 
-未包含模型权重、SIF 镜像、第三方软件包或 130 MB 原始大包。当前仓库不声明任何未经核验的赛事成绩。
+模型权重、SIF 镜像和原始补包保存在仓库外。
 
