@@ -48,6 +48,7 @@
 
 - 完成标准：核实官方 BF16 精度协议；有最终方案的配置、逐题原始输出、汇总和阈值判定。
 - 已检查/验证：新包 `GSM8K_job935993_full_evidence.tar.gz`（SHA256 `c6cc1afeefff25b7cc7bf51e21602079c746a8a3748cee2a55a5f9275bf2bb7b`）安全解压后，在 `results/accuracy_job935993/gsm8k/` 核对 `eval.log`、JSON 和逐题 HTML。HTML 的 1314 条评分为 1266 条 `1.0`、48 条 `0.0`，均附标准答案及抽取答案；平均分 `0.9634703196347032` 与 JSON/日志一致。日志显示完成 1314/1314、`temperature=0`、`max_tokens=2048`，服务日志显示端口 18580、BF16、TP=2 和就绪时间。原件只在本地 `work/gsm8k_job935993_evidence/`，未上传公开仓库。用户所称指定 1319 题和 JobID 935993 未见评测命令或 Slurm 原始记录独立证明；服务/评分脚本源码哈希、模型校验、节点与设备绑定也未取得。DCU 整理稿把 935993 归于 `a01r3n15`，934852 原始记录为 `a01r3n19`；历史 GSM8K 结果不能证明 934852 或最终 A13 精度保持。赛题 PDF 第 2 页列 GSM8K、LiveCodeBench v6、RealWorldQA、MathVision (Without CI) 准入值 95.0/88.3/83.9/88.0，降幅不超过 2 个百分点。仓库文件：`report.md`。阻塞/下一步：取得最终版本的四项官方协议、原始评测及各自基线对照，并证明服务加载版本；若需新 GPU 评测，未经授权不启动。
+- 仓库补充：`evidence/gsm8k_935993_scores.csv` 从原始 HTML 提取 1314 行题序与评分，各行记录原始 HTML SHA256；`scripts/summarize_gsm8k.py` 可重新生成。1266 对/48 错与报告及 JSON 汇总一致。该摘录不含题目与答案，也不证明最终优化版本的精度保持；P0-03 仍 BLOCKED。
 
 ### P0-04 固定最终优化版本与生效证据 — BLOCKED，P0（最后更新：2026-10-18 04:56 CST）
 
@@ -118,6 +119,7 @@
 - 2026-10-18 14:35 CST，使用已授权 GitHub 连接将更正稿和本清单发布到仓库 `main`，两份远端文本与本地逐字核对一致；更正稿的创建提交为 `05f73c0a411ce37e1ae3454377ba45ff35fb1522`。本地 Git CLI 因 Windows Schannel 凭据不可用未能 fetch，同内容修改仍显示为未提交；未跟踪的 C64 两份原始文件仍只在本地，未公开。
 - 2026-10-18，用户明确表示“论坛回复不改”。停止推动第二版论坛回复；已发布的更正草稿仅保留为历史备选文档，不代表实际论坛提交。继续其他不依赖论坛修改的核验。
 - 2026-10-18，按用户要求尽快完善 GitHub 内容：用标准库脚本从 934852 的 30 份正式 JSONL 提取不含集群路径的逐轮 CSV，保留每份源文件 SHA256；逐组重算 10 档吞吐与 TTFT 均值，均与报告一致。新增 `scripts/summarize_934852.py`、`evidence/job934852_rounds.csv`、`evidence/README.md`，并更新 README/报告索引；原始日志未修改、未公开，P0-05/P1-02 保持 BLOCKED。
+- 2026-10-18，继续提取独立 GSM8K 原始 HTML 的逐题评分为 `evidence/gsm8k_935993_scores.csv`，仅含题序、分数、源 HTML SHA256；1314 行中 1266 行正确，准确率与 JSON/报告一致。新增 `scripts/summarize_gsm8k.py` 并更新 README/报告索引；未把历史精度结果关联到最终性能作业，P0-03 仍 BLOCKED。
 
 ## 断点恢复
 
