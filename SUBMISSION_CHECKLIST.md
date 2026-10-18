@@ -52,7 +52,7 @@
 ### P0-04 固定最终优化版本与生效证据 — BLOCKED，P0（最后更新：2026-10-18 04:56 CST）
 
 - 完成标准：正式结果可关联准确的代码 commit/patch、启动命令、进程环境和 live 文件哈希。
-- 已检查/验证：`source/results/submission_audit_20261017_150109/warnings.txt` 有 `LATEST_KERNEL_NOT_PROVEN` 和 `ORIGINAL_LAUNCH_NOT_SPECIFIED`；同目录 `audit.json` 记录安装文件 SHA256 `a7e469f8…` 与 A2 baseline 相同，A3 warp2 候选为 `a9ec351b…`。DCU 汇总也明确 A2 live 文件与基线一致。DCU `代码改动.patch` 与仓库 A3 diff 的实际修改同为 `num_warps=1→2`，只是目标路径/上下文不同，不证明服务加载。阻塞/下一步：提供 JobID 934852 测试时 live 文件哈希、启动进程、安装包版本及最终代码 commit/patch 应用记录；未取得前不得宣称 A2 或该 patch 已生效。
+- 已检查/验证：`source/results/submission_audit_20261017_150109/warnings.txt` 有 `LATEST_KERNEL_NOT_PROVEN` 和 `ORIGINAL_LAUNCH_NOT_SPECIFIED`；同目录 `audit.json` 记录安装文件 SHA256 `a7e469f8…` 与 A2 baseline 相同，A3 warp2 候选为 `a9ec351b…`。DCU 汇总也明确 A2 live 文件与基线一致。用户提供的 `代码改动.patch`（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）只改 `num_warps=1→2`；已按原字节复制为 `patch/a3_warp2_candidate.patch`。在 `work/a3_patch_validation/` 的隔离副本中，从 SHA256 `a7e469f8…` 原始文件执行 `git apply --check` 和应用，规范化 Windows 产生的 CRLF 后，与 SHA256 `a9ec351b…` A3 候选逐字节一致。**只证实补丁可复现候选源码，不证明正式服务加载。**阻塞/下一步：提供 JobID 934852/935993 测试时 live 文件哈希、启动进程、安装包版本及最终代码 commit/patch 应用记录；未取得前不得宣称 A2 或该 patch 已生效。
 
 ### P0-05 正式日志与辅助证据索引 — BLOCKED，P0（最后更新：2026-10-18 CST）
 
@@ -105,6 +105,7 @@
 - 2026-10-18，用户确认没有 934852 所在节点 `a01r3n19` 的同节点默认基线，并要求按现有证据继续整理。P0-01 保持 BLOCKED；历史 4K/64K 数据只作跨节点观察值，不计算赛事认可的自测提升率，不启动新 GPU 作业。
 - 2026-10-18，用户再次确认卡型是 BW1000，要求推进下一步 P0-02。核对新整理文档所述历史 Slurm 8 卡配额与 934852 的 TP=2 属于不同概念、不同作业；移除 YAML 中未注明来源的 `card_count: 2`，增加实际设备绑定 TODO，并把报告中的“每卡除以 2”表述改为待核。P0-02 保持 BLOCKED，未把 BW100 标题或历史/935993 硬件记录反填正式环境。
 - 2026-10-18，用户贴出 GSM8K 精度总结。P0-03 核对 1266/1314 的百分比和题数加减，查找现有材料无 GSM8K 原始评测目录；报告只记录“用户报告的历史测量值”，并注明 935993 与 934852 作业/节点、代码版本关联未证实。四项官方精度测试和原始证据仍缺，P0-03 保持 BLOCKED，未启动 GPU 作业。
+- 2026-10-18，等待用户查找 GSM8K 原件期间推进 P0-04 静态核验：用原始内核候选的隔离副本验证 `代码改动.patch` 可应用，并与 A3 warp2 候选按 LF 规范化后逐字节一致；复制候选补丁到 `patch/`，在 README/报告中限定为候选。P0-04 保持 BLOCKED，正式服务生效仍无证据。
 
 ## 断点恢复
 
