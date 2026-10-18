@@ -26,6 +26,7 @@ bash scripts/run.sh
 ## 文件说明
 
 - `report.md`：按作业和负载区分的五段式实测报告。
+- `论坛回复_已核实数据草稿.md`：仅汇集已核实数据的论坛回复草稿。
 - `env_declare.yaml`：有来源记录的环境和运行字段。
 - `scripts/`：原始复测与严格测试脚本副本。
 - `patch/a3_warp2_candidate.patch`：A3 实验的一行候选补丁。
