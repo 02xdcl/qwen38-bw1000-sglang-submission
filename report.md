@@ -26,6 +26,8 @@ A3 的 `num_warps: 1→2` 候选差异见 `source/results/submission_audit_20261
 
 `patch/a3_warp2_candidate.patch` 是一行候选补丁副本（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）。在隔离副本中，其目标原始文件哈希为 `a7e469f8…`，`git apply --check` 通过；应用后按 LF 换行规范化，SHA256 为 `a9ec351b…`，与 A3 warp2 候选一致。
 
+固定长度正式结果以 JobID 934852 实际服务为版本边界：SGLang 构建 `0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025`、`bench_serving.py` SHA256 `f2206dcd…`，以及服务日志中的完整 `ServerArgs`。A3 候选补丁不用于定义该次正式运行。完整版本声明与关键原件哈希见 `evidence/RUNTIME_PROVENANCE.md`。
+
 ## 4. 数据表格
 
 以下 4K/64K 历史记录从各档三个 `c*_run{1,2,3}.log` 的 `Successful requests`、`Output token throughput`、`Mean TTFT`、`Mean TPOT`、`P99 E2E Latency` 重新计算算术均值；输出吞吐为 benchmark 记录的服务总吞吐 tok/s。P99 列是**三轮各自 P99 的平均**。与 DCU《基线.md》相比，部分 TPOT 在小数点后第二位有 0.01 ms 的差异，本表采用原始日志重算值。
