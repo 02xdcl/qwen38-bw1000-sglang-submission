@@ -6,6 +6,8 @@
 
 `evidence/job934852_rounds.csv` 公开了该作业 30 轮正式测试的指标摘录、源文件名和各源文件 SHA256；`scripts/summarize_934852.py` 可从原始补包重新生成。原始补包并未包含在 GitHub 仓库中。
 
+`evidence/job934852_manifest.sha256` 记录 JobID 934852 固定长度目录全部 155 个文件的相对路径和 SHA256，可用于校验本地原始补包。
+
 `evidence/gsm8k_935993_scores.csv` 公开独立 GSM8K 运行的逐题评分摘录，可复算 1266/1314 的历史准确率；原始题目和答案仍以本地归档为准。
 
 独立的 4K C64 单轮日志保存在本地 `source/results/final_4k_c64_20261017_020528/`；其 benchmark backend 与历史基线不同，报告单独列示。
