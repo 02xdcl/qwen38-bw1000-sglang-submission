@@ -93,6 +93,8 @@ A3 的 `num_warps: 1→2` 候选差异见 `source/results/submission_audit_20261
 
 本地 `GSM8K_job935993_full_evidence.tar.gz`（SHA256 `c6cc1afeefff25b7cc7bf51e21602079c746a8a3748cee2a55a5f9275bf2bb7b`）含 `results/accuracy_job935993/gsm8k/` 的 `eval.log`、JSON 汇总和逐题 HTML，以及同目录 `server_18580.log`。逐题 HTML 有 1314 个评分、标准答案和抽取答案，其中 1266 个 `Score: 1.0`、48 个 `Score: 0.0`，平均值 `1266/1314 = 0.9634703196347032`，与 JSON 及评测日志一致。评测日志显示 1314/1314 完成、`temperature=0`、`max_tokens=2048`、耗时 2990.851 秒和输出吞吐 218.169 token/s。HTML 的首个示例含 5 道提示样例。
 
+逐题评分摘录见 `evidence/gsm8k_935993_scores.csv`，提取方法与原始 HTML 哈希见 `evidence/README.md`；摘录不包含题目或生成答案。
+
 服务日志显示 2026-10-18 00:51:07 端口 18580 启动就绪，`server_args` 中模型路径为 `Qwen3.8-27B`、`dtype=bfloat16`、`tp_size=2`、服务名 `qwen38-bf16`，并有后续该端口请求记录。**96.3470% 是这次独立 GSM8K 历史运行的逐题实测值**，与 JobID 934852 的性能测试分别列示。
 
 赛题详情 PDF 第 2 页列出 GSM8K、LiveCodeBench v6、RealWorldQA、MathVision (Without CI) 四项精度评测，最低准入值分别为 95.0、88.3、83.9、88.0；优化版相对各自官方基线的降幅不得超过 2 个百分点。本文只列出上述 GSM8K 历史运行的实测值。
