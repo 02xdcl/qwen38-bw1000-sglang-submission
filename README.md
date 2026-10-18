@@ -18,7 +18,7 @@
 
 - 用户确认卡型为 BW1000。日志中的服务使用 TP=2、Qwen3.8-27B、BF16、SGLang 0.5.12+das185、DTK 26.04。
 - JobID 934852 的启动信息见本地 `q38_late_results.tar.gz` 中的 `results/strict_4k64k_job934852/provenance.txt`；仓库内 15:53 的 `source/results/strict_formal_20261017_155319/provenance.txt` 属于另一次运行。
-- 本包里的 `scripts/run.sh` 是原始 ShareGPT 复测脚本副本；`scripts/bench_strict_4k64k.sh` 是原始严格测试脚本副本，要求先在 Slurm 分配的计算节点启动服务。路径仍指向原集群 `/public/home/zzu_dcf/`，迁移机器前必须更新。
+- 本包里的 `scripts/run.sh` 是原始 ShareGPT 复测脚本副本，会自行启动和清理它创建的服务；`scripts/bench_strict_4k64k.sh` 是原始严格测试脚本副本，要求先在同一 Slurm 作业启动服务。路径仍指向原集群 `/public/home/zzu_dcf/`，迁移机器前必须更新。
 - `source/` 保留基线日志、实验脚本、单轮复测和审计结果。`report.md` 区分同窗 A/B、历史基线与跨会话复测。
 
 ## 在原集群复现
@@ -30,6 +30,14 @@ bash scripts/run.sh
 ```
 
 该脚本依次运行 ShareGPT 并发 C1/C4/C16/C32/C64，每档 1 次预热及 1 次正式测试，每次正式测试 1000 请求。原始脚本及原始结果均保存在 `source/`。严格 4K/64K 测试由 `bash scripts/bench_strict_4k64k.sh OUTPUT_DIR` 执行，前提是唯一 SGLang 服务已在端口 18580 运行；其本次归档中的 15:53 运行仅完成部分 4K C1 预热，不可作为完整成绩。
+
+严格 4K/64K 的完整服务命令见 [运行版本声明](evidence/RUNTIME_PROVENANCE.md#原集群的服务启动命令)。脚本还会读取原集群 `results/sglang_bf16_4k_20261007_163756/`、`results/sglang_bf16_64k_20261007_201746/` 的历史基线日志进行参数核对；这两个目录应在脚本的 `BASE` 路径下就位。使用独立的新输出目录运行，避免混合不同作业：
+
+```bash
+bash scripts/bench_strict_4k64k.sh /path/to/new_job_results
+```
+
+预期输出包含 10 个档位各 2 次预热、3 次正式测量的 PASS 记录，末行 `ALL 4K AND 64K TESTS PASSED`。复算示例结果见 `report.md` 的 JobID 934852 表格。依赖版本使用已归档的厂商虚拟环境；模型和 ShareGPT 数据集分别就位到脚本声明的路径。
 
 ## 文件说明
 
