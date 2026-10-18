@@ -23,14 +23,20 @@ model:
   weights_sha256: "TODO"
   precision: "BF16"
 run:
-  launch_command_source: "source/results/strict_formal_20261017_155319/provenance.txt"
+  launch_command_source: "用户补包 q38_late_results.tar.gz 内 results/strict_4k64k_job934852/provenance.txt；原件未公开入库"
+  job_id: "934852"
+  node: "a01r3n19"
+  server_pid: 653002
+  start_time: "2026-10-17T16:27:53+08:00"
   tp_size: 2
   context_length: 131072
+  max_running_requests: 128
   chunked_prefill_size: 8192
   max_prefill_tokens: 16384
   schedule_conservativeness: 0.4
+  mem_fraction_static: 0.85
   attention_backend: "triton"
-  environment_variables: "见 provenance.txt；其他值待核对"
+  environment_variables: "见上述补包内 provenance.txt；其他值待核对"
 measurement:
   benchmark_source_sha256: "f2206dcda74932e1b148cdf7b5ef07443bb5d9e0f2729b7a67d602182e3aa050"
   benchmark_source: "sglang.bench_serving；具体官方版本对应关系待确认"
