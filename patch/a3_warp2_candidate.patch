@@ -1,0 +1,11 @@
+--- a/sglang/srt/layers/attention/fla/fused_recurrent.py
++++ b/sglang/srt/layers/attention/fla/fused_recurrent.py
+@@ -367,7 +367,7 @@
+         )
+     BV = min(triton.next_power_of_2(V), 32)
+     num_stages = 3
+-    num_warps = 1
++    num_warps = 2
+ 
+     stride_mixed_qkv_tok = mixed_qkv.stride(0)
+     stride_a_tok = a.stride(0)
