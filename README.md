@@ -35,6 +35,7 @@ bash scripts/run.sh
 - `env_declare.yaml`：有来源记录的环境和运行字段。
 - `scripts/`：原始复测、严格测试脚本副本及指标提取脚本。
 - `evidence/`：JobID 934852 和独立 GSM8K 运行的指标摘录与复算说明。
+- `evidence/INDEX.md`：环境、性能、精度、实验和提交材料的统一证据索引。
 - `evidence/ORIGINAL_ARCHIVES.md`：两个原始补包的内容、集群打包、下载和校验命令。
 - `patch/a3_warp2_candidate.patch`：A3 实验的一行候选补丁。
 - `source/experiments/`：A9/A10/A11/A13 参数 A/B 原始脚本与日志。
