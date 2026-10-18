@@ -4,7 +4,7 @@
 
 ## 1. 环境声明
 
-卡型：BW1000（用户确认）；TP=2；模型 Qwen3.8-27B BF16；SGLang 0.5.12+das185，Torch 2.10，Triton 3.6，DTK 26.04。2026-10-17 15:53 的进程参数和 benchmark 源文件哈希见 `source/results/strict_formal_20261017_155319/provenance.txt`。其余字段见 `env_declare.yaml` 的 TODO，需从同一计算节点补齐。
+卡型：BW1000（用户确认）；TP=2；模型 Qwen3.8-27B BF16；SGLang 0.5.12+das185，Torch 2.10，Triton 3.6，DTK 26.04。JobID `934852` 的启动参数、节点 `a01r3n19`、进程 PID `653002`、软件版本及 benchmark 源文件哈希见用户补包 `q38_late_results.tar.gz` 内的 `results/strict_4k64k_job934852/provenance.txt`，该原件目前未公开入库。仓库内 `source/results/strict_formal_20261017_155319/provenance.txt` 属于较早的不完整运行，不作为 934852 的启动证据。其余字段见 `env_declare.yaml` 的 TODO，需从同一计算节点补齐。
 
 用户补充的 DCU 实验汇总记录了另一个作业 JobID `935993` 的节点快照：节点 `a01r3n15`，8 张设备在 `hy-smi` 中显示为 `BW`，驱动 `6.3.31-V1.5.0a`、DTK 26.04，拓扑工具报告 HSW 链路。该汇总不是硬件命令的原始输出，也不是待补的 JobID `934852` 正式测试同窗快照，所以上述值只作为查找线索，尚未填入 `env_declare.yaml` 的正式环境字段。汇总还指向 `results/model_sha256_20261018_035941.txt`，称有 33 个文件；完整 `33 OK / 0 FAILED` 校验日志尚未取得。
 
