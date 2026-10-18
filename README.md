@@ -9,7 +9,7 @@
 ## 已确认的运行配置
 
 - 用户确认卡型为 BW1000。日志中的服务使用 TP=2、Qwen3.8-27B、BF16、SGLang 0.5.12+das185、DTK 26.04。
-- 2026-10-17 15:53 的 `source/results/strict_formal_20261017_155319/provenance.txt` 记录了服务完整参数：chunked prefill 8192、max prefill tokens 16384、schedule conservativeness 0.4、attention backend triton。
+- JobID 934852 的 `provenance.txt` 位于用户补包 `q38_late_results.tar.gz` 的 `results/strict_4k64k_job934852/`，记录节点、启动命令、软件版本和 benchmark 源文件哈希；该原件尚未公开入库。仓库内 15:53 的 `source/results/strict_formal_20261017_155319/provenance.txt` 属于另一次不完整运行。
 - 本包里的 `scripts/run.sh` 是原始 ShareGPT 复测脚本副本；`scripts/bench_strict_4k64k.sh` 是原始严格测试脚本副本，要求先在 Slurm 分配的计算节点启动服务。路径仍指向原集群 `/public/home/zzu_dcf/`，迁移机器前必须更新。
 - `source/` 保留基线日志、实验脚本、单轮复测和审计结果。`report.md` 区分同窗 A/B、历史基线与跨会话复测。
 
