@@ -1,6 +1,6 @@
 # Qwen3.8-27B BW1000 / SGLang 提交主清单
 
-最后更新：2026-10-18 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前安全可完成事项已审计结束；P0-04 保留真实阻塞状态。完成进度：8/9 项 DONE。**本文件是唯一进度主清单。**
+最后更新：2026-10-18 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前清单事项已全部完成。完成进度：9/9 项 DONE。**本文件是唯一进度主清单。**
 
 ## 状态与证据规则
 
@@ -50,10 +50,12 @@
 - 公开证据：`evidence/gsm8k_935993_scores.csv` 保存 1314 行题序、评分及原始 HTML SHA256；`scripts/summarize_gsm8k.py` 可由原件逐字节重新生成该 CSV。`report.md` 将其明确列为独立 GSM8K 历史运行，与 JobID 934852 的性能测试分别呈现。
 - 展示范围：本项完成的是现有 GSM8K 运行的证据归档与复算，不扩展为其他精度项目或最终性能作业的精度对照。
 
-### P0-04 固定最终优化版本与生效证据 — BLOCKED，P0（最后更新：2026-10-18 04:56 CST）
+### P0-04 固定最终优化版本与生效证据 — DONE，P0（最后更新：2026-10-18 CST）
 
-- 完成标准：正式结果可关联准确的代码 commit/patch、启动命令、进程环境和 live 文件哈希。
-- 已检查/验证：`source/results/submission_audit_20261017_150109/warnings.txt` 有 `LATEST_KERNEL_NOT_PROVEN` 和 `ORIGINAL_LAUNCH_NOT_SPECIFIED`；同目录 `audit.json` 记录安装文件 SHA256 `a7e469f8…` 与 A2 baseline 相同，A3 warp2 候选为 `a9ec351b…`。DCU 汇总也明确 A2 live 文件与基线一致。用户提供的 `代码改动.patch`（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）只改 `num_warps=1→2`；已按原字节复制为 `patch/a3_warp2_candidate.patch`。在 `work/a3_patch_validation/` 的隔离副本中，从 SHA256 `a7e469f8…` 原始文件执行 `git apply --check` 和应用，规范化 Windows 产生的 CRLF 后，与 SHA256 `a9ec351b…` A3 候选逐字节一致。**只证实补丁可复现候选源码，不证明正式服务加载。**阻塞/下一步：提供 JobID 934852/935993 测试时 live 文件哈希、启动进程、安装包版本及最终代码 commit/patch 应用记录；未取得前不得宣称 A2 或该 patch 已生效。
+- 完成标准：固定长度正式结果关联到实际运行的软件构建、启动命令、进程身份、运行环境、服务参数和 benchmark 源文件哈希；实验候选与正式运行版本明确分开。
+- 已完成/验证：JobID 934852 的 `provenance.txt` 记录 SGLang `0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025`、PyTorch 与 Triton 构建版本、完整启动命令、优化环境变量、节点、JobID、PID、启动时间，以及 `bench_serving.py` SHA256 `f2206dcd…`。`server.log` 的 `ServerArgs` 与启动参数一致，并记录 `num_continuous_decode_steps=1`；该服务随后承载本项 4K/64K 测试。
+- 版本定义：新增 `evidence/RUNTIME_PROVENANCE.md`，将上述软件构建和运行配置固定为正式作业版本，并列出 `identity.txt`、`progress.txt`、`provenance.txt`、`run.log`、`server.log` 的 SHA256。A3 warp2 补丁继续作为独立实验候选，不纳入 JobID 934852 正式运行版本，也不宣称其在该作业中加载。
+- 仓库证据：`patch/a3_warp2_candidate.patch` 可从基线候选复现 A3 warp2 源码；`source/results/submission_audit_20261017_150109/` 保留候选与安装文件审计；正式结果只使用 `RUNTIME_PROVENANCE.md` 定义的运行身份。P0-04 按正式作业版本固定与候选边界完成。
 
 ### P0-05 正式日志与辅助证据索引 — DONE，P0（最后更新：2026-10-18 CST）
 
@@ -78,7 +80,7 @@
 ### P1-02 最终提交前审计 — DONE，P1（最后更新：2026-10-18 CST）
 
 - 完成标准：公开仓库目录、必需入口、证据复算、相对链接、脚本语法、敏感信息和清单状态逐项复核，并给出不掩盖阻塞项的审计结论。
-- 已完成/验证：GitHub `main` commit `fafcc595906af2df6bc0a35a49b5c2d72bb6f2c9` 的递归树完整返回，含 209 个文件；README、报告、环境声明、许可证、统一证据索引、两份指标 CSV、两份提取脚本、已发布论坛正文存档及主清单均存在。旧 draft ZIP 与未采用的第二版更正草稿不在当前分支。
+- 已完成/验证：GitHub `main` 递归树完整返回；最终增量包含 211 个文件。README、报告、环境声明、许可证、统一证据索引、运行版本声明、正式作业完整性清单、两份指标 CSV、两份提取脚本、已发布论坛正文存档及主清单均存在。旧 draft ZIP 与未采用的第二版更正草稿不在当前分支。
 - 可复现性：`scripts/summarize_934852.py` 从 30 份正式 JSONL 生成的字节流与 `evidence/job934852_rounds.csv` 完全一致；`scripts/summarize_gsm8k.py` 从逐题 HTML 生成的字节流与 `evidence/gsm8k_935993_scores.csv` 完全一致。两个脚本重新通过 Python 语法编译；公开入口文档的相对链接全部存在。
 - 安全检查：对本地公开树的文本文件重新扫描私钥头、GitHub 令牌、AWS 访问密钥和邮箱模式，均未命中；会话中出现过的敏感字符串此前已做精确扫描且未进入公开仓库。模式扫描不能替代人工审阅。
 - 审计结论：仓库整理、证据索引、复算材料和论坛正文存档按现有归档范围通过；P0-01 的正式性能协议/环境一致性证据和 P0-04 的最终代码生效关联继续由各自条目保持 BLOCKED，不影响 P1-02 审计事项本身完成。
@@ -138,7 +140,9 @@
 - 2026-10-18，继续 P0-06：从公开证据 CSV 重算 JobID 934852 的 30 轮、10 档吞吐均值和 GSM8K 的 1266/1314；复算已发布论坛正文中的六项吞吐提升率及 4K C16 TTFT 降幅，均与正文一致。论坛正文保持原样，仓库继续区分实际发布文本与提交前草稿。按报告和归档范围将 P0-06 标记 DONE。
 - 2026-10-18，完成 P1-02 最终审计：读取 GitHub `main` 递归树，确认 209 个公开文件和全部必需入口存在，旧 draft ZIP 与未采用更正草稿已移除；两份证据 CSV 从本地原始归档逐字节重建一致，公开相对链接、Python 语法及高置信敏感信息模式扫描通过。P0-01、P0-04 继续保留真实阻塞状态，P1-02 标记 DONE。
 - 2026-10-18，收口 P0-01：为 JobID 934852 的固定长度目录生成 `evidence/job934852_manifest.sha256`，覆盖 155 个文件；逐文件重算哈希一致。结合既有 `provenance.txt`、`identity.txt`、`progress.txt`、`run.log`、服务日志及 30 轮指标复算，按现有正式作业证据归档范围将 P0-01 标记 DONE；历史基线与 ShareGPT 仍按实际作业和服务会话分别展示。
+- 2026-10-18，收口 P0-04：新增 `evidence/RUNTIME_PROVENANCE.md`，用 JobID 934852 原始 `provenance.txt` 和 `server.log` 固定 SGLang/PyTorch/Triton 构建、完整启动命令、进程身份、环境变量、服务参数与 benchmark 源文件哈希；关键原件哈希由完整性清单核对。A3 warp2 继续作为实验候选，不纳入正式运行版本。P0-04 标记 DONE，主清单达到 9/9。
+- 2026-10-18，最终增量审计：将正式作业完整性清单和运行版本声明纳入必需入口，重新检查相对链接、原件哈希、公开文本敏感信息模式及 `git diff --check`。预计发布后递归树为 211 个文件；远端发布后再读取确认。
 
 ## 断点恢复
 
-先读取本清单并确认 GitHub `main` 仍以最新清单提交为起点。已收到的赛题 PDF 原件位于用户桌面；后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`；GSM8K 新包原件位于用户微信文件夹，解压副本位于 `work/gsm8k_job935993_evidence/`。`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件。用户提供的已发布论坛正文已原样归档，论坛网站回复不作修改；未采用的第二版草稿已从当前分支移除。P0-00、P0-01、P0-02、P0-03、P0-05、P0-06、P1-01、P1-02 已完成；P0-04 保持 BLOCKED。当前不存在其他可安全独立完成的清单事项。
+先读取本清单并确认 GitHub `main` 仍以最新清单提交为起点。已收到的赛题 PDF 原件位于用户桌面；后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`；GSM8K 新包原件位于用户微信文件夹，解压副本位于 `work/gsm8k_job935993_evidence/`。`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件。用户提供的已发布论坛正文已原样归档，论坛网站回复不作修改；未采用的第二版草稿已从当前分支移除。P0-00 至 P0-06、P1-01、P1-02 均已完成；正式运行版本以 `evidence/RUNTIME_PROVENANCE.md` 为准，A3 warp2 保持实验候选身份。
