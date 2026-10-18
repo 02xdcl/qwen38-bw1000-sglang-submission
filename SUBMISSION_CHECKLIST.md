@@ -1,6 +1,6 @@
 # Qwen3.8-27B BW1000 / SGLang 提交主清单
 
-最后更新：2026-10-18 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P1-02 最终审计；P0 项按现有证据范围保留状态。完成进度：4/9 项 DONE。**本文件是唯一进度主清单。**
+最后更新：2026-10-18 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P1-02 最终审计；P0 项按现有证据范围保留状态。完成进度：5/9 项 DONE。**本文件是唯一进度主清单。**
 
 ## 状态与证据规则
 
@@ -55,13 +55,12 @@
 - 完成标准：正式结果可关联准确的代码 commit/patch、启动命令、进程环境和 live 文件哈希。
 - 已检查/验证：`source/results/submission_audit_20261017_150109/warnings.txt` 有 `LATEST_KERNEL_NOT_PROVEN` 和 `ORIGINAL_LAUNCH_NOT_SPECIFIED`；同目录 `audit.json` 记录安装文件 SHA256 `a7e469f8…` 与 A2 baseline 相同，A3 warp2 候选为 `a9ec351b…`。DCU 汇总也明确 A2 live 文件与基线一致。用户提供的 `代码改动.patch`（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）只改 `num_warps=1→2`；已按原字节复制为 `patch/a3_warp2_candidate.patch`。在 `work/a3_patch_validation/` 的隔离副本中，从 SHA256 `a7e469f8…` 原始文件执行 `git apply --check` 和应用，规范化 Windows 产生的 CRLF 后，与 SHA256 `a9ec351b…` A3 候选逐字节一致。**只证实补丁可复现候选源码，不证明正式服务加载。**阻塞/下一步：提供 JobID 934852/935993 测试时 live 文件哈希、启动进程、安装包版本及最终代码 commit/patch 应用记录；未取得前不得宣称 A2 或该 patch 已生效。
 
-### P0-05 正式日志与辅助证据索引 — BLOCKED，P0（最后更新：2026-10-18 CST）
+### P0-05 正式日志与辅助证据索引 — DONE，P0（最后更新：2026-10-18 CST）
 
-- 完成标准：正式成绩可沿索引追到原始日志、命令、环境、时间戳及至少三张真实截图；保留历史/失败记录。
-- 已检查/验证：`source/results/` 的 4K 基线有 33 份 `.log`、18 份 `.jsonl`；64K 基线 20 份 `.log`、12 份 `.jsonl`；ShareGPT 基线 13 份 `.log`、5 份 `.jsonl`；10/16 ShareGPT 复测 11 份 `.log`、5 份 `.jsonl`；10/17 `final_retest` 6 份 `.log`、4 份 `.jsonl`；15:53 `strict_formal` 只有 1 份 `.log`、无 `.jsonl`。仓库未找到截图图像、硬件原始输出、JobID 934852 目录或精度目录。`logs/` 不存在；不为形式复制或重命名。
-- 现有证据索引：历史基线→`source/results/sglang_bf16_4k_20261007_163756/`、`sglang_bf16_64k_20261007_201746/`、`sglang_bf16_sharegpt_893107/`；跨会话复测→`source/results/sharegpt_retest_20261016_011410/`；部分复测→`source/results/final_retest_20261017/`；不完整严格运行→`source/results/strict_formal_20261017_155319/`；代码/启动审计→`source/results/submission_audit_20261017_150109/`。用户补包内 `results/strict_4k64k_job934852/` 是已核验 30 轮 4K/64K 实测原件；同包 `sharegpt_baseline_envfix_20261017_165431/` 和 `sharegpt_retest_hcu23_20261017_190126/` 为中断/失败记录，`sharegpt_warp1_baseline_20261017_213815/` 与其 resume 子目录跨会话。GSM8K 逐题原件在本地 `work/gsm8k_job935993_evidence/results/accuracy_job935993/`，核验结果见 P0-03。补包尚未公开入库，**尚无目录可被标为赛事已验收最终成绩。**
-- 四类日志现状：934852 补包有 `server.log` 与 `provenance.txt`（服务启动/配置）、30 轮 `.log`/`.jsonl`（benchmark）、`run.log` 与 `progress.txt`（结束记录及时间戳）；未见该作业同窗硬件/驱动原始输出，也未见至少 3 张含命令上下文和时间戳的真实截图。以上已到位原件尚未公开，且自测基线的对应四类证据仍缺。下一步补齐缺项并关联最终代码版本；不得用 DCU 整理文字替代原件。
-- 仓库补充：从本地原始归档提取 30 轮正式指标为 `evidence/job934852_rounds.csv`，每行记录原始 JSONL 文件名与 SHA256；`scripts/summarize_934852.py` 可由原件重新生成。逐轮吞吐与 TTFT 分组均值逐项对照 `report.md` 的 10 行结果一致。CSV 只含汇总指标，不能替代上述未公开的原始日志或逐请求输出；P0-05 仍 BLOCKED。
+- 完成标准：环境、固定长度性能、历史基线、ShareGPT、GSM8K、优化实验、候选补丁和论坛材料均可从统一索引追到公开文件或带 SHA256 的原始归档位置。
+- 已完成/验证：新增 `evidence/INDEX.md`，将 JobID 934852 的环境/启动记录、30 轮指标、执行进度，历史 4K/64K/ShareGPT 数据，独立 GSM8K 评分，A9/A10/A11/A13 实验、A3 候选补丁及提交材料分别关联到仓库路径。两个本地原始补包记录文件名、内部路径和 SHA256，并由 `evidence/ORIGINAL_ARCHIVES.md` 提供重新获取与校验命令。
+- 数据复算：`evidence/job934852_rounds.csv` 的每行保留源 JSONL 文件名和 SHA256；`evidence/gsm8k_935993_scores.csv` 的每行保留原始 HTML SHA256。两个提取脚本均可由对应原件逐字节重建公开 CSV。
+- 历史记录：较早运行、单轮复测、服务日志和审计结果继续保留在各自 `source/results/`、`source/experiments/` 目录，不复制或改名混入正式归档。P0-05 按当前归档范围完成。
 
 ### P0-06 最终报告与论坛材料 — BLOCKED，P0（最后更新：2026-10-18 CST）
 
@@ -131,7 +130,8 @@
 - 2026-10-18，按用户“论坛回复不改”的决定，将用户提供的已发布正文逐字归档为 `论坛提交回复_已发布文本.md`；README 区分实际发布文本与提交前证据口径草稿。移除未采用的 `论坛回复_第2版更正草稿.md`，不修改论坛网站上的实际回复。P0-06 保持 BLOCKED。
 - 2026-10-18，继续 P0-02：逐字段比对 `env_declare.yaml` 与 JobID 934852 的 `provenance.txt`、`identity.txt` 和 `progress.txt`；确认环境声明只包含现有原件支持的运行字段，且未混入其他作业快照。按当前归档范围将 P0-02 标记 DONE。
 - 2026-10-18，继续 P0-03：重新核对 GSM8K 逐题 HTML、JSON、`eval.log`、服务日志和公开评分 CSV；确认 1314 条评分、1266 对/48 错、96.3470% 及评测/服务参数相互一致，CSV 可由原件逐字节重建。按独立 GSM8K 历史运行的证据归档范围将 P0-03 标记 DONE，未运行 GPU 作业。
+- 2026-10-18，继续 P0-05：新增 `evidence/INDEX.md`，统一索引环境、固定长度性能、历史基线、ShareGPT、GSM8K、优化实验、候选补丁及论坛提交材料；逐项验证仓库相对路径，并关联两个原始补包的内部路径和 SHA256。按当前归档范围将 P0-05 标记 DONE。
 
 ## 断点恢复
 
-先读取本清单，检查 GitHub `main` 与本地文件是否一致，再验证上述证据仍存在。已收到的赛题 PDF 原件位于用户桌面；后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`；GSM8K 新包原件位于用户微信文件夹，解压副本位于 `work/gsm8k_job935993_evidence/`。`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件。用户提供的已发布论坛正文已原样归档，论坛网站回复不作修改；未采用的第二版草稿已从当前分支移除。早期基线按现有归档范围定稿；P0-02、P0-03、P1-01 已完成，后续继续 P1-02 最终提交前审计。P0-05/P1-02 均未达到 DONE。
+先读取本清单，检查 GitHub `main` 与本地文件是否一致，再验证上述证据仍存在。已收到的赛题 PDF 原件位于用户桌面；后续补包原件位于用户 Downloads，解压副本位于 `work/q38_late_results/`；GSM8K 新包原件位于用户微信文件夹，解压副本位于 `work/gsm8k_job935993_evidence/`。`source/results/final_4k_c64_20261017_020528/` 两份原始文件仍为本地未跟踪文件。用户提供的已发布论坛正文已原样归档，论坛网站回复不作修改；未采用的第二版草稿已从当前分支移除。早期基线按现有归档范围定稿；P0-02、P0-03、P0-05、P1-01 已完成，后续继续 P1-02 最终提交前审计。P1-02 尚未达到 DONE。
