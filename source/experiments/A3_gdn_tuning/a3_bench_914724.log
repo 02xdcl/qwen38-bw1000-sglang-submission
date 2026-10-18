@@ -1,0 +1,38 @@
+========== A3 HIP Graph Benchmark ==========
+JOBID=914724
+NODE=a02r1n01
+HIP_VISIBLE_DEVICES=0
+
+========== 环境检查 ==========
+PyTorch: 2.10.0
+HIP: 6.3.26113
+DCU available: True
+
+========== 开始性能测试 ==========
+A3 mode=bench, H=8, HV=24, K=128, V=128
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+BENCH bv32_w1 B=4: original=15.568us, new=15.527us, speedup=1.0026x
+BENCH bv32_w1 B=16: original=43.542us, new=43.550us, speedup=0.9998x
+BENCH bv32_w1 B=64: original=174.287us, new=174.282us, speedup=1.0000x
+BENCH bv16_w1 B=4: original=15.290us, new=14.310us, speedup=1.0685x
+BENCH bv16_w1 B=16: original=43.557us, new=63.692us, speedup=0.6839x
+BENCH bv16_w1 B=64: original=174.240us, new=179.372us, speedup=0.9714x
+BENCH bv64_w1 B=4: original=15.310us, new=18.877us, speedup=0.8110x
+BENCH bv64_w1 B=16: original=43.650us, new=40.855us, speedup=1.0684x
+BENCH bv64_w1 B=64: original=174.300us, new=174.877us, speedup=0.9967x
+BENCH bv32_w2 B=4: original=15.527us, new=12.825us, speedup=1.2107x
+BENCH bv32_w2 B=16: original=43.517us, new=43.205us, speedup=1.0072x
+BENCH bv32_w2 B=64: original=174.347us, new=173.455us, speedup=1.0051x
+BENCH bv32_w4 B=4: original=15.317us, new=11.957us, speedup=1.2810x
+BENCH bv32_w4 B=16: original=43.487us, new=64.730us, speedup=0.6718x
+BENCH bv32_w4 B=64: original=174.320us, new=186.952us, speedup=0.9324x
+FAILED variants: none
+
+A3 BENCH FINISHED

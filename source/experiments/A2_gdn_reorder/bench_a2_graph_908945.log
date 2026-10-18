@@ -1,0 +1,51 @@
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+========== A2 HIP Graph Benchmark ==========
+Graph iterations: 64
+Measurements: 15
+Unit: microseconds per kernel
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========== Batch 4 ==========
+Original median: 11.397 us
+A2 median:       11.837 us
+Speedup:         0.9628x
+Original range:  10.930 - 13.113 us
+A2 range:        11.110 - 12.240 us
+
+========== Batch 16 ==========
+Original median: 11.325 us
+A2 median:       12.345 us
+Speedup:         0.9174x
+Original range:  10.932 - 13.862 us
+A2 range:        12.275 - 12.403 us
+
+========== Batch 64 ==========
+Original median: 33.505 us
+A2 median:       33.047 us
+Speedup:         1.0138x
+Original range:  32.922 - 35.487 us
+A2 range:        32.922 - 33.205 us
+
+GRAPH BENCHMARK FINISHED

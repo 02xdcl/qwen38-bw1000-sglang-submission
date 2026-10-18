@@ -1,0 +1,67 @@
+========== 创建独立 SGLang 副本 ==========
+NODE=a02r1n15
+JOBID=914874
+HIP_VISIBLE_DEVICES=0,1
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+PyTorch: 2.10.0
+DCU count: 2
+SGLang path: /tmp/a3ab_914874_9J6Mld/site/sglang/__init__.py
+========== A 组：原版 Warp1 ==========
+========== 启动 original 服务 ==========
+SERVER original READY
+========== original C4 预热 ==========
+========== original C4 正式测试 ==========
+Successful requests:                     200       
+Output token throughput (tok/s):         112.74    
+Peak output token throughput (tok/s):    128.00    
+Mean TTFT (ms):                          213.46    
+Mean TPOT (ms):                          34.62     
+========== original C32 预热 ==========
+========== original C32 正式测试 ==========
+Successful requests:                     200       
+Output token throughput (tok/s):         410.80    
+Peak output token throughput (tok/s):    800.00    
+Mean TTFT (ms):                          398.93    
+Mean TPOT (ms):                          63.59     
+========== original C64 预热 ==========
+========== original C64 正式测试 ==========
+Successful requests:                     200       
+Output token throughput (tok/s):         467.67    
+Peak output token throughput (tok/s):    1159.00   
+Mean TTFT (ms):                          1513.19   
+Mean TPOT (ms):                          104.94    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/run_a3_ab.sh: line 60: 2314363 Killed                  setsid "$PY" -m sglang.launch_server --model-path "$MODEL" --served-model-name qwen38-bf16 --host 0.0.0.0 --port 18580 --tp-size 2 --dtype bfloat16 --context-length 131072 --max-running-requests 128 --chunked-prefill-size 8192 --max-prefill-tokens 16384 --mem-fraction-static 0.85 --attention-backend triton --disable-custom-all-reduce --disable-piecewise-cuda-graph --trust-remote-code > "$RESULT/server_${tag}.log" 2>&1
+========== B 组：A3 Warp2 ==========
+========== 启动 warp2 服务 ==========
+SERVER warp2 READY
+========== warp2 C4 预热 ==========
+========== warp2 C4 正式测试 ==========
+Successful requests:                     200       
+Output token throughput (tok/s):         114.08    
+Peak output token throughput (tok/s):    128.00    
+Mean TTFT (ms):                          203.81    
+Mean TPOT (ms):                          34.26     
+========== warp2 C32 预热 ==========
+========== warp2 C32 正式测试 ==========
+Successful requests:                     200       
+Output token throughput (tok/s):         412.80    
+Peak output token throughput (tok/s):    800.00    
+Mean TTFT (ms):                          395.45    
+Mean TPOT (ms):                          63.27     
+========== warp2 C64 预热 ==========
+========== warp2 C64 正式测试 ==========
+Successful requests:                     200       
+Output token throughput (tok/s):         468.76    
+Peak output token throughput (tok/s):    1159.00   
+Mean TTFT (ms):                          1509.37   
+Mean TPOT (ms):                          104.77    
+/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A3_gdn_tuning/run_a3_ab.sh: line 60: 2393206 Killed                  setsid "$PY" -m sglang.launch_server --model-path "$MODEL" --served-model-name qwen38-bf16 --host 0.0.0.0 --port 18580 --tp-size 2 --dtype bfloat16 --context-length 131072 --max-running-requests 128 --chunked-prefill-size 8192 --max-prefill-tokens 16384 --mem-fraction-static 0.85 --attention-backend triton --disable-custom-all-reduce --disable-piecewise-cuda-graph --trust-remote-code > "$RESULT/server_${tag}.log" 2>&1
+A3 SHAREGPT AB FINISHED
+RESULT=/public/home/zzu_dcf/qwen38_dcu_competition/results/a3_sharegpt_ab_914874

@@ -1,0 +1,97 @@
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+Running original Triton Kernel...
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+Running A2 Triton Kernel...
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+========== A2 Numerical Comparison ==========
+Output max abs error: 0.0
+State max abs error: 5.960464477539063e-08
+Output finite: True
+State finite: True
+Output close: True
+State close: True

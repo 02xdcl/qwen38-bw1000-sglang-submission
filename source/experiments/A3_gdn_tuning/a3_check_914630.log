@@ -1,0 +1,39 @@
+========== 节点信息 ==========
+a02r1n01
+JOBID=914630
+CUDA_VISIBLE_DEVICES=0
+HIP_VISIBLE_DEVICES=0
+
+========== PyTorch 环境检查 ==========
+PyTorch: 2.10.0
+HIP: 6.3.26113
+DCU available: True
+
+========== A3 正确性测试 ==========
+A3 mode=check, H=8, HV=24, K=128, V=128
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+PASS bv32_w1 B=4: 8 tokens, output_error=0, state_error=0
+PASS bv32_w1 B=16: 8 tokens, output_error=0, state_error=0
+PASS bv32_w1 B=64: 8 tokens, output_error=0, state_error=0
+PASS bv16_w1 B=4: 8 tokens, output_error=0, state_error=0
+PASS bv16_w1 B=16: 8 tokens, output_error=0, state_error=0
+PASS bv16_w1 B=64: 8 tokens, output_error=0, state_error=0
+PASS bv64_w1 B=4: 8 tokens, output_error=0, state_error=0
+PASS bv64_w1 B=16: 8 tokens, output_error=0, state_error=0
+PASS bv64_w1 B=64: 8 tokens, output_error=0, state_error=0
+PASS bv32_w2 B=4: 8 tokens, output_error=1.91e-06, state_error=1.19e-07
+PASS bv32_w2 B=16: 8 tokens, output_error=1.53e-05, state_error=1.19e-07
+PASS bv32_w2 B=64: 8 tokens, output_error=6.1e-05, state_error=1.79e-07
+PASS bv32_w4 B=4: 8 tokens, output_error=1.91e-06, state_error=1.19e-07
+PASS bv32_w4 B=16: 8 tokens, output_error=1.53e-05, state_error=1.19e-07
+PASS bv32_w4 B=64: 8 tokens, output_error=6.1e-05, state_error=1.79e-07
+FAILED variants: none
+
+A3 CHECK FINISHED

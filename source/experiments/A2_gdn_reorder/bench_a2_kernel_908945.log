@@ -1,0 +1,43 @@
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:549: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+========== A2 Kernel Benchmark ==========
+Unit: microseconds per invocation
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+Batch = 4
+Original: 116.266 us
+A2:       115.328 us
+Speedup:  1.008x
+
+Batch = 16
+Original: 115.368 us
+A2:       114.774 us
+Speedup:  1.005x
+
+Batch = 64
+Original: 113.298 us
+A2:       115.490 us
+Speedup:  0.981x
+
+Benchmark finished.

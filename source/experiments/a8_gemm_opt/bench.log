@@ -1,0 +1,365 @@
+Device: BW
+
+=== gate_up: [32,5120] x [17408,5120]^T ===
+baseline F.linear: 171.08 us
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmptqvnedd4.ll -S -o /tmp/tmpim33janm.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmpim33janm.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154926__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmpim33janm.amdgcn'
+{'BM': 16, 'BN': 64, 'BK': 64, 'warps': 4}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmpim33janm.amdgcn'
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmphifchwe7.ll -S -o /tmp/tmpcrg983_4.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmpcrg983_4.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154927__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmpcrg983_4.amdgcn'
+{'BM': 32, 'BN': 64, 'BK': 64, 'warps': 4}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmpcrg983_4.amdgcn'
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmpvayvz1ul.ll -S -o /tmp/tmp8r716mxx.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmp8r716mxx.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154927__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmp8r716mxx.amdgcn'
+{'BM': 16, 'BN': 128, 'BK': 64, 'warps': 4}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmp8r716mxx.amdgcn'
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmpswuhws3y.ll -S -o /tmp/tmpfc0_qay2.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmpfc0_qay2.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154927__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmpfc0_qay2.amdgcn'
+{'BM': 32, 'BN': 128, 'BK': 64, 'warps': 8}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmpfc0_qay2.amdgcn'
+REJECTED: gate_up, no >=8% accurate speedup
+
+=== down: [32,8704] x [5120,8704]^T ===
+baseline F.linear: 80.83 us
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmpyj5gz8zp.ll -S -o /tmp/tmpy3yudkn8.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmpy3yudkn8.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154927__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmpy3yudkn8.amdgcn'
+{'BM': 16, 'BN': 64, 'BK': 64, 'warps': 4}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmpy3yudkn8.amdgcn'
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmpow8p2ad7.ll -S -o /tmp/tmpftbhnhqk.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmpftbhnhqk.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154928__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmpftbhnhqk.amdgcn'
+{'BM': 32, 'BN': 64, 'BK': 64, 'warps': 4}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmpftbhnhqk.amdgcn'
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmpj9bsmryq.ll -S -o /tmp/tmpg90to43d.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmpg90to43d.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154928__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmpg90to43d.amdgcn'
+{'BM': 16, 'BN': 128, 'BK': 64, 'warps': 4}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmpg90to43d.amdgcn'
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+
+========================================================================
+HCU/DTK TOOLCHAIN ERROR: AI LLVM (aillvm) not found
+========================================================================
+  DTK root : /public/software/compiler/dtk-26.04
+  Expected : /public/software/compiler/dtk-26.04/aillvm
+========================================================================
+
+[triton-hcu] llir->amdgcn failed
+stage      : llir->amdgcn
+kernel     : _a8_matmul
+rocm_path  : /public/software/compiler/dtk-26.04
+llvm_path  : /public/software/compiler/dtk-26.04/llvm
+clang      : /public/software/compiler/dtk-26.04/llvm/bin/clang
+command    : /public/software/compiler/dtk-26.04/llvm/bin/clang -target amdgcn-amd-amdhsa -mcpu=gfx936:xnack- -mllvm=-check-valu-data-forward-hazards=0 -mllvm=-disable-cluster-lds-memops=true -mllvm=-hcu-pre-emit-load-store-opt=false   -mllvm=-support-768-vgprs=true -mllvm=-amdgpu-disable-backoff-barrier=false -mllvm=-fp-fuse=fast -O3 /tmp/tmpnog2cjed.ll -S -o /tmp/tmpctznyzhb.amdgcn
+error      : [Errno 2] No such file or directory: '/tmp/tmpctznyzhb.amdgcn'
+
+[triton-hcu] archived failed kernel artifacts to /public/home/zzu_dcf/.triton/cache/failed_kernels/20261015_154928__a8_matmul_llir_amdgcn
+File operation failed: [Errno 2] No such file or directory: '/tmp/tmpctznyzhb.amdgcn'
+{'BM': 32, 'BN': 128, 'BK': 64, 'warps': 8}: FAILED HSACOError: HSACO error: File operation failed: [Errno 2] No such file or directory: '/tmp/tmpctznyzhb.amdgcn'
+REJECTED: down, no >=8% accurate speedup
+
+CHOICES: {}
+Saved: /public/home/zzu_dcf/qwen38_dcu_competition/experiments/a8_gemm_opt/choice.json
+STOP: None won. Do NOT patch SGLang. Return to profiling host gaps.

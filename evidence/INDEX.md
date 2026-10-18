@@ -6,7 +6,7 @@
 
 | 内容 | 公开记录 | 原始归档位置 |
 | --- | --- | --- |
-| JobID 934852 环境与启动参数 | [env_declare.yaml](../env_declare.yaml)、[report.md](../report.md) | `q38_late_results.tar.gz` → `results/strict_4k64k_job934852/provenance.txt`、`identity.txt`、`server.log` |
+| JobID 934852 环境与启动参数 | [原始运行目录](../source/results/strict_4k64k_job934852/)、[env_declare.yaml](../env_declare.yaml)、[report.md](../report.md) | 同目录 `provenance.txt`、`identity.txt`、`server.log` |
 | 正式运行版本定义 | [RUNTIME_PROVENANCE.md](RUNTIME_PROVENANCE.md) | 软件构建、启动命令、服务参数及关键原件哈希 |
 | 4K/64K 30 轮正式指标 | [job934852_rounds.csv](job934852_rounds.csv) | `q38_late_results.tar.gz` → `results/strict_4k64k_job934852/*_run{1,2,3}.log/.jsonl/.ok` |
 | 固定长度目录完整性 | [job934852_manifest.sha256](job934852_manifest.sha256) | 上述目录全部 155 个文件的相对路径与 SHA256 |
@@ -47,10 +47,13 @@
 | Chunked prefill 扫描 | [A11_prefill_tuning](../source/experiments/A11_prefill_tuning/) |
 | 连续 decode 步数扫描 | [A13_decode_tuning](../source/experiments/A13_decode_tuning/) |
 | A3 warp2 候选差异 | [a3_warp2_candidate.patch](../patch/a3_warp2_candidate.patch) |
+| A3 JobID 914874 独立 A/B | [六轮指标与源哈希](a3_job914874_rounds.csv)、[运行归属](COMPETITION_20261018.md#a3-独立-ab-实验) |
 
 候选补丁与正式运行的关系按 [report.md](../report.md) 中的适用边界解释。
 
 ## 提交材料
+
+原始性能、GSM8K、采集记录和 A3 的完整入口见 [综合补包与原始日志索引](COMPETITION_20261018.md)。新增与已有原件的哈希见 [published_raw_files.sha256](published_raw_files.sha256)。
 
 | 内容 | 文件 |
 | --- | --- |

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/public/home/zzu_dcf/qwen38_dcu_competition/experiments/A2_gdn_reorder/test_a2.py", line 1, in <module>
+    import torch
+  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torch/__init__.py", line 431, in <module>
+    from torch._C import *  # noqa: F403
+ImportError: libgalaxyhip.so.5: cannot open shared object file: No such file or directory

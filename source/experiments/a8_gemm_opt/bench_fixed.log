@@ -1,0 +1,21 @@
+Device: BW
+
+=== gate_up: [32,5120] x [17408,5120]^T ===
+baseline F.linear: 171.22 us
+{'BM': 16, 'BN': 64, 'BK': 64, 'warps': 4}: 852.27 us, 0.201x, rel=5.2032e-05
+{'BM': 32, 'BN': 64, 'BK': 64, 'warps': 4}: 283.47 us, 0.604x, rel=5.2032e-05
+{'BM': 16, 'BN': 128, 'BK': 64, 'warps': 4}: 299.40 us, 0.572x, rel=5.2032e-05
+{'BM': 32, 'BN': 128, 'BK': 64, 'warps': 8}: 282.28 us, 0.607x, rel=5.2032e-05
+REJECTED: gate_up, no >=8% accurate speedup
+
+=== down: [32,8704] x [5120,8704]^T ===
+baseline F.linear: 92.50 us
+{'BM': 16, 'BN': 64, 'BK': 64, 'warps': 4}: 427.50 us, 0.216x, rel=4.38762e-05
+{'BM': 32, 'BN': 64, 'BK': 64, 'warps': 4}: 152.66 us, 0.606x, rel=4.38762e-05
+{'BM': 16, 'BN': 128, 'BK': 64, 'warps': 4}: 158.32 us, 0.584x, rel=4.38762e-05
+{'BM': 32, 'BN': 128, 'BK': 64, 'warps': 8}: 259.22 us, 0.357x, rel=4.38762e-05
+REJECTED: down, no >=8% accurate speedup
+
+CHOICES: {}
+Saved: /public/home/zzu_dcf/qwen38_dcu_competition/experiments/a8_gemm_opt/choice.json
+STOP: None won. Do NOT patch SGLang. Return to profiling host gaps.

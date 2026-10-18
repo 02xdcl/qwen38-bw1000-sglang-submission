@@ -10,7 +10,7 @@ model:
   name: "Qwen3.8-27B"
   precision: "BF16"
 run:
-  launch_command_source: "q38_late_results.tar.gz:results/strict_4k64k_job934852/provenance.txt"
+  launch_command_source: "source/results/strict_4k64k_job934852/provenance.txt"
   job_id: "934852"
   node: "a01r3n19"
   server_pid: 653002

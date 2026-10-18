@@ -1,0 +1,280 @@
+2026-10-18T15:52:37+08:00
+zz-login02
+Linux zz-login02 5.10.134-17.1.3.sga8.x86_64 #1 SMP Tue Jan 14 10:52:30 CST 2025 x86_64 x86_64 x86_64 GNU/Linux
+NAME="Sugon OS"
+VERSION="8.9"
+ID="sugon"
+ID_LIKE="rhel fedora centos"
+VERSION_ID="8.9"
+PLATFORM_ID="platform:sga8"
+PRETTY_NAME="Sugon OS 8.9"
+ANSI_COLOR="0;31"
+HOME_URL="https://www.sugon.com/"
+
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              128
+On-line CPU(s) list: 0-127
+Thread(s) per core:  1
+Core(s) per socket:  64
+Socket(s):           2
+NUMA node(s):        8
+Vendor ID:           HygonGenuine
+CPU family:          24
+Model:               4
+Model name:          Hygon C86-4G (OPN:7495)
+Stepping:            1
+CPU MHz:             3000.199
+BogoMIPS:            6000.42
+Virtualization:      AMD-V
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            512K
+L3 cache:            16384K
+NUMA node0 CPU(s):   0-15
+NUMA node1 CPU(s):   16-31
+NUMA node2 CPU(s):   32-47
+NUMA node3 CPU(s):   48-63
+NUMA node4 CPU(s):   64-79
+NUMA node5 CPU(s):   80-95
+NUMA node6 CPU(s):   96-111
+NUMA node7 CPU(s):   112-127
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid amd_dcm aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb hw_pstate ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt sha_ni xsaveopt xsavec xgetbv1 xsaves clzero irperf xsaveerptr arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip overflow_recov succor smca sme csv csv2 csv3 sm3 sm4
+              total        used        free      shared  buff/cache   available
+Mem:          1.0Ti       249Gi        55Gi        38Gi       701Gi       714Gi
+Swap:            0B          0B          0B
+Filesystem            Size  Used Avail Use% Mounted on
+scnet.hx:/mnt/public  500G  148G  353G  30% /public
+TARGET  SOURCE               FSTYPE OPTIONS
+/public scnet.hx:/mnt/public nfs    rw,relatime,vers=3,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=11.13.20.54,mountvers=3,mountport=597,mountproto=udp,local_lock=none,addr=11.13.20.54
+-+-[0000:e0]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+ |           +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+ |           +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.7-[e1-e2]--+-00.0  Mellanox Technologies MT2892 Family [ConnectX-6 Dx]
+ |           |               \-00.1  Mellanox Technologies MT2892 Family [ConnectX-6 Dx]
+ |           +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.1-[e3]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+ |           |            \-00.2  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |           +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           \-08.1-[e4]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+ |                        +-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |                        \-00.2  Chengdu Haiguang IC Design Co., Ltd. FCH SATA Controller [AHCI mode]
+ +-[0000:c0]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+ |           +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+ |           +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.1-[c1]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+ |           |            \-00.2  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |           +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           \-08.1-[c2]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+ |                        +-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |                        \-00.2  Chengdu Haiguang IC Design Co., Ltd. FCH SATA Controller [AHCI mode]
+ +-[0000:a0]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+ |           +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+ |           +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-01.1-[a1]----00.0  Beijing Memblaze Technology Co. Ltd. PBlaze5 520/526
+ |           +-01.2-[a2]----00.0  Beijing Memblaze Technology Co. Ltd. PBlaze5 520/526
+ |           +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.7-[a3]----00.0  Dawning Information Industry Co., Ltd. Device 11a2
+ |           +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.1-[a4]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+ |           |            +-00.2  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |           |            \-00.3  Chengdu Haiguang IC Design Co., Ltd. Device 148c
+ |           +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           \-08.1-[a5]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+ |                        +-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |                        \-00.2  Chengdu Haiguang IC Design Co., Ltd. FCH SATA Controller [AHCI mode]
+ +-[0000:80]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+ |           +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+ |           +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-02.1-[81-82]--+-00.0  Mellanox Technologies MT2892 Family [ConnectX-6 Dx]
+ |           |               \-00.1  Mellanox Technologies MT2892 Family [ConnectX-6 Dx]
+ |           +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.1-[83]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+ |           |            +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1486
+ |           |            \-00.3  Chengdu Haiguang IC Design Co., Ltd. Device 148c
+ |           +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           \-08.1-[84]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+ |                        +-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |                        \-00.2  Chengdu Haiguang IC Design Co., Ltd. FCH SATA Controller [AHCI mode]
+ +-[0000:60]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+ |           +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+ |           +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.3-[61]----00.0  Broadcom / LSI MegaRAID 12GSAS/PCIe Secure SAS39xx
+ |           +-03.4-[62]----00.0  Beijing Memblaze Technology Co. Ltd. PBlaze5 520/526
+ |           +-03.5-[63]----00.0  Beijing Memblaze Technology Co. Ltd. PBlaze5 520/526
+ |           +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.1-[64]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+ |           |            \-00.2  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |           +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           \-08.1-[65]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+ |                        \-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ +-[0000:40]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+ |           +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+ |           +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.1-[41]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+ |           |            \-00.2  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |           +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           \-08.1-[42]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+ |                        +-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |                        \-00.2  Chengdu Haiguang IC Design Co., Ltd. FCH SATA Controller [AHCI mode]
+ +-[0000:20]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+ |           +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+ |           +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-01.1-[21]----00.0  Beijing Memblaze Technology Co. Ltd. PBlaze5 520/526
+ |           +-01.2-[22]----00.0  Beijing Memblaze Technology Co. Ltd. PBlaze5 520/526
+ |           +-01.6-[23-25]--+-00.0  Intel Corporation I350 Gigabit Network Connection
+ |           |               \-00.1  Intel Corporation I350 Gigabit Network Connection
+ |           +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-03.7-[26]----00.0  Dawning Information Industry Co., Ltd. Device 11a2
+ |           +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           +-07.1-[27]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+ |           |            +-00.2  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |           |            \-00.3  Chengdu Haiguang IC Design Co., Ltd. Device 148c
+ |           +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+ |           \-08.1-[28]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+ |                        +-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+ |                        \-00.2  Chengdu Haiguang IC Design Co., Ltd. FCH SATA Controller [AHCI mode]
+ \-[0000:00]-+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1480
+             +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1481
+             +-01.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+             +-02.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+             +-02.1-[01-02]--+-00.0  Mellanox Technologies MT2892 Family [ConnectX-6 Dx]
+             |               \-00.1  Mellanox Technologies MT2892 Family [ConnectX-6 Dx]
+             +-03.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+             +-04.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+             +-05.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+             +-05.1-[03-04]----00.0-[04]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
+             +-07.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+             +-07.1-[05]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 148a
+             |            +-00.2  Chengdu Haiguang IC Design Co., Ltd. Device 1486
+             |            \-00.3  Chengdu Haiguang IC Design Co., Ltd. Device 148c
+             +-08.0  Chengdu Haiguang IC Design Co., Ltd. Device 1482
+             +-08.1-[06]--+-00.0  Chengdu Haiguang IC Design Co., Ltd. Device 1485
+             |            +-00.1  Chengdu Haiguang IC Design Co., Ltd. NTBCCP
+             |            \-00.2  Chengdu Haiguang IC Design Co., Ltd. FCH SATA Controller [AHCI mode]
+             +-0b.0  Chengdu Haiguang IC Design Co., Ltd. FCH SMBus Controller
+             +-0b.3  Chengdu Haiguang IC Design Co., Ltd. FCH LPC Bridge
+             +-0c.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-0c.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-0c.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-0c.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-0c.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-0c.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-0c.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-0c.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-0d.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-0d.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-0d.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-0d.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-0d.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-0d.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-0d.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-0d.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-0e.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-0e.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-0e.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-0e.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-0e.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-0e.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-0e.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-0e.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-0f.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-0f.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-0f.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-0f.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-0f.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-0f.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-0f.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-0f.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-10.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-10.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-10.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-10.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-10.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-10.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-10.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-10.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-11.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-11.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-11.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-11.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-11.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-11.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-11.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-11.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-12.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-12.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-12.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-12.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-12.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-12.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-12.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-12.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-13.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-13.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-13.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-13.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-13.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-13.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-13.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-13.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-14.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-14.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-14.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-14.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-14.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-14.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-14.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             +-14.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+             +-15.0  Chengdu Haiguang IC Design Co., Ltd. Device 1490
+             +-15.1  Chengdu Haiguang IC Design Co., Ltd. Device 1491
+             +-15.2  Chengdu Haiguang IC Design Co., Ltd. Device 1492
+             +-15.3  Chengdu Haiguang IC Design Co., Ltd. Device 1493
+             +-15.4  Chengdu Haiguang IC Design Co., Ltd. Device 1494
+             +-15.5  Chengdu Haiguang IC Design Co., Ltd. Device 1495
+             +-15.6  Chengdu Haiguang IC Design Co., Ltd. Device 1496
+             \-15.7  Chengdu Haiguang IC Design Co., Ltd. Device 1497
+No Modulefiles Currently Loaded.
+===== Container =====
+13:rdma:/
+12:memory:/
+11:freezer:/
+10:cpuset:/
+9:perf_event:/
+8:hugetlb:/
+7:net_cls,net_prio:/
+6:blkio:/
+5:ioasids:/
+4:pids:/
+3:cpu,cpuacct:/
+2:devices:/
+1:name=systemd:/init.scope

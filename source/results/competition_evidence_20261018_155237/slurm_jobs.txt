@@ -1,0 +1,4 @@
+JobID|JobName|State|Start|End|NodeList|ReqTRES|AllocTRES|SubmitLine
+890466|flashmla_dev|COMPLETED|2026-10-07T14:34:41|2026-10-07T17:39:39|f11r3n05|billing=128,cpu=128,gres/dcu=8,mem=475G,node=1|billing=128,cpu=128,gres/dcu=8,mem=475G,node=1|salloc -A sugonhpcapp01 -p hx1hdnormal01 -J flashmla_dev -N 1 --ntasks=2 --cpus-per-task=64 --gres=dcu:8 --exclusive -t 08:00:00
+890928|flashmla_dev|COMPLETED|2026-10-07T18:15:35|2026-10-08T01:31:53|f13r1n12|billing=128,cpu=128,gres/dcu=8,mem=475G,node=1|billing=128,cpu=128,gres/dcu=8,mem=475G,node=1|salloc -A sugonhpcapp01 -p hx1hdnormal01 -J flashmla_dev -N 1 --ntasks=2 --cpus-per-task=64 --gres=dcu:8 --exclusive -t 08:00:00
+935993|flashmla_dev|TIMEOUT|2026-10-18T00:45:44|2026-10-18T12:45:58|a01r3n15|billing=128,cpu=128,gres/dcu=8,mem=486G,node=1|billing=128,cpu=128,gres/dcu=8,mem=486G,node=1|salloc -A sugonhpcapp01 -p hx1hdnormal01 -J flashmla_dev -N 1 --ntasks=2 --cpus-per-task=64 --gres=dcu:8 --exclusive -t 12:00:00

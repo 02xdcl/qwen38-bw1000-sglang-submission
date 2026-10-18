@@ -4,7 +4,7 @@
 
 ## 1. 环境声明
 
-卡型：BW1000（用户确认）；TP=2；模型 Qwen3.8-27B BF16；SGLang 0.5.12+das185，Torch 2.10，Triton 3.6，DTK 26.04。JobID `934852` 的启动参数、节点 `a01r3n19`、进程 PID `653002`、软件版本及 benchmark 源文件哈希见本地 `q38_late_results.tar.gz` 内的 `results/strict_4k64k_job934852/provenance.txt`。仓库内 `source/results/strict_formal_20261017_155319/provenance.txt` 属于较早的另一次运行。
+卡型：BW1000（用户确认）；TP=2；模型 Qwen3.8-27B BF16；SGLang 0.5.12+das185，Torch 2.10，Triton 3.6，DTK 26.04。JobID `934852` 的启动参数、节点 `a01r3n19`、进程 PID `653002`、软件版本及 benchmark 源文件哈希见 `source/results/strict_4k64k_job934852/provenance.txt`。仓库内 `source/results/strict_formal_20261017_155319/provenance.txt` 属于较早的另一次运行。
 
 用户提供的 11 页《社区qwen3.8挑战赛》PDF（本地原件 SHA256 `a75d6e9e35414a51a2d99eba86feca591d875f08e29aa0231d177965c09ae90c`）列出 SGLang 子赛道的 Qwen3.8-27B、2 卡配置与评测场景。
 
@@ -16,13 +16,15 @@
 
 ShareGPT 历史记录 `source/results/sglang_bf16_sharegpt_893107/` 与 2026-10-16 复测 `source/results/sharegpt_retest_20261016_011410/` 都有每档 1000 请求的原始输出，五档 `benchmark_args` 除输出路径外一致。结果按服务会话分别列示。后续 warp1 包的五档客户端参数仅比这组多了服务端口 18580→18581 的差异，其中 C1 与后四档属于不同服务会话。
 
-`q38_late_results.tar.gz` 包含 JobID `934852` 的 4K/64K 目录。10 个档位各有 2 轮预热及 3 轮正式测试，逐轮 `.log`、`.jsonl`、`.ok` 齐全；`progress.txt` 记录全部 PASS。`identity.txt` 与 `provenance.txt` 将该次测试关联到节点 `a01r3n19`、作业 `934852`、服务进程 `653002`、TP=2、BF16、SGLang 0.5.12+das185 及 `--schedule-conservativeness 0.4`。30 轮成功请求数、输出吞吐、平均 TTFT/TPOT 和 P99 E2E 的日志与 JSONL 汇总一致；P99 使用 benchmark 输出值。原始包保存在本地。
+`q38_late_results.tar.gz` 包含 JobID `934852` 的 4K/64K 目录。10 个档位各有 2 轮预热及 3 轮正式测试，逐轮 `.log`、`.jsonl`、`.ok` 齐全；`progress.txt` 记录全部 PASS。`identity.txt` 与 `provenance.txt` 将该次测试关联到节点 `a01r3n19`、作业 `934852`、服务进程 `653002`、TP=2、BF16、SGLang 0.5.12+das185 及 `--schedule-conservativeness 0.4`。30 轮成功请求数、输出吞吐、平均 TTFT/TPOT 和 P99 E2E 的日志与 JSONL 汇总一致；P99 使用 benchmark 输出值。原始包保存在本地；对应原文同时见 `source/results/strict_4k64k_job934852/`。
 
 ## 3. 优化方法
 
 原始实验 A9/A10 只改变 SGLang 的 `--schedule-conservativeness`；A11 扫描 `--chunked-prefill-size`；A13 扫描连续 decode 步数。配置参数可在 `source/experiments/` 的原始 `run.sh` 中逐项核对。A10 相同脚本的 512-in/128-out、320 请求、C64 测试中，默认值的输出吞吐为 624.38 tok/s，参数 0.4 为 651.91 tok/s（约 +4.4%）。这是该短输入实验的结果，**不是赛事 4K/64K 成绩**。
 
 A3 的 `num_warps: 1→2` 候选差异见 `source/results/submission_audit_20261017_150109/a3_warp1_vs_warp2.diff`。
+
+新增原件补充了 A3 独立对照 JobID `914874`：控制日志记录节点 `a02r1n15`、设备可见性 `0,1` 和临时 SGLang 副本路径；脚本在副本中切换 original/warp2。ShareGPT C4/C32/C64 每档每变体单轮 200 个成功请求，original 总输出吞吐为 112.74/410.80/467.67 tok/s，warp2 为 114.08/412.80/468.76 tok/s。六份日志与 JSONL 一致，逐轮数值及源哈希见 `evidence/a3_job914874_rounds.csv`。这是探索实验，与本报告 1000 请求 ShareGPT 及 JobID 934852 结果分别列示。
 
 `patch/a3_warp2_candidate.patch` 是一行候选补丁副本（SHA256 `5d25a6aa86b418b7c7c5843b878234c52c935dd13282d6c1a35e1d88c3cf2051`）。在隔离副本中，其目标原始文件哈希为 `a7e469f8…`，`git apply --check` 通过；应用后按 LF 换行规范化，SHA256 为 `a9ec351b…`，与 A3 warp2 候选一致。
 
@@ -75,7 +77,7 @@ A3 的 `num_warps: 1→2` 候选差异见 `source/results/submission_audit_20261
 | 16 | 32 | 353.16 | 5049.81 | 40.40 | 46724.82 | `4k_c16.log` |
 | 32 | 64 | 547.06 | 8365.27 | 50.36 | 63145.59 | `4k_c32.log` |
 
-本地 `source/results/final_4k_c64_20261017_020528/c64.log` 及同名 `.jsonl` 记录了随机 4K/1K、C64 单轮，128/128 请求成功，输出吞吐 599.19 tok/s、平均 TTFT 18836.21 ms、平均 TPOT 71.75 ms、P99 E2E 179577.53 ms。该轮 benchmark backend 为 `sglang`，历史 C64 记录为 `sglang-oai-chat`，因此单独列示。
+`source/results/final_4k_c64_20261017_020528/c64.log` 及同名 `.jsonl` 记录了随机 4K/1K、C64 单轮，128/128 请求成功，输出吞吐 599.19 tok/s、平均 TTFT 18836.21 ms、平均 TPOT 71.75 ms、P99 E2E 179577.53 ms。该轮 benchmark backend 为 `sglang`，历史 C64 记录为 `sglang-oai-chat`，因此单独列示。
 
 以下 ShareGPT 数据为每档单次正式测量的服务总输出 tok/s。
 
@@ -95,9 +97,6 @@ A3 的 `num_warps: 1→2` 候选差异见 `source/results/submission_audit_20261
 
 本地 `GSM8K_job935993_full_evidence.tar.gz`（SHA256 `c6cc1afeefff25b7cc7bf51e21602079c746a8a3748cee2a55a5f9275bf2bb7b`）含 `results/accuracy_job935993/gsm8k/` 的 `eval.log`、JSON 汇总和逐题 HTML，以及同目录 `server_18580.log`。逐题 HTML 有 1314 个评分、标准答案和抽取答案，其中 1266 个 `Score: 1.0`、48 个 `Score: 0.0`，平均值 `1266/1314 = 0.9634703196347032`，与 JSON 及评测日志一致。评测日志显示 1314/1314 完成、`temperature=0`、`max_tokens=2048`、耗时 2990.851 秒和输出吞吐 218.169 token/s。HTML 的首个示例含 5 道提示样例。
 
-逐题评分摘录见 `evidence/gsm8k_935993_scores.csv`，提取方法与原始 HTML 哈希见 `evidence/README.md`；摘录不包含题目或生成答案。
+原始评测日志、JSON、评分 HTML 和服务日志见 `source/results/accuracy_job935993/`。逐题评分摘录见 `evidence/gsm8k_935993_scores.csv`，提取方法与原始 HTML 哈希见 `evidence/README.md`；摘录不包含题目或生成答案。
 
 服务日志显示 2026-10-18 00:51:07 端口 18580 启动就绪，`server_args` 中模型路径为 `Qwen3.8-27B`、`dtype=bfloat16`、`tp_size=2`、服务名 `qwen38-bf16`，并有后续该端口请求记录。**96.3470% 是这次独立 GSM8K 历史运行的逐题实测值**，与 JobID 934852 的性能测试分别列示。
-
-赛题详情 PDF 第 2 页列出 GSM8K、LiveCodeBench v6、RealWorldQA、MathVision (Without CI) 四项精度评测，最低准入值分别为 95.0、88.3、83.9、88.0；优化版相对各自官方基线的降幅不得超过 2 个百分点。本文只列出上述 GSM8K 历史运行的实测值。
-

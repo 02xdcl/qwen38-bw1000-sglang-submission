@@ -1,0 +1,85 @@
+
+=== gate_up M=32 N=17408 K=5120 ===
+torch: 171.176 us, speedup=1.000x, relative_error=0.000000
+[aiter] Non-DTK environment (hipcc=/public/software/compiler/dtk-26.04/dcc/bin/dcc, ROCM_PATH=/public/software/compiler/dtk-26.04), DTK_ENV disabled
+[aiter] start build [module_rocsolgemm] under /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/build/module_rocsolgemm
+[aiter] ---> /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter_meta/gradlib/csrc/rocsolgemm.cu not exists!!!!!!
+warning: unknown warning option '-Wno-vla-cxx-extension'; did you mean '-Wno-vla-extension'? [-Wunknown-warning-option]
+1 warning generated when compiling for gfx906.
+warning: unknown warning option '-Wno-vla-cxx-extension'; did you mean '-Wno-vla-extension'? [-Wunknown-warning-option]
+1 warning generated when compiling for gfx926.
+warning: unknown warning option '-Wno-vla-cxx-extension'; did you mean '-Wno-vla-extension'? [-Wunknown-warning-option]
+1 warning generated when compiling for gfx928.
+warning: unknown warning option '-Wno-vla-cxx-extension'; did you mean '-Wno-vla-extension'? [-Wunknown-warning-option]
+1 warning generated when compiling for gfx936.
+warning: unknown warning option '-Wno-vla-cxx-extension'; did you mean '-Wno-vla-extension'? [-Wunknown-warning-option]
+1 warning generated when compiling for host.
+clang (LLVM option parsing): Unknown command line argument '-amdgpu-coerce-illegal-types=1'.  Try: 'clang (LLVM option parsing) --help'
+clang (LLVM option parsing): Did you mean '--amdgpu-mode-register=1'?
+[aiter] -mllvm -hcugpu-coerce-illegal-types=1 is not supported by hipcc.
+[aiter] ---> /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter_meta/gradlib/include/ not exists!!!!!!
+[92mSuccessfully preprocessed all matching files.[0m
+[aiter] [31mfailed jit build [module_rocsolgemm][0m↓↓↓↓↓↓↓↓↓↓
+-->[History]: Traceback (most recent call last):
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/core.py", line 882, in wrapper
+    module = get_module(md_name)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/core.py", line 531, in get_module
+    get_module_custom_op(md_name)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/torch_guard.py", line 286, in wrapper_custom
+    else getattr(torch.ops.aiter, f"{loadName}")(
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torch/_ops.py", line 1209, in __call__
+    return self._op(*args, **kwargs)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/torch_guard.py", line 324, in outer_wrapper_dummy
+    wrapper(*args, **kwargs)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/torch_guard.py", line 202, in wrapper
+    return func(*args, **kwargs)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/core.py", line 521, in get_module_custom_op
+    __mds[md_name] = importlib.import_module(f"{__package__}.{md_name}")
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+-->  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+-->  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+-->  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+-->ModuleNotFound[31merror:[0m No module named 'aiter.jit.module_rocsolgemm'
+-->
+During handling of the above exception, another exception occurred:
+
+-->Traceback (most recent call last):
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/core.py", line 885, in wrapper
+    module = get_module(md)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/core.py", line 531, in get_module
+    get_module_custom_op(md_name)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/torch_guard.py", line 286, in wrapper_custom
+    else getattr(torch.ops.aiter, f"{loadName}")(
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/torch/_ops.py", line 1209, in __call__
+    return self._op(*args, **kwargs)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/torch_guard.py", line 324, in outer_wrapper_dummy
+    wrapper(*args, **kwargs)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/torch_guard.py", line 202, in wrapper
+    return func(*args, **kwargs)
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/core.py", line 521, in get_module_custom_op
+    __mds[md_name] = importlib.import_module(f"{__package__}.{md_name}")
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+-->  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+-->  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+-->  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+-->ModuleNotFound[31merror:[0m No module named 'aiter.jit.module_rocsolgemm'
+-->
+During handling of the above exception, another exception occurred:
+
+-->Traceback (most recent call last):
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/core.py", line 704, in MainFunc
+    _jit_compile(
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/cpp_extension.py", line 1296, in _jit_compile
+    _write_ninja_file_and_build_library(
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/cpp_extension.py", line 1406, in _write_ninja_file_and_build_library
+    _write_ninja_file_to_build_library(
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/cpp_extension.py", line 1661, in _write_ninja_file_to_build_library
+    _write_ninja_file(
+-->  File "/public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/utils/cpp_extension.py", line 1719, in _write_ninja_file
+    assert len(sources) > 0
+-->AssertionError
+[31mfailed jit build [module_rocsolgemm][0m↑↑↑↑↑↑↑↑↑↑
+[aiter] [32mfinish build [module_rocsolgemm], cost 8.7s [0m
+[aiter] build [module_rocsolgemm] under /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/aiter/jit/build/module_rocsolgemm/build failed !!!!!!

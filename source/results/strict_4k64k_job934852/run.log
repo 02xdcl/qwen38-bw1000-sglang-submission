@@ -1,0 +1,408 @@
+SERVER CONFIG CHECK PASS
+BASELINE AUDIT PASSED: 4k
+BASELINE AUDIT PASSED: 64k
+======= START 4k 2026-10-17T16:27:56+08:00 =======
+START 4k_c1_warmup1 2026-10-17T16:27:56+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c1_warmup1 2026-10-17T16:34:08+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  324.85    
+Output token throughput (tok/s):         25.22     
+Mean TTFT (ms):                          594.64    
+Mean TPOT (ms):                          39.11     
+START 4k_c1_warmup2 2026-10-17T16:34:08+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c1_warmup2 2026-10-17T16:40:17+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  324.93    
+Output token throughput (tok/s):         25.21     
+Mean TTFT (ms):                          595.90    
+Mean TPOT (ms):                          39.12     
+START 4k_c1_run1 2026-10-17T16:40:17+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c1_run1 2026-10-17T16:46:27+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  325.89    
+Output token throughput (tok/s):         25.14     
+Mean TTFT (ms):                          596.08    
+Mean TPOT (ms):                          39.24     
+START 4k_c1_run2 2026-10-17T16:46:27+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c1_run2 2026-10-17T16:52:32+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  325.79    
+Output token throughput (tok/s):         25.14     
+Mean TTFT (ms):                          595.64    
+Mean TPOT (ms):                          39.22     
+START 4k_c1_run3 2026-10-17T16:52:32+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c1_run3 2026-10-17T16:58:44+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  327.66    
+Output token throughput (tok/s):         25.00     
+Mean TTFT (ms):                          598.56    
+Mean TPOT (ms):                          39.45     
+START 4k_c8_warmup1 2026-10-17T16:58:44+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c8_warmup1 2026-10-17T17:00:51+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  83.37     
+Output token throughput (tok/s):         196.52    
+Mean TTFT (ms):                          4315.25   
+Mean TPOT (ms):                          36.52     
+START 4k_c8_warmup2 2026-10-17T17:00:51+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c8_warmup2 2026-10-17T17:02:49+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  77.25     
+Output token throughput (tok/s):         212.09    
+Mean TTFT (ms):                          2298.95   
+Mean TPOT (ms):                          35.50     
+START 4k_c8_run1 2026-10-17T17:02:49+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c8_run1 2026-10-17T17:04:49+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  75.74     
+Output token throughput (tok/s):         216.33    
+Mean TTFT (ms):                          1736.31   
+Mean TPOT (ms):                          35.31     
+START 4k_c8_run2 2026-10-17T17:04:49+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c8_run2 2026-10-17T17:06:45+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  74.32     
+Output token throughput (tok/s):         220.46    
+Mean TTFT (ms):                          1588.81   
+Mean TPOT (ms):                          34.76     
+START 4k_c8_run3 2026-10-17T17:06:45+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c8_run3 2026-10-17T17:08:41+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  73.47     
+Output token throughput (tok/s):         223.01    
+Mean TTFT (ms):                          1582.55   
+Mean TPOT (ms):                          34.35     
+START 4k_c16_warmup1 2026-10-17T17:08:41+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c16_warmup1 2026-10-17T17:10:51+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  89.48     
+Output token throughput (tok/s):         366.22    
+Mean TTFT (ms):                          3936.92   
+Mean TPOT (ms):                          39.87     
+START 4k_c16_warmup2 2026-10-17T17:10:51+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c16_warmup2 2026-10-17T17:13:00+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  85.98     
+Output token throughput (tok/s):         381.11    
+Mean TTFT (ms):                          3137.27   
+Mean TPOT (ms):                          38.95     
+START 4k_c16_run1 2026-10-17T17:13:00+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c16_run1 2026-10-17T17:15:08+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  84.82     
+Output token throughput (tok/s):         386.33    
+Mean TTFT (ms):                          2750.60   
+Mean TPOT (ms):                          38.76     
+START 4k_c16_run2 2026-10-17T17:15:08+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c16_run2 2026-10-17T17:17:15+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  83.75     
+Output token throughput (tok/s):         391.27    
+Mean TTFT (ms):                          2439.58   
+Mean TPOT (ms):                          38.54     
+START 4k_c16_run3 2026-10-17T17:17:15+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c16_run3 2026-10-17T17:19:19+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  82.96     
+Output token throughput (tok/s):         394.99    
+Mean TTFT (ms):                          2463.26   
+Mean TPOT (ms):                          38.13     
+START 4k_c32_warmup1 2026-10-17T17:19:19+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c32_warmup1 2026-10-17T17:21:56+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  115.08    
+Output token throughput (tok/s):         569.48    
+Mean TTFT (ms):                          6791.31   
+Mean TPOT (ms):                          49.59     
+START 4k_c32_warmup2 2026-10-17T17:21:56+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c32_warmup2 2026-10-17T17:24:37+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  117.16    
+Output token throughput (tok/s):         559.38    
+Mean TTFT (ms):                          7661.28   
+Mean TPOT (ms):                          49.76     
+START 4k_c32_run1 2026-10-17T17:24:37+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c32_run1 2026-10-17T17:27:15+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  116.88    
+Output token throughput (tok/s):         560.72    
+Mean TTFT (ms):                          7025.68   
+Mean TPOT (ms):                          50.24     
+START 4k_c32_run2 2026-10-17T17:27:15+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c32_run2 2026-10-17T17:29:53+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  118.11    
+Output token throughput (tok/s):         554.87    
+Mean TTFT (ms):                          7031.43   
+Mean TPOT (ms):                          50.84     
+START 4k_c32_run3 2026-10-17T17:29:53+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c32_run3 2026-10-17T17:32:32+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  118.53    
+Output token throughput (tok/s):         552.89    
+Mean TTFT (ms):                          7668.29   
+Mean TPOT (ms):                          50.42     
+START 4k_c64_warmup1 2026-10-17T17:32:32+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c64_warmup1 2026-10-17T17:36:59+08:00
+Successful requests:                     128       
+Benchmark duration (s):                  224.98    
+Output token throughput (tok/s):         582.59    
+Mean TTFT (ms):                          19346.26  
+Mean TPOT (ms):                          73.91     
+START 4k_c64_warmup2 2026-10-17T17:36:59+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c64_warmup2 2026-10-17T17:41:35+08:00
+Successful requests:                     128       
+Benchmark duration (s):                  234.02    
+Output token throughput (tok/s):         560.10    
+Mean TTFT (ms):                          22354.12  
+Mean TPOT (ms):                          75.42     
+START 4k_c64_run1 2026-10-17T17:41:35+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c64_run1 2026-10-17T17:46:10+08:00
+Successful requests:                     128       
+Benchmark duration (s):                  233.42    
+Output token throughput (tok/s):         561.53    
+Mean TTFT (ms):                          22235.37  
+Mean TPOT (ms):                          75.26     
+START 4k_c64_run2 2026-10-17T17:46:10+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c64_run2 2026-10-17T17:50:48+08:00
+Successful requests:                     128       
+Benchmark duration (s):                  234.00    
+Output token throughput (tok/s):         560.13    
+Mean TTFT (ms):                          22257.73  
+Mean TPOT (ms):                          75.51     
+START 4k_c64_run3 2026-10-17T17:50:48+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c64_run3 2026-10-17T17:55:24+08:00
+Successful requests:                     128       
+Benchmark duration (s):                  233.94    
+Output token throughput (tok/s):         560.27    
+Mean TTFT (ms):                          22254.55  
+Mean TPOT (ms):                          75.48     
+START 4k_c128_warmup1 2026-10-17T17:55:24+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c128_warmup1 2026-10-17T18:03:22+08:00
+Successful requests:                     256       
+Benchmark duration (s):                  435.01    
+Output token throughput (tok/s):         602.62    
+Mean TTFT (ms):                          99647.98  
+Mean TPOT (ms):                          75.85     
+START 4k_c128_warmup2 2026-10-17T18:03:22+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c128_warmup2 2026-10-17T18:11:18+08:00
+Successful requests:                     256       
+Benchmark duration (s):                  434.01    
+Output token throughput (tok/s):         604.01    
+Mean TTFT (ms):                          99246.85  
+Mean TPOT (ms):                          75.93     
+START 4k_c128_run1 2026-10-17T18:11:18+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c128_run1 2026-10-17T18:19:15+08:00
+Successful requests:                     256       
+Benchmark duration (s):                  433.02    
+Output token throughput (tok/s):         605.39    
+Mean TTFT (ms):                          99084.10  
+Mean TPOT (ms):                          75.70     
+START 4k_c128_run2 2026-10-17T18:19:15+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c128_run2 2026-10-17T18:27:11+08:00
+Successful requests:                     256       
+Benchmark duration (s):                  432.33    
+Output token throughput (tok/s):         606.35    
+Mean TTFT (ms):                          98931.05  
+Mean TPOT (ms):                          75.56     
+START 4k_c128_run3 2026-10-17T18:27:11+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 4k_c128_run3 2026-10-17T18:35:06+08:00
+Successful requests:                     256       
+Benchmark duration (s):                  432.20    
+Output token throughput (tok/s):         606.54    
+Mean TTFT (ms):                          98898.95  
+Mean TPOT (ms):                          75.54     
+======= COMPLETE 4k 2026-10-17T18:35:06+08:00 =======
+======= START 64k 2026-10-17T18:35:06+08:00 =======
+START 64k_c1_warmup1 2026-10-17T18:35:06+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c1_warmup1 2026-10-17T18:44:05+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  483.28    
+Output token throughput (tok/s):         16.95     
+Mean TTFT (ms):                          12468.34  
+Mean TPOT (ms):                          46.86     
+START 64k_c1_warmup2 2026-10-17T18:44:05+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c1_warmup2 2026-10-17T18:52:45+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  467.46    
+Output token throughput (tok/s):         17.52     
+Mean TTFT (ms):                          10429.64  
+Mean TPOT (ms):                          46.92     
+START 64k_c1_run1 2026-10-17T18:52:45+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c1_run1 2026-10-17T19:01:26+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  467.42    
+Output token throughput (tok/s):         17.53     
+Mean TTFT (ms):                          10432.49  
+Mean TPOT (ms):                          46.91     
+START 64k_c1_run2 2026-10-17T19:01:26+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c1_run2 2026-10-17T19:10:06+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  467.36    
+Output token throughput (tok/s):         17.53     
+Mean TTFT (ms):                          10447.57  
+Mean TPOT (ms):                          46.89     
+START 64k_c1_run3 2026-10-17T19:10:06+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c1_run3 2026-10-17T19:18:48+08:00
+Successful requests:                     8         
+Benchmark duration (s):                  467.59    
+Output token throughput (tok/s):         17.52     
+Mean TTFT (ms):                          10436.33  
+Mean TPOT (ms):                          46.93     
+START 64k_c8_warmup1 2026-10-17T19:18:48+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c8_warmup1 2026-10-17T19:24:50+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  308.64    
+Output token throughput (tok/s):         53.08     
+Mean TTFT (ms):                          48469.03  
+Mean TPOT (ms):                          83.84     
+START 64k_c8_warmup2 2026-10-17T19:24:50+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c8_warmup2 2026-10-17T19:31:32+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  348.11    
+Output token throughput (tok/s):         47.07     
+Mean TTFT (ms):                          57843.13  
+Mean TPOT (ms):                          93.98     
+START 64k_c8_run1 2026-10-17T19:31:32+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c8_run1 2026-10-17T19:38:16+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  347.98    
+Output token throughput (tok/s):         47.08     
+Mean TTFT (ms):                          57821.34  
+Mean TPOT (ms):                          93.94     
+START 64k_c8_run2 2026-10-17T19:38:17+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c8_run2 2026-10-17T19:45:00+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  348.00    
+Output token throughput (tok/s):         47.08     
+Mean TTFT (ms):                          57828.45  
+Mean TPOT (ms):                          93.97     
+START 64k_c8_run3 2026-10-17T19:45:00+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c8_run3 2026-10-17T19:51:43+08:00
+Successful requests:                     16        
+Benchmark duration (s):                  347.74    
+Output token throughput (tok/s):         47.12     
+Mean TTFT (ms):                          57810.09  
+Mean TPOT (ms):                          93.86     
+START 64k_c16_warmup1 2026-10-17T19:51:43+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c16_warmup1 2026-10-17T20:03:56+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  675.17    
+Output token throughput (tok/s):         48.53     
+Mean TTFT (ms):                          184052.30 
+Mean TPOT (ms):                          96.44     
+START 64k_c16_warmup2 2026-10-17T20:03:56+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c16_warmup2 2026-10-17T20:16:08+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  675.12    
+Output token throughput (tok/s):         48.54     
+Mean TTFT (ms):                          183993.08 
+Mean TPOT (ms):                          96.43     
+START 64k_c16_run1 2026-10-17T20:16:08+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c16_run1 2026-10-17T20:28:19+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  675.34    
+Output token throughput (tok/s):         48.52     
+Mean TTFT (ms):                          184072.49 
+Mean TPOT (ms):                          96.46     
+START 64k_c16_run2 2026-10-17T20:28:19+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c16_run2 2026-10-17T20:40:30+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  674.84    
+Output token throughput (tok/s):         48.56     
+Mean TTFT (ms):                          184082.76 
+Mean TPOT (ms):                          96.39     
+START 64k_c16_run3 2026-10-17T20:40:30+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c16_run3 2026-10-17T20:52:42+08:00
+Successful requests:                     32        
+Benchmark duration (s):                  675.40    
+Output token throughput (tok/s):         48.52     
+Mean TTFT (ms):                          184058.36 
+Mean TPOT (ms):                          96.48     
+START 64k_c32_warmup1 2026-10-17T20:52:42+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c32_warmup1 2026-10-17T21:16:42+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  1381.05   
+Output token throughput (tok/s):         47.45     
+Mean TTFT (ms):                          439173.33 
+Mean TPOT (ms):                          100.71    
+START 64k_c32_warmup2 2026-10-17T21:16:42+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c32_warmup2 2026-10-17T21:40:40+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  1381.51   
+Output token throughput (tok/s):         47.44     
+Mean TTFT (ms):                          439146.53 
+Mean TPOT (ms):                          100.72    
+START 64k_c32_run1 2026-10-17T21:40:40+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c32_run1 2026-10-17T22:04:41+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  1383.66   
+Output token throughput (tok/s):         47.36     
+Mean TTFT (ms):                          439908.54 
+Mean TPOT (ms):                          100.96    
+START 64k_c32_run2 2026-10-17T22:04:41+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c32_run2 2026-10-17T22:28:42+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  1383.62   
+Output token throughput (tok/s):         47.37     
+Mean TTFT (ms):                          439925.27 
+Mean TPOT (ms):                          100.96    
+START 64k_c32_run3 2026-10-17T22:28:42+08:00
+COMPLETE CLIENT CONFIG MATCH
+PASS 64k_c32_run3 2026-10-17T22:52:43+08:00
+Successful requests:                     64        
+Benchmark duration (s):                  1382.68   
+Output token throughput (tok/s):         47.40     
+Mean TTFT (ms):                          439538.11 
+Mean TPOT (ms):                          100.84    
+======= COMPLETE 64k 2026-10-17T22:52:43+08:00 =======
+ALL 4K AND 64K TESTS PASSED 2026-10-17T22:52:43+08:00

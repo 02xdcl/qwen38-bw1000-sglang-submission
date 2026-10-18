@@ -1,0 +1,79 @@
+Device: BW
+Original backend: _BlasBackend.Cublas
+
+MLP gate_up: M=4, N=17408, K=5120
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W1015 14:22:22.566570 2559397 Context.cpp:507] Warning: Attempting to use CK on an unsupported architecture! Cannot set backend to CK (function operator())
+Backend selected: _BlasBackend.Cublas
+cublas: 152.614 us
+W1015 14:22:30.715463 2559397 Context.cpp:536] Warning: torch.backends.cuda.preferred_blas_library is an experimental feature. If you see any error or unexpected behavior when this flag is set please file an issue on GitHub. (function operator())
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 227.497 us
+Numerical close: True
+hipBLASLt speedup: 0.6708x
+
+MLP down: M=4, N=5120, K=8704
+Backend selected: _BlasBackend.Cublas
+cublas: 82.182 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 239.414 us
+Numerical close: True
+hipBLASLt speedup: 0.3433x
+
+Hidden projection: M=4, N=5120, K=5120
+Backend selected: _BlasBackend.Cublas
+cublas: 49.773 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 156.611 us
+Numerical close: True
+hipBLASLt speedup: 0.3178x
+
+MLP gate_up: M=32, N=17408, K=5120
+Backend selected: _BlasBackend.Cublas
+cublas: 164.403 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 238.262 us
+Numerical close: True
+hipBLASLt speedup: 0.6900x
+
+MLP down: M=32, N=5120, K=8704
+Backend selected: _BlasBackend.Cublas
+cublas: 84.742 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 240.131 us
+Numerical close: True
+hipBLASLt speedup: 0.3529x
+
+Hidden projection: M=32, N=5120, K=5120
+Backend selected: _BlasBackend.Cublas
+cublas: 52.189 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 156.582 us
+Numerical close: True
+hipBLASLt speedup: 0.3333x
+
+MLP gate_up: M=64, N=17408, K=5120
+Backend selected: _BlasBackend.Cublas
+cublas: 185.571 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 240.848 us
+Numerical close: True
+hipBLASLt speedup: 0.7705x
+
+MLP down: M=64, N=5120, K=8704
+Backend selected: _BlasBackend.Cublas
+cublas: 114.256 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 241.149 us
+Numerical close: True
+hipBLASLt speedup: 0.4738x
+
+Hidden projection: M=64, N=5120, K=5120
+Backend selected: _BlasBackend.Cublas
+cublas: 60.525 us
+Backend selected: _BlasBackend.Cublaslt
+hipblaslt: 159.638 us
+Numerical close: True
+hipBLASLt speedup: 0.3791x
+
+A6 BENCHMARK FINISHED
