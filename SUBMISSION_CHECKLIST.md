@@ -60,6 +60,7 @@
 - 已检查/验证：`source/results/` 的 4K 基线有 33 份 `.log`、18 份 `.jsonl`；64K 基线 20 份 `.log`、12 份 `.jsonl`；ShareGPT 基线 13 份 `.log`、5 份 `.jsonl`；10/16 ShareGPT 复测 11 份 `.log`、5 份 `.jsonl`；10/17 `final_retest` 6 份 `.log`、4 份 `.jsonl`；15:53 `strict_formal` 只有 1 份 `.log`、无 `.jsonl`。仓库未找到截图图像、硬件原始输出、JobID 934852 目录或精度目录。`logs/` 不存在；不为形式复制或重命名。
 - 现有证据索引：历史基线→`source/results/sglang_bf16_4k_20261007_163756/`、`sglang_bf16_64k_20261007_201746/`、`sglang_bf16_sharegpt_893107/`；跨会话复测→`source/results/sharegpt_retest_20261016_011410/`；部分复测→`source/results/final_retest_20261017/`；不完整严格运行→`source/results/strict_formal_20261017_155319/`；代码/启动审计→`source/results/submission_audit_20261017_150109/`。用户补包内 `results/strict_4k64k_job934852/` 是已核验 30 轮 4K/64K 实测原件；同包 `sharegpt_baseline_envfix_20261017_165431/` 和 `sharegpt_retest_hcu23_20261017_190126/` 为中断/失败记录，`sharegpt_warp1_baseline_20261017_213815/` 与其 resume 子目录跨会话。GSM8K 逐题原件在本地 `work/gsm8k_job935993_evidence/results/accuracy_job935993/`，核验结果见 P0-03。补包尚未公开入库，**尚无目录可被标为赛事已验收最终成绩。**
 - 四类日志现状：934852 补包有 `server.log` 与 `provenance.txt`（服务启动/配置）、30 轮 `.log`/`.jsonl`（benchmark）、`run.log` 与 `progress.txt`（结束记录及时间戳）；未见该作业同窗硬件/驱动原始输出，也未见至少 3 张含命令上下文和时间戳的真实截图。以上已到位原件尚未公开，且自测基线的对应四类证据仍缺。下一步补齐缺项并关联最终代码版本；不得用 DCU 整理文字替代原件。
+- 仓库补充：从本地原始归档提取 30 轮正式指标为 `evidence/job934852_rounds.csv`，每行记录原始 JSONL 文件名与 SHA256；`scripts/summarize_934852.py` 可由原件重新生成。逐轮吞吐与 TTFT 分组均值逐项对照 `report.md` 的 10 行结果一致。CSV 只含汇总指标，不能替代上述未公开的原始日志或逐请求输出；P0-05 仍 BLOCKED。
 
 ### P0-06 最终报告与论坛材料 — BLOCKED，P0（最后更新：2026-10-18 CST）
 
@@ -116,6 +117,7 @@
 - 2026-10-18 14:30 CST，用户提供已发布的论坛正文。逐项比对 `report.md`、已解压原始日志索引与论坛模板：数值及提升率算术相符，但跨节点/跨会话比较不满足同机自测条件；公开仓库不含 934852 与 GSM8K 新包。创建 `论坛回复_第2版更正草稿.md` 供用户在截止前自行发布，并保持 P0-06 BLOCKED；没有代发论坛，也没有改动原始日志。
 - 2026-10-18 14:35 CST，使用已授权 GitHub 连接将更正稿和本清单发布到仓库 `main`，两份远端文本与本地逐字核对一致；更正稿的创建提交为 `05f73c0a411ce37e1ae3454377ba45ff35fb1522`。本地 Git CLI 因 Windows Schannel 凭据不可用未能 fetch，同内容修改仍显示为未提交；未跟踪的 C64 两份原始文件仍只在本地，未公开。
 - 2026-10-18，用户明确表示“论坛回复不改”。停止推动第二版论坛回复；已发布的更正草稿仅保留为历史备选文档，不代表实际论坛提交。继续其他不依赖论坛修改的核验。
+- 2026-10-18，按用户要求尽快完善 GitHub 内容：用标准库脚本从 934852 的 30 份正式 JSONL 提取不含集群路径的逐轮 CSV，保留每份源文件 SHA256；逐组重算 10 档吞吐与 TTFT 均值，均与报告一致。新增 `scripts/summarize_934852.py`、`evidence/job934852_rounds.csv`、`evidence/README.md`，并更新 README/报告索引；原始日志未修改、未公开，P0-05/P1-02 保持 BLOCKED。
 
 ## 断点恢复
 
