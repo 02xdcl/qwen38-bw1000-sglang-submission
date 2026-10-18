@@ -9,3 +9,11 @@ python scripts/summarize_934852.py /path/to/results/strict_4k64k_job934852 > evi
 ```
 
 按 `scenario`、`concurrency` 分组，对三轮 `output_throughput`、`mean_ttft_ms`、`mean_tpot_ms` 和 `p99_e2e_latency_ms` 分别取算术均值，即 `report.md` 中 JobID 934852 的十行结果。P99 列是三个逐轮 P99 的均值。
+
+`gsm8k_935993_scores.csv` 从独立运行的 `GSM8K_job935993_full_evidence.tar.gz` 中 `results/accuracy_job935993/gsm8k/gsm8k_qwen38-bf16.html` 提取逐题评分，不含题目文本或生成答案。原始归档 SHA256：`c6cc1afeefff25b7cc7bf51e21602079c746a8a3748cee2a55a5f9275bf2bb7b`。在取得原始 HTML 后可重新生成：
+
+```bash
+python scripts/summarize_gsm8k.py /path/to/gsm8k_qwen38-bf16.html > evidence/gsm8k_935993_scores.csv
+```
+
+CSV 共 1314 行评分，1266 行 `1.0`、48 行 `0.0`，均值为 `1266/1314 = 96.3470%`。这次 GSM8K 运行与 JobID 934852 的性能测试分开记录。
