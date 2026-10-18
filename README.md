@@ -2,6 +2,8 @@
 
 **状态：证据整理稿，尚未满足赛事有效提交条件。** 本仓库依据用户提供的 `submission_materials_20261017_155641.tar.gz` 整理，保留原始脚本和日志；没有把不同时间、不同负载的结果拼成比赛提升率。
 
+2026-10-18 补充核验：`report.md` 现在列出从原始日志逐轮重算的 4K/64K 历史基线，以及单轮 4K 复测和 ShareGPT 两组数据的吞吐、TTFT、TPOT、P99。用户另提供的 DCU 汇总材料给出 JobID 934852 的后续结果线索和 JobID 935993 的环境快照，但对应正式原始结果及同窗环境证据尚未入库；这些数值未列为已验证的最终成绩。缺项和证据位置见 `SUBMISSION_CHECKLIST.md`。
+
 ## 已确认的运行配置
 
 - 用户确认卡型为 BW1000。日志中的服务使用 TP=2、Qwen3.8-27B、BF16、SGLang 0.5.12+das185、DTK 26.04。
@@ -36,5 +38,7 @@ bash experiments/sharegpt_retest/run.sh
 - `scripts/`：原始复测与严格测试脚本副本。
 - `source/experiments/`：A9/A10/A11/A13 参数 A/B 原始脚本与日志。
 - `source/results/`：历史基线、复测和审计原文。
+- `SUBMISSION_CHECKLIST.md`：逐项验收状态、证据索引和待补内容。
 
 未包含模型权重、SIF 镜像、第三方软件包或 130 MB 原始大包。当前仓库不声明任何未经核验的赛事成绩。
+

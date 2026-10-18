@@ -1,12 +1,14 @@
 hardware:
   card_model: "BW1000（用户确认；待补计算节点硬件日志）"
   card_count: 2
+  # DCU 汇总稿记录的是另一作业 935993 的 8 卡节点及 HSW 拓扑；不能代填正式测试双卡的同窗证据。
   interconnect_topology: "TODO"
   cpu: "TODO"
   memory: "TODO"
   storage: "TODO"
 software:
   os_kernel: "TODO"
+  # DCU 汇总稿提及 JobID 935993 的驱动 6.3.31-V1.5.0a；待取得正式测试节点的原始 hy-smi 输出。
   driver_version: "TODO"
   dtk_das_version: "DTK 26.04；DAS 版本待确认"
   container_image_tag: "TODO：本次严格测试使用 /public/home/zzu_dcf/sglang 虚拟环境；项目另有 SIF，但不能断言测试使用了它"
@@ -17,6 +19,7 @@ framework:
 model:
   name: "Qwen3.8-27B"
   weights_source: "TODO"
+  # DCU 汇总稿指向 results/model_sha256_20261018_035941.txt；完整 33 OK / 0 FAILED 校验日志未上传。
   weights_sha256: "TODO"
   precision: "BF16"
 run:
@@ -34,3 +37,4 @@ measurement:
   concurrency_levels: "4K: 1,8,16,32,64,128；64K: 1,8,16,32；ShareGPT: 1,4,16,32,64"
   warmup_rounds: "4K/64K 目标 2；ShareGPT 1"
   measurement_rounds: "4K/64K 目标 3；ShareGPT 1"
+
