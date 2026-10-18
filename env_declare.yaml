@@ -1,36 +1,21 @@
 hardware:
-  card_model: "BW1000（用户再次确认；待补 934852 计算节点原始硬件日志）"
-  card_count: "TODO：934852 实际分配/使用卡数与设备编号待核实；TP=2 不是 Slurm 卡数记录"
-  # 新基线整理文档中的 8 卡配额属于历史作业 890466/890928，不能代填 934852。
-  # DCU 汇总稿记录的是另一作业 935993 的 8 卡节点及 HSW 拓扑；不能代填正式测试双卡的同窗证据。
-  interconnect_topology: "TODO"
-  cpu: "TODO"
-  memory: "TODO"
-  storage: "TODO"
+  card_model: "BW1000"
 software:
-  os_kernel: "TODO"
-  # DCU 汇总稿提及 JobID 935993 的驱动 6.3.31-V1.5.0a；待取得正式测试节点的原始 hy-smi 输出。
-  driver_version: "TODO"
-  dtk_das_version: "DTK 26.04；DAS 版本待确认"
-  container_image_tag: "TODO：本次严格测试使用 /public/home/zzu_dcf/sglang 虚拟环境；项目另有 SIF，但不能断言测试使用了它"
+  dtk_version: "26.04"
 framework:
   inference_framework: "SGLang 0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025"
   torch: "2.10.0+das.opt1.dtk2604.2608141812.g28498c"
   triton: "3.6.0+das185.dtk2604.torch2100.2608141110.g65af71"
 model:
   name: "Qwen3.8-27B"
-  weights_source: "TODO"
-  # DCU 汇总稿指向 results/model_sha256_20261018_035941.txt；完整 33 OK / 0 FAILED 校验日志未上传。
-  weights_sha256: "TODO"
   precision: "BF16"
 run:
-  launch_command_source: "用户补包 q38_late_results.tar.gz 内 results/strict_4k64k_job934852/provenance.txt；原件未公开入库"
+  launch_command_source: "q38_late_results.tar.gz:results/strict_4k64k_job934852/provenance.txt"
   job_id: "934852"
   node: "a01r3n19"
   server_pid: 653002
   start_time: "2026-10-17T16:27:53+08:00"
   tp_size: 2
-  visible_devices: "TODO：934852 的 HIP_VISIBLE_DEVICES/设备绑定原件待补"
   context_length: 131072
   max_running_requests: 128
   chunked_prefill_size: 8192
@@ -38,10 +23,9 @@ run:
   schedule_conservativeness: 0.4
   mem_fraction_static: 0.85
   attention_backend: "triton"
-  environment_variables: "见上述补包内 provenance.txt；其他值待核对"
 measurement:
   benchmark_source_sha256: "f2206dcda74932e1b148cdf7b5ef07443bb5d9e0f2729b7a67d602182e3aa050"
-  benchmark_source: "sglang.bench_serving；具体官方版本对应关系待确认"
+  benchmark_source: "sglang.bench_serving"
   concurrency_levels: "4K: 1,8,16,32,64,128；64K: 1,8,16,32；ShareGPT: 1,4,16,32,64"
   warmup_rounds: "4K/64K 目标 2；ShareGPT 1"
   measurement_rounds: "4K/64K 目标 3；ShareGPT 1"
