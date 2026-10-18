@@ -16,9 +16,9 @@
 
 赛题详情 PDF 第 7—9 页给出 SGLang 子赛道的 BW100 与 K100-AI ShareGPT、固定 4K/1K、64K/1K 性能基线及 SLA 表。ShareGPT 并发为 1/4/16/32/64；随机 4K 为 1/8/16/32/64/128，随机 64K 为 1/8/16/32。PDF 的 BW100 SLA 为 4K `TTFT < 5 s 且 TPOT < 50 ms`、64K `TTFT < 20 s 且 TPOT < 60 ms`；K100-AI 有另一组阈值。**文件没有 BW1000 基线或 SLA**；BW1000 按用户确认采用自测基线，不能套用 BW100/K100-AI 数值计算官方提升率或最大合规并发。PDF 还写明吞吐、TTFT、TPOT 的归一化方法与权重以最终评测文档为准；该最终口径尚未取得。
 
-ShareGPT 历史基线 `source/results/sglang_bf16_sharegpt_893107/` 与 2026-10-16 复测 `source/results/sharegpt_retest_20261016_011410/` 都有每档 1000 请求的原始输出。复测值较高，但审计 `source/results/submission_audit_20261017_150109/warnings.txt` 标出测试时内核快照和原始启动脚本未确认；它们是**跨会话观察值**，暂不作为正式提升率。
+ShareGPT 历史自测基线候选 `source/results/sglang_bf16_sharegpt_893107/` 与 2026-10-16 复测 `source/results/sharegpt_retest_20261016_011410/` 都有每档 1000 请求的原始输出，五档 `benchmark_args` 除输出路径外一致。复测值较高，但审计 `source/results/submission_audit_20261017_150109/warnings.txt` 标出测试时内核快照和原始启动脚本未确认；它们是**跨会话观察值**，暂不作为正式提升率。后续 warp1 包的五档客户端参数仅比这组多了服务端口 18580→18581 的差异，但 C1 与后四档仍属于不同服务会话。
 
-用户后续上传的 `q38_late_results.tar.gz` 已包含 JobID `934852` 的完整 4K/64K 目录。10 个档位各有 2 轮预热及 3 轮正式测试，逐轮 `.log`、`.jsonl`、`.ok` 齐全；`progress.txt` 记录全部 PASS。`identity.txt` 与 `provenance.txt` 将该次测试关联到节点 `a01r3n19`、作业 `934852`、服务进程 `653002`、TP=2、BF16、SGLang 0.5.12+das185 及 `--schedule-conservativeness 0.4`。30 轮成功请求数、输出吞吐、平均 TTFT/TPOT 和 P99 E2E 的日志与 JSONL 均已核对一致。该原始包目前保存在本地，尚未公开入库；正式提升率仍待官方协议、基线和实际代码生效证据核定。
+用户后续上传的 `q38_late_results.tar.gz` 已包含 JobID `934852` 的完整 4K/64K 目录。10 个档位各有 2 轮预热及 3 轮正式测试，逐轮 `.log`、`.jsonl`、`.ok` 齐全；`progress.txt` 记录全部 PASS。`identity.txt` 与 `provenance.txt` 将该次测试关联到节点 `a01r3n19`、作业 `934852`、服务进程 `653002`、TP=2、BF16、SGLang 0.5.12+das185 及 `--schedule-conservativeness 0.4`。30 轮成功请求数、输出吞吐、平均 TTFT/TPOT 和 P99 E2E 的日志与 JSONL 均已核对一致。**每份 JSONL 只有一行汇总，运行参数 `output_details=False`；因此 P99 可与日志交叉核对，但不能从逐请求延迟独立重算。**该原始包目前保存在本地，尚未公开入库；正式提升率仍待自测默认基线和实际代码生效证据核定。
 
 ## 3. 优化方法
 
@@ -45,7 +45,7 @@ A3 的 `num_warps: 1→2` 差异见 `source/results/submission_audit_20261017_15
 
 4K C32 的三轮 TTFT 平均包含一轮离群值；这里保留全部三轮，不静默剔除。三轮原始日志分别位于 `source/results/sglang_bf16_4k_20261007_163756/` 和 `source/results/sglang_bf16_64k_20261007_201746/`。
 
-以下为新补包中 JobID `934852` 的三轮均值，列定义与上表相同。每档三轮均分别从 `.jsonl` 计算并与 `.log` 的显示值核对；这是一组**已验证的本地实测值**，不等于已经通过赛事官方口径验收。原件位于用户上传包的 `results/strict_4k64k_job934852/`，归档包 SHA256 为 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`。
+以下为新补包中 JobID `934852` 的三轮均值，列定义与上表相同。每档三轮均分别从 `.jsonl` 汇总计算并与 `.log` 的显示值核对；这是一组**已验证的本地实测汇总值**，不等于已经通过赛事官方口径验收，也不能独立重算逐请求 P99。原件位于用户上传包的 `results/strict_4k64k_job934852/`，归档包 SHA256 为 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`。
 
 | 场景 | 并发 | 正式轮数 | 每轮成功请求 | 输出吞吐 tok/s | 平均 TTFT ms | 平均 TPOT ms | 三轮 P99 E2E 均值 ms |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |

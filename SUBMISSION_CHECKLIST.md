@@ -1,6 +1,6 @@
 # Qwen3.8-27B BW1000 / SGLang 提交主清单
 
-最后更新：2026-10-18 12:18 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P0-01（BLOCKED，等待 BW1000 自测基线合规证据和剩余正式证据）。完成进度：1/9 项 DONE。**本文件是唯一进度主清单。**
+最后更新：2026-10-18 12:45 CST。仓库：https://github.com/02xdcl/qwen38-bw1000-sglang-submission；本地分支 `main`。当前执行事项：P0-01（BLOCKED，等待 BW1000 自测基线合规证据和剩余正式证据）。完成进度：1/9 项 DONE。**本文件是唯一进度主清单。**
 
 ## 状态与证据规则
 
@@ -23,13 +23,13 @@
 - 原始证据：`source/results/` 下历史日志；官方规则文本 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/requirements.md`；DCU 五份原件位于 `C:/Users/admin/Desktop/DCU/`，均未改动。
 - 未解决：赛事链接/最新论坛细则未独立核验；不妨碍完成现状盘点。下一步 P0-01。
 
-### P0-01 最终正式性能测试 — BLOCKED，P0（最后更新：2026-10-18 12:18 CST）
+### P0-01 最终正式性能测试 — BLOCKED，P0（最后更新：2026-10-18 12:45 CST）
 
 - 完成标准：官方测试范围已核实；4K、64K、ShareGPT 必要档位的真实原始日志、逐请求结果、成功数、P99/SLA、计算汇总及同一运行配置关联齐全。
-- 已检查/验证：历史基线及部分复测见下文。新补包 `C:/Users/admin/Downloads/q38_late_results.tar.gz`（SHA256 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`）已提供 JobID 934852 完整 4K/64K 原始目录，暂在 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/q38_late_results/results/` 校验，未公开入库。压缩包 221 条目、215 文件、无重复或越界路径；10 档 × 3 正式轮的 `.log`、`.jsonl`、`.ok` 齐全，成功数、吞吐、TTFT、TPOT、P99 E2E 双源一致。`progress.txt` 全部 PASS；`identity.txt` 与 `provenance.txt` 记录节点 a01r3n19、JobID 934852、服务 PID 653002、TP=2、BF16 和启动参数。未启动 GPU 作业。
+- 已检查/验证：历史基线及部分复测见下文。新补包 `C:/Users/admin/Downloads/q38_late_results.tar.gz`（SHA256 `37f54b419541ed4d29658d7f7d6d8f278e658b9acb3907f9b3dbc21b6030c6c5`）已提供 JobID 934852 完整 4K/64K 原始目录，暂在 `C:/Users/admin/Documents/Codex/2026-10-17/we/work/q38_late_results/results/` 校验，未公开入库。压缩包 221 条目、215 文件、无重复或越界路径；10 档 × 3 正式轮的 `.log`、`.jsonl`、`.ok` 齐全，成功数、吞吐、TTFT、TPOT、P99 E2E 双源汇总一致。`progress.txt` 全部 PASS；`identity.txt` 与 `provenance.txt` 记录节点 a01r3n19、JobID 934852、服务 PID 653002、TP=2、BF16 和启动参数。30 份 JSONL 各只有一行汇总，且 `output_details=False`，缺逐请求明细，不能独立重算 P99。未启动 GPU 作业。
 - 仓库文件：历史目录、`scripts/bench_strict_4k64k.sh`、`scripts/run.sh`；新增补包尚未公开入库。补包还含 JobID 934852 服务日志与三份后续 ShareGPT 目录。早期 ShareGPT 运行失败/中断；warp1 C1 与恢复后的 C4/C16/C32/C64 分属不同服务会话，不能拼作统一正式成绩。
 - 赛题详情核对：用户提供的 PDF 第 1—4 页指定 SGLang 2 卡、ShareGPT 与固定长度随机负载，以及输出吞吐、TTFT、TPOT 和 SLA 最大并发；第 7—9 页列出 BW100/K100-AI 的 ShareGPT C1/4/16/32/64、4K C1/8/16/32/64/128、64K C1/8/16/32 基线与各自 SLA。30 轮 934852 日志的场景和档位与随机负载表对应，但官方镜像/脚本来源尚未证实，PDF 没有 BW1000 基线或 SLA，也把综合评分归一化方法留待最终文档。第 2 页四项精度最低值见 `report.md`；本地无对应原始精度输出。
-- 自测基线核验：用户确认 BW1000 使用自测基线。10 月 7 日 4K/64K 三轮历史日志可作基线候选，与 JobID 934852 对应的全部 30 轮 `benchmark_args` 除输出路径外一致；但候选目录仅有 benchmark 输出，尚无当时服务启动、同节点硬件驱动/软件环境、官方镜像及框架默认参数的原件，不能据此认定满足自测基线三条规则。现有 10 月 16 日 ShareGPT 复测和 935993 恢复运行亦不能自动拼成同窗默认基线。
+- 自测基线核验：用户确认 BW1000 使用自测基线。10 月 7 日 4K/64K 三轮历史日志可作基线候选，与 JobID 934852 对应的全部 30 轮 `benchmark_args` 除输出路径外一致；但候选目录仅有 benchmark 输出，尚无当时服务启动、同节点硬件驱动/软件环境、官方镜像及框架默认参数的原件，不能据此认定满足自测基线三条规则。ShareGPT 历史候选与 10 月 16 日复测的五档客户端参数也除输出路径外一致；后续 warp1 结果再多服务端口差异 18580→18581，且跨会话。上述一致性不证明服务端配置或同窗环境相同。
 - 阻塞/下一步：请补充或定位基线服务启动日志、节点/驱动环境快照、官方镜像/默认配置与脚本来源、四类原始日志；确认 BW1000 SLA 和最终评分口径，并核实代码实际生效及 ShareGPT 正式统一运行。需要新计算任务时另行明确授权。按用户本轮逐项指令，**P0-01 未完成前暂停后续事项**。
 - 补充修改：`report.md` 已加入从现有原始日志重算的 4K/64K 历史基线表、单轮 4K 复测表及 ShareGPT P99；10 行基线、4 行 4K 复测与 5 行 ShareGPT 数值逐项用原始 `.log` 验证通过。新补包到位后，另增 JobID 934852 的 10 行三轮均值和 ShareGPT 分会话说明。此前非交互 SSH 无法解析 `zz-login02`；材料由用户自行上传。
 - 新发现：重新核对原始压缩包 `submission_materials_20261017_155641.tar.gz` 后，找回独立 C64 单轮 `c64.log` 与 `c64.jsonl`，两者与已解压副本逐字节一致，SHA256 分别为 `eb648fe9409742f41a53047b35b46afe3140fd5d46edfa5971db73c420226f81`、`35cf26d1da3a2198163dda8b7408f7ee688209243bde16336e2e7585ad304a05`。已保留原件并复制入 `source/results/final_4k_c64_20261017_020528/`。日志记载 C64、128 成功请求、599.19 tok/s、TTFT 18836.21 ms、TPOT 71.75 ms、P99 E2E 179577.53 ms；`.jsonl` 汇总字段与日志一致。其 backend=`sglang`，历史基线 C64 为 `sglang-oai-chat`，且只有单轮，不能计算正式提升率。
@@ -96,6 +96,8 @@
 - 2026-10-18 12:07 CST，采用较窄的公开范围，仅将核验后的 `README.md`、`report.md` 和本清单发布到 GitHub `main`；原始 C64 日志和用户补包未上传。远端 compare 显示相对上一提交仅上述 3 个文档变化；本地已同步到 `8dea39c…`，剩余未跟踪文件只有两份 C64 原件。GitHub 对原始日志的自动审批拒绝仍有效。
 - 2026-10-18 12:12 CST，用户上传 11 页赛题详情 PDF；逐页渲染阅读后核对 SGLang 场景、档位、精度门槛及 BW100/K100-AI 性能基线和 SLA。PDF 末页有 AI 生成内容说明，且未列 BW1000 基线/SLA 或最终评分权重。更新 README、报告和 P0-01 清单，维持 BLOCKED；未运行新 benchmark。
 - 2026-10-18 12:18 CST，用户明确 BW1000 使用自测基线。按赛事规则重查候选材料：10 月 7 日历史基线有三轮 benchmark 输出，逐轮比较 30 组 benchmark 参数与 934852 除输出路径外相同；但缺候选测试当时服务、同机环境与官方默认配置原件。修订 README、报告和 P0-01 阻塞原因；未把候选升级为合规基线，也未启动新计算。
+- 2026-10-18 12:45 CST，继续 P0-01 静态检查：934852 的 30 份正式 JSONL 各只有单行汇总，ShareGPT 五份结果亦同；`output_details=False`。据此明确“日志与 JSONL 指标一致”并非“从逐请求数据独立重算 P99”；更新报告与本清单，等待用户整理的基线包。
+- 2026-10-18 12:45 CST，继续 P0-01 客户端参数核验：ShareGPT 历史候选与 10 月 16 日复测五档一致；warp1 五档除端口外也一致，但跨服务会话。只证明客户端测试参数相似，未升级正式对照结论。
 
 ## 断点恢复
 
