@@ -37,6 +37,7 @@ bash scripts/run.sh
 - `report.md`：有来源指针的五段式报告草稿。
 - `env_declare.yaml`：已确认字段与待补字段。
 - `scripts/`：原始复测与严格测试脚本副本。
+- `patch/a3_warp2_candidate.patch`：可应用到审计记录的原始内核文件的一行候选补丁；尚无正式服务加载证明，不代表最终生效版本。
 - `source/experiments/`：A9/A10/A11/A13 参数 A/B 原始脚本与日志。
 - `source/results/`：历史基线、复测和审计原文。
 - `SUBMISSION_CHECKLIST.md`：逐项验收状态、证据索引和待补内容。
