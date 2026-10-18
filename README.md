@@ -2,7 +2,7 @@
 
 本仓库整理 BW1000 上 Qwen3.8-27B BF16 的 SGLang 实测记录。结果按作业、负载和服务会话分别列示。
 
-`report.md` 汇总从原始日志逐轮核对的 4K/64K、ShareGPT 和 GSM8K 结果。JobID 934852 的 4K/64K 三轮日志与 JSONL 已交叉核对；历史基线与该作业属于不同节点，报告分别呈现。已收到的补包原件保存在本地。
+`report.md` 汇总从原始日志逐轮核对的 4K/64K、ShareGPT 和 GSM8K 结果。JobID 934852 的 4K/64K 三轮日志与 JSONL 已交叉核对。Slurm 各次申请可能分配到不同节点；仓库记录节点归属，并以卡型、卡数、软件、模型、脚本和服务参数的一致性作为跨节点可比性的核验条件。已收到的补包原件保存在本地。
 
 `evidence/job934852_rounds.csv` 公开了该作业 30 轮正式测试的指标摘录、源文件名和各源文件 SHA256；`scripts/summarize_934852.py` 可从原始补包重新生成。原始补包并未包含在 GitHub 仓库中。
 
@@ -35,6 +35,7 @@ bash scripts/run.sh
 - `env_declare.yaml`：有来源记录的环境和运行字段。
 - `scripts/`：原始复测、严格测试脚本副本及指标提取脚本。
 - `evidence/`：JobID 934852 和独立 GSM8K 运行的指标摘录与复算说明。
+- `evidence/ORIGINAL_ARCHIVES.md`：两个原始补包的内容、集群打包、下载和校验命令。
 - `patch/a3_warp2_candidate.patch`：A3 实验的一行候选补丁。
 - `source/experiments/`：A9/A10/A11/A13 参数 A/B 原始脚本与日志。
 - `source/results/`：历史基线、复测和审计原文。
