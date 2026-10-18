@@ -7,6 +7,7 @@
 | 内容 | 公开记录 | 原始归档位置 |
 | --- | --- | --- |
 | JobID 934852 环境与启动参数 | [env_declare.yaml](../env_declare.yaml)、[report.md](../report.md) | `q38_late_results.tar.gz` → `results/strict_4k64k_job934852/provenance.txt`、`identity.txt`、`server.log` |
+| 正式运行版本定义 | [RUNTIME_PROVENANCE.md](RUNTIME_PROVENANCE.md) | 软件构建、启动命令、服务参数及关键原件哈希 |
 | 4K/64K 30 轮正式指标 | [job934852_rounds.csv](job934852_rounds.csv) | `q38_late_results.tar.gz` → `results/strict_4k64k_job934852/*_run{1,2,3}.log/.jsonl/.ok` |
 | 固定长度目录完整性 | [job934852_manifest.sha256](job934852_manifest.sha256) | 上述目录全部 155 个文件的相对路径与 SHA256 |
 | 4K/64K 执行进度与时间 | [report.md](../report.md) | `q38_late_results.tar.gz` → `results/strict_4k64k_job934852/progress.txt`、`run.log` |
