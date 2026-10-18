@@ -1,6 +1,7 @@
 hardware:
-  card_model: "BW1000（用户确认；待补计算节点硬件日志）"
-  card_count: 2
+  card_model: "BW1000（用户再次确认；待补 934852 计算节点原始硬件日志）"
+  card_count: "TODO：934852 实际分配/使用卡数与设备编号待核实；TP=2 不是 Slurm 卡数记录"
+  # 新基线整理文档中的 8 卡配额属于历史作业 890466/890928，不能代填 934852。
   # DCU 汇总稿记录的是另一作业 935993 的 8 卡节点及 HSW 拓扑；不能代填正式测试双卡的同窗证据。
   interconnect_topology: "TODO"
   cpu: "TODO"
@@ -29,6 +30,7 @@ run:
   server_pid: 653002
   start_time: "2026-10-17T16:27:53+08:00"
   tp_size: 2
+  visible_devices: "TODO：934852 的 HIP_VISIBLE_DEVICES/设备绑定原件待补"
   context_length: 131072
   max_running_requests: 128
   chunked_prefill_size: 8192
