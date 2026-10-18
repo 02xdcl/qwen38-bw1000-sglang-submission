@@ -4,6 +4,8 @@
 
 `report.md` 汇总从原始日志逐轮核对的 4K/64K、ShareGPT 和 GSM8K 结果。JobID 934852 的 4K/64K 三轮日志与 JSONL 已交叉核对；历史基线与该作业属于不同节点，报告分别呈现。已收到的补包原件保存在本地。
 
+`evidence/job934852_rounds.csv` 公开了该作业 30 轮正式测试的指标摘录、源文件名和各源文件 SHA256；`scripts/summarize_934852.py` 可从原始补包重新生成。原始补包并未包含在 GitHub 仓库中。
+
 独立的 4K C64 单轮日志保存在本地 `source/results/final_4k_c64_20261017_020528/`；其 benchmark backend 与历史基线不同，报告单独列示。
 
 ## 已确认的运行配置
@@ -27,8 +29,10 @@ bash scripts/run.sh
 
 - `report.md`：按作业和负载区分的五段式实测报告。
 - `论坛回复_已核实数据草稿.md`：仅汇集已核实数据的论坛回复草稿。
+- `论坛回复_第2版更正草稿.md`：历史备选草稿；用户决定保持已发表论坛回复原样。
 - `env_declare.yaml`：有来源记录的环境和运行字段。
-- `scripts/`：原始复测与严格测试脚本副本。
+- `scripts/`：原始复测、严格测试脚本副本及逐轮指标提取脚本。
+- `evidence/`：JobID 934852 的逐轮指标摘录与复算说明。
 - `patch/a3_warp2_candidate.patch`：A3 实验的一行候选补丁。
 - `source/experiments/`：A9/A10/A11/A13 参数 A/B 原始脚本与日志。
 - `source/results/`：历史基线、复测和审计原文。
