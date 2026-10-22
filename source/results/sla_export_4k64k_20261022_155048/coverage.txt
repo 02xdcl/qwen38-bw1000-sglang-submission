@@ -1,0 +1,5 @@
+Expected formal runs: 30
+Found formal logs: 30
+Missing runs: 0
+
+PASS counts are based on the corresponding .ok files.

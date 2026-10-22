@@ -1,0 +1,54 @@
+NODE=a01r3n16
+JOB=955149
+SERVER_PID=3208534
+START=2026-10-22T03:02:46+08:00
+===== SERVER ARGS =====
+/public/home/zzu_dcf/sglang/bin/python
+-u
+-m
+sglang.launch_server
+--model-path
+/public/home/zzu_dcf/qwen38_dcu_competition/models/Qwen3.8-27B
+--served-model-name
+qwen38-bf16
+--host
+127.0.0.1
+--port
+18583
+--tp-size
+2
+--dtype
+bfloat16
+--context-length
+131072
+--max-running-requests
+128
+--chunked-prefill-size
+8192
+--max-prefill-tokens
+16384
+--schedule-conservativeness
+0.4
+--mem-fraction-static
+0.85
+--attention-backend
+triton
+--disable-custom-all-reduce
+--disable-piecewise-cuda-graph
+--trust-remote-code
+===== OPTIMIZATION ENV =====
+SGLANG_KV_LAYOUT_HCU_FA=false
+TRITON_HIP_CLANG_PATH=/public/home/zzu_dcf/qwen38_dcu_competition/toolchain/aillvm/bin/clang-18
+AILLVM_HOME=/public/home/zzu_dcf/qwen38_dcu_competition/toolchain/aillvm
+SGLANG_USE_AITER_LINEAR_ATTN=false
+CPLUS_INCLUDE_PATH=/public/software/compiler/dtk-26.04/include:/public/software/compiler/dtk-26.04/llvm/include:/opt/hyhal/include:/public/software/compiler/dtk-26.04/opencl/include
+SGLANG_ROCM_USE_AITER_MOE=false
+===== SOFTWARE VERSIONS =====
+Name: sglang
+Version: 0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025
+Name: torch
+Version: 2.10.0+das.opt1.dtk2604.2608141812.g28498c
+Name: triton
+Version: 3.6.0+das185.dtk2604.torch2100.2608141110.g65af71
+===== BENCHMARK SOURCE =====
+f2206dcda74932e1b148cdf7b5ef07443bb5d9e0f2729b7a67d602182e3aa050  /public/home/zzu_dcf/sglang/lib/python3.10/site-packages/sglang/bench_serving.py
