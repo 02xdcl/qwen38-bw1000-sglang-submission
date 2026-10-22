@@ -187,3 +187,4 @@ P0-01 补包更新：本次已取得 `slurm_jobs.txt` 原始输出，确认历�
 - P0-05/P0-06 新增 evidence/SLA_20261022.md 与 evidence/sla_20261022_raw.sha256，并更新 README.md、report.md、evidence/INDEX.md。本次变更仅含补测原件、复核脚本、汇总和入口；论坛正文与旧原件保持原字节。
 - .ok 的 PASS 只作为运行完成记录。本次没有新增 BW1000 官方 SLA 依据或历史基线环境原件，既有 P0 验收状态保持 3/9 DONE、6/9 BLOCKED；不把补测上传等同赛事全部验收通过。
 - 恢复位置：P0-01 的适用 SLA 与历史基线条件仍按原清单记录；本次补测归档、复算与公开发布独立推进。未运行 GPU 实验，原始 ZIP 与工作区副本保留。
+- 公开发布与下载验收：补测内容已由提交 6162189340b1000d171835c0f88ed8811d68451d 发布到 main；远端树 170 个变更对象哈希全部匹配，438 个其他旧文件保持原对象。Git CLI 从 GitHub 拉取该提交后逐项复算，新补测 162 个原件及既有清单 383 个历史原件的 SHA256 全部通过。本地记录见 work/sla_review_20261022/publish_receipt.json 与 download_verification.json；没有修改原始日志。
